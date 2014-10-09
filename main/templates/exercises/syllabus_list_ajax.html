@@ -1,0 +1,19 @@
+<h3>Conteúdo programático</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Módulo</th>
+            <th>Dias</th>
+            <th>Conteúdo Programático</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object }}</td>
+                <td>{{ object.batteries_count }}</td>
+                <td>{{ object.syllabus }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

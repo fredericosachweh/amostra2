@@ -1,0 +1,11 @@
+<tr>
+    <td>{{ klass.name }}</td>
+    <td>{{ klass.students_count }} de {{ klass.max_students }}</td>
+    <td>{{ klass.teacher.get_full_name|default:"sem professor" }}</td>
+    <td>
+        <a href="{% url 'manager:klass-update' pk=klass.id contract_pk=klass.contract.id %}"
+            class="button small" data-action="klass-update">Editar</a>
+        <a href="{% url 'manager:klass-delete' pk=klass.id contract_pk=klass.contract.id %}"
+            class="button small" data-action="klass-delete">Remover</a>
+    </td>
+</tr>

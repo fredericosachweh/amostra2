@@ -1,0 +1,15 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Resetar senhas{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li class="current">Alunos e senhas</li>
+{% endblock %}
+
+{% block content %}
+    <h1>Resetar senhas</h1>
+
+    <div class="module">
+        {% include "teachers/clients/passwd_update_ajax.html" %}
+    </div>
+{% endblock %}

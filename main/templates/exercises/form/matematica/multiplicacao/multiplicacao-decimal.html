@@ -1,0 +1,29 @@
+{% extends "exercises/form/matematica/multiplicacao/default.html" %}
+
+{% block post_line1 %}
+<div class="commas">
+    {% for item in questions.comma1 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block post_line2 %}
+<div class="commas">
+    {% for item in questions.comma2 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block post_result %}
+<div class="commas trigger">
+    {% for f in answers.comma %}
+    {{ f.answer }}
+    {{ f.value }}
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}

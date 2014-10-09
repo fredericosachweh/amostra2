@@ -1,0 +1,58 @@
+{% extends "exercises/detail/base.html" %}
+{% load exercises_extras utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.type|first as type %}
+    <p>Se um {{ type.value|solid_name }} tem
+        altura igual a {{ questions.term.0.value }},
+        largura igual a {{ questions.term.1.value }} e
+        profundidade igual a {{ questions.term.2.value }},
+        qual seu volume?</p>
+    {% endwith %}
+
+    <div class="polyhedron">
+        <div class="left">
+            <canvas class="polyhedron" width="100" height="100"
+                    data-term1="{{ questions.term.0.value }}" data-term2="{{ questions.term.1.value }}" data-term3="{{ questions.term.2.value }}">
+                Canvas não suportado pelo browser !
+            </canvas>
+        </div>
+        <p>Resposta:
+        {% with answers.result|first as item %}
+        {{ item.correct_value|cut_zeros }}
+        {% endwith %}
+        </p>
+    </div>
+
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions.type|first as type %}
+    <p>Se um {{ type.value|solid_name }} tem
+        altura igual a {{ questions.term.0.value }},
+        largura igual a {{ questions.term.1.value }} e
+        profundidade igual a {{ questions.term.2.value }},
+        qual seu volume?</p>
+    {% endwith %}
+    <div class="polyhedron">
+        <div class="left">
+            <canvas class="polyhedron" width="100" height="100"
+                    data-term1="{{ questions.term.0.value }}" data-term2="{{ questions.term.1.value }}" data-term3="{{ questions.term.2.value }}">
+                Canvas não suportado pelo browser !
+            </canvas>
+        </div>
+        <p>Resposta:
+        {% with answers.result|first as item %}
+        {{ item.value|cut_zeros }}
+        {% endwith %}
+        </p>
+    </div>
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/polyhedron.js"></script>
+{% endblock %}

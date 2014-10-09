@@ -1,0 +1,24 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Datas sem atividades{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current">Datas sem atividade</li>
+{% endblock %}
+
+{% block content %}
+<h1>Datas sem atividades</h1>
+
+<div class="module">
+    {% if object_list.exists %}
+    <p>Escolha um cliente:</p>
+    <ul>
+        {% for teacher in object_list %}
+        <li><a href="{% url 'excludeddates:teacher-archive' pk=teacher.pk %}">{{ teacher.client }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Você não é professor em nenhum cliente para definir datas sem atividade.</p>
+    {% endif %}
+</div>
+{% endblock content %}

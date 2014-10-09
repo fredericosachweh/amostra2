@@ -1,0 +1,51 @@
+{% extends "teachers/base.html" %}
+{% load clients_extras utils_extras %}
+
+{% block title %}Performance da turma {{ klass }}{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'teacher:klass-list' %}">Programas e turmas</a></li>
+<li><a href="{% url 'teacher:klass-dashboard' pk=object.pk %}">{{ klass }}</a></li>
+<li class="current">Performance</li>
+{% endblock %}
+
+{% block content %}
+<h1>Performance</h1>
+
+<div class="module">
+
+    <form method="get" action="{% url 'teacher:klass-performance' pk=object.pk %}" class="inline-form">
+        {% for field in form %}
+        {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        <button type="submit" class="button small">Filtrar</button>
+    </form>
+
+    <table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="check-all"/></th>
+            <th>Aluno</th>
+            <th>Últ. login</th>
+            <th>Nota</th>
+            <th>Tempo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user, data in performance %}
+        <tr>
+            <td><input type="checkbox" name="{{ passwd_form.students.name }}" value="{{ user.pk }}"></td>
+            <td>{{ user.get_full_name }}</td>
+            <td>{% if user.last_login|date:"DATETIME_FORMAT" != user.date_joined|date:"DATETIME_FORMAT" %}
+                {{ user.last_login|timesince }}
+                {% else %}
+                --
+                {% endif %}</td>
+            <td>{% if data.score %}{{ data.score|floatformat:-2 }}{% endif %}</td>
+            <td>{% if data.time %}{{ data.time|format_minutes }}{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

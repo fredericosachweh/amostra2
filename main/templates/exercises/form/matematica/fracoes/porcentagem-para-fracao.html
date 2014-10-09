@@ -1,0 +1,20 @@
+{% extends "exercises/form/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions|first as question %}
+    <p>Qual a fração correspondente à {% block question_term %}{{ question.value }}%{% endblock %}?</p>
+    {% endwith %}
+
+    <div class="line">
+        <p>Resposta:</p>
+        <small class="large-group">
+            {% for f in answers.result %}
+            {{ f.answer }}{{ f.value }}
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </small>
+    </div>
+</article>
+{% endblock exercise_content %}

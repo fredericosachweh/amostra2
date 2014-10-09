@@ -1,0 +1,30 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content lcm">
+    <div class="full">
+        <p>{% block exercise_description %}Decomponha em fatores primos:{% endblock %}</p>
+    </div>
+    <div class="lcm-grid">
+        <div class="steps width-ref width-ref-self">
+            <div class="line width-ref">
+            {% for item in questions.numbers %}
+            <span>{{ item.value }}</span>
+            {% endfor %}
+            </div>
+
+            {% for f in answers.steps %}
+            {{ f.answer }}{{ f.value }}
+            {% endfor %}
+        </div>
+        <div class="divisors width-ref width-ref-self">
+            {% for f in answers.divisors %}
+            {{ f.answer }}{{ f.value }}
+            {% endfor %}
+        </div>
+    </div>
+    {% block result %}
+    <br clear="both"/>{# TODO refactor to a better solution #}
+    {% endblock %}
+</article>
+{% endblock exercise_content %}

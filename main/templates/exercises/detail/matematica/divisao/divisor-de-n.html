@@ -1,0 +1,22 @@
+{% extends "exercises/detail/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+    {% with questions|first as term %}
+    <p>O número <small>{{ term.value }}</small> é divisível por qual número abaixo?</p>
+    {% endwith %}
+{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice }}</small>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+    {% with questions|first as term %}
+    <p>O número <small>{{ term.value }}</small> é divisível por qual número abaixo?</p>
+    {% endwith %}
+{% endblock %}
+
+{% block attempt_choice_description %}
+<small>{{ choice }}</small>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.number.0 as number %}
+    <p>Digite o número que corresponde ao símbolo romano <strong>{{ number.value }}</strong>:</p>
+    {% endwith %}
+    {% with answers.result.0 as item %}
+    <p>Resposta: {{ item.correct_value|floatformat:0 }}</p>{# there will be no decimal roman #}
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions.number.0 as number %}
+    <p>Digite o número que corresponde ao símbolo romano <strong>{{ number.value }}</strong>:</p>
+    {% endwith %}
+    {% with answers.result.0 as item %}
+    <p>Resposta: {{ item.value|floatformat:0 }}</p>{# there will be no decimal roman #}
+    {% endwith %}
+</article>
+{% endblock %}

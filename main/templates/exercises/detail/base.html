@@ -1,0 +1,89 @@
+{% extends "students/base.html" %}
+{% load utils_extras %}
+
+{% block title %}{{ object.exercise.matter }} - {{ object.exercise.subject }}{% endblock %}
+
+{% block content %}
+<h1>{{ object.exercise.matter }} <small>/ {{ object.exercise.subject }}</small></h1>
+
+<section id="exercise" class="module {{ object.exercise.subject.slug }} {{ object.exercise.category.slug }}">
+
+    <header>
+        {% spaceless %}
+        <div>
+            <strong>{{ pager.current }}</strong>
+            <span> de {{ pager.count }}</span>
+        </div>
+        {% endspaceless %}
+        <time>{{ object.time_spent|format_minutes }}</time>
+    </header>
+
+    <article class="result-message result-{% if object.is_correct %}correct{% else %}wrong{% endif %}">
+    {% if object.is_correct %}
+        <h3>Parabéns! <small>Resposta correta!</small></h3>
+        <h4>
+            {% if object.user_battery_exercise %}
+            Você já acertou {{ object.user_battery.correct_answers }} quest{{ object.user_battery.correct_answers|pluralize:"ão,ões" }} de {{ object.user_battery.exercises_count }}.
+            {% else %}{# keep the layout for standalone exercises #}
+            Você acertou 1 questão de 1.
+            {% endif %}
+        </h4>
+    {% else %}
+        <h3>Que pena, <small>resposta errada.</small></h3>
+        {% if object.attempts_left %}
+        <h4>
+            Você ainda tem {{ object.attempts_left }} tentativa{{ object.attempts_left|pluralize }}.<br/>
+            Pode tentar novamente ou
+            {% if next_url %}
+            <br/>ir para o próximo exercício.
+            {% else %}
+            encerrar.
+            {% endif %}
+        </h4>
+        {% else %}
+        <h4>Veja abaixo a resposta correta.</h4>
+        {% endif %}
+    {% endif %}
+    </article>
+
+    {% if not object.is_correct and not object.attempts_left %}
+    <article class="detail">
+        <div class="section-container tabs" data-section="tabs">
+            <section class="active">
+                <p class="title" data-section-title><a href="#">Resposta correta</a></p>
+                <div class="content" data-section-content>
+                    {% spaceless %}
+                    {% block exercise_content %}{% endblock %}
+                    {% endspaceless %}
+                </div>
+            </section>
+            <section>
+                <p class="title" data-section-title><a href="#">Sua resposta</a></p>
+                <div class="content" data-section-content>
+                    {% spaceless %}
+                    {% block user_attempt %}{% endblock %}
+                    {% endspaceless %}
+                </div>
+            </section>
+        </div>
+    </article>
+    {% endif %}
+
+    <div class="button-bar">
+        <div class="button-group right">
+            {% if object.attempts_left %}
+            <a href="{% url 'student:chance-create' user_battery=object.user_battery.pk position=object.position %}"
+                class="button" tabindex="1">Tentar novamente</a>
+            {% endif %}
+
+            {% if next_url %}
+            <a href="{{ next_url }}" class="button" tabindex="2">Próximo exercício</a>
+            {% else %}
+                {% if done_url %}
+                <a href="{{ done_url }}" class="button" tabindex="2">Encerrar</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content">
+    {% if answers.support3 %}
+    <div class="line sup">
+        {% for item in answers.support3 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    {% if answers.support2 %}
+    <div class="line sup">
+        {% for item in answers.support2 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    <div class="line sup">
+        {% for item in answers.support1 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">x</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line divisor{% if not answers.result %} width-ref{% endif %}">
+        {% for item in answers.partial1 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+    </div>
+    {% if answers.partial2 %}
+    <div class="line">
+        {% for item in answers.partial2 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.partial3 %}
+    <div class="line">
+        {% for item in answers.partial3 %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i>+</i>
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.result %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.correct_value|default:"0" }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content">
+    {% if answers.support3 %}
+    <div class="line sup">
+        {% for item in answers.support3 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    {% if answers.support2 %}
+    <div class="line sup">
+        {% for item in answers.support2 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    <div class="line sup">
+        {% for item in answers.support1 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">x</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line2 %}{% endblock %}
+    <div class="line divisor{% if not answers.result %} width-ref{% endif %}">
+        {% for item in answers.partial1 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+    </div>
+    {% if answers.partial2 %}
+    <div class="line">
+        {% for item in answers.partial2 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.partial3 %}
+    <div class="line">
+        {% for item in answers.partial3 %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i>+</i>
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.result %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.value|cut_zeros|default:"0" }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% block attempt_post_result %}{% endblock %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).ready(function() {
+    $('.initially-hidden').hide();
+});
+</script>
+{% endblock extrajs %}

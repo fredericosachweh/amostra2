@@ -1,0 +1,34 @@
+{% extends "exercises/detail/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term %}
+<p>Escolha a resposta que representa a figura geométrica abaixo:</p>
+<canvas class="polygon" data-term="{{ term.value }}"></canvas>
+{% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice|polygon_name }}</small>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term %}
+<p>Escolha a resposta que representa a figura geométrica abaixo:</p>
+<canvas class="polygon" data-term="{{ term.value }}"></canvas>
+{% endwith %}
+{% endblock %}
+
+{% block attempt_choices_params %} class="inline-list"{% endblock %}
+
+{% block attempt_choice_description %}
+<small>{{ choice|polygon_name }}</small>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}javascripts/polygons.js"></script>
+{% endblock %}

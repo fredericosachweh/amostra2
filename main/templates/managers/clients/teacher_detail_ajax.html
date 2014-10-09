@@ -1,0 +1,11 @@
+<tr>
+    <td>{{ object.get_full_name }}</td>
+    <td>{{ object.email }}</td>
+    <td>{{ object.klasses_count }}</td>
+    <td>
+        {% if managed_clients_count > 1 %}
+        <a href="{% url 'manager:teacher-update' pk=object.id %}" class="button small" data-action="teacher-update">Editar</a>
+        {% endif %}
+        <a href="{% url 'manager:teacher-delete' pk=object.id %}" class="button small" data-action="teacher-delete">Remover</a>
+    </td>
+</li>

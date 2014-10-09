@@ -1,0 +1,10 @@
+{% extends "exercises/form/matematica/divisao/divisao-resposta-decimal.html" %}
+
+{% block post_divided %}
+<div class="commas">
+    {% for item in questions.comma_divided %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}

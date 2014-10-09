@@ -1,0 +1,47 @@
+{% extends "students/base.html" %}
+
+{% block title %}{{ exercise.matter }} - {{ exercise.subject }}{% endblock %}
+
+{% block content %}
+<h1>{{ exercise.matter }} <small>/ {{ exercise.subject }}</small></h1>
+
+<section id="exercise" class="module {{ exercise.subject.slug }} {{ exercise.category.slug }}">
+
+    <header>
+        {% spaceless %}
+        <div>
+            <strong>{{ pager.current }}</strong>
+            <span> de {{ pager.count }}</span>
+        </div>
+        {% endspaceless %}
+        <time data-counter="on">00:00</time>
+    </header>
+
+    <form method="post" action="" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+        {{ form.management_form }}
+
+        {% if form.errors %}
+        {% comment %}An error can happen when the child types an character instead of a
+        number. It is difficult to specify what field is erroneous but the chances of
+        error are minimal.{% endcomment %}
+        <ul class="errorlist"><li>Há erros no preenchimento, verifique os dados digitados.</li></ul>
+        {% endif %}
+
+        {% spaceless %}
+        {% block exercise_content %}{% endblock %}
+        {% endspaceless %}
+
+        <div class="button-bar">
+            <div class="button-group right">
+                <button type="submit" class="button" tabindex="{{ answers|length|add:1 }}">Responder</button>
+                {% if next_url %}
+                <a href="{{ next_url }}"
+                    class="button" tabindex="{{ answers|length|add:2 }}">Pular</a>
+                {% endif %}
+            </div>
+        </div>
+
+    </form>
+
+</section>
+{% endblock %}

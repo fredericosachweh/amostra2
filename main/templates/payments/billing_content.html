@@ -1,0 +1,27 @@
+<h1 class="title">Pagamento</h1>
+
+<div class="panel">
+    <div class="row">
+        <div class="large-6 columns">
+            <p>{{ object }}</p>
+
+            <p>Imprima o boleto de pagamento através do botão abaixo para
+            manter suas turmas em andamento.</p>
+
+            <a class="button" href="{% url 'payments:payment-print' pk=object.pk %}">Imprimir boleto</a>
+            {% if payment.invoice_file %}
+            <a href="{{ payment.invoice_file.url }}" class="button">Nota</a>
+            {% endif %}
+        </div>
+        <dl class="large-5 offset-1 columns">
+            <dt>Contrato</dt>
+            <dd>{{ object.contract }}</dd>
+
+            <dt>Vencimento</dt>
+            <dd>{{ object.due_date|date:"d/m/Y" }}</dd>
+
+            <dt>Valor total</dt>
+            <dd>R$ {{ object.cost }}</dd>
+        </dl>
+    </div>
+</div>

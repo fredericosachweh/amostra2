@@ -1,0 +1,11 @@
+Bem-vindo {{ user.get_full_name }},
+
+Você foi cadastrado para gerenciar a conta da instituição de ensino {{ client }} na plataforma de aprendizado *Mainiti*.
+
+{% if not password %}Acesse o endereço http://{{ site.domain }}/ com suas credenciais.{% else %}Acesse o endereço http://{{ site.domain }}/ com as credenciais listadas abaixo:
+
+Nome de usuário: {{ user.email }}
+Senha: {{ password }}{% endif %}
+
+A equipe do Mainiti agradece.
+http://{{ site.domain }}/

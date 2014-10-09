@@ -1,0 +1,14 @@
+{% extends "managers/base.html" %}
+
+{% block title %}Turma indisponível{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current"><a href="{{ request.path }}">Turma indisponível</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="title-wrapper"><h1>Turma está indisponível</h1></div>
+    <div class="panel">
+        <p>A turma está indisponível, entre em contato com a diretoria.</p>
+    </div>
+{% endblock content %}

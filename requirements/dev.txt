@@ -1,0 +1,6 @@
+-r common.txt
+
+# Helpers
+django-debug-toolbar
+django_extensions  # used for runserver-plus
+Werkzeug

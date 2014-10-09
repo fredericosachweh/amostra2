@@ -1,0 +1,44 @@
+{% extends "exercises/detail/base.html" %}
+{% load exercises_extras utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.term|first as term %}
+    <p>Qual o número de {% block what %}faces{% endblock %} do(a) {{ term.value|solid_name }}, representado(a) na figura abaixo?</p>
+    {% endwith %}
+
+    <div class="polyhedron">
+        <div>
+            {% with questions.term|first as term %}
+            {{ term.value|solid_figure }}
+            {% endwith %}
+        </div>
+        <p>Resposta:
+            {% with answers.result|first as item %}
+            {{ item.correct_value|cut_zeros }}
+            {% endwith %}
+        </p>
+    </div>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions.term|first as term %}
+    <p>Qual o número de {% block attempt_what %}faces{% endblock %} do(a) {{ term.value|solid_name }}, representado(a) na figura abaixo?</p>
+    {% endwith %}
+
+    <div class="polyhedron">
+        <div>
+            {% with questions.term|first as term %}
+            {{ term.value|solid_figure }}
+            {% endwith %}
+        </div>
+        <p>Resposta:
+            {% with answers.result|first as item %}
+            {{ item.value|cut_zeros }}
+            {% endwith %}
+        </p>
+    </div>
+</article>
+{% endblock user_attempt %}

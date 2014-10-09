@@ -1,0 +1,32 @@
+{% extends "exercises/form/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+{% with questions.unity|first as unity %}
+<article class="content full">
+	{% with questions.term2|first as term2 %}
+    <p>Descubra o perímetro da figura abaixo, sabendo que cada quadrado que a compõe possui {% block square_data %}{{ term2.value }}{{ unity.value }}&sup2;{% endblock %}:</p>
+	{% endwith %}
+
+    {% with questions.term1|first as term1 %}
+    <p>
+        <canvas class="tile" width="100" height="100"
+                data-term1="{{ term1.value }}" data-extra-stroke="1" data-max-tile-size="80">
+            Canvas não suportado pelo browser !
+        </canvas>
+    </p>
+    {% endwith %}
+
+    <p>
+        Resposta:
+        {% for item in answers %}
+            {{ item.answer }}{{ item.value }}  {{ unity.value }}
+        {% endfor %}
+	</p>
+</article>
+{% endwith %}
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/area.js"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+Gestão de contratos
+===================
+
+Contrato padrão
+---------------
+
+O contrato padrão consiste num plano anual dividido em 12 parcelas. O cliente inicia o pagamento na celebração do contrato e paga as 12 parcelas independente do início do contrato.
+
+O valor estará atrelado à utilização e não ao prazo. Assim, mesmo que uma empresa começe em março, terá que pagar o ano corrente em doze parcelas com a última vencendo em fevereiro do ano seguinte.
+
+.. note::
+
+   Haverá garantias legais no contrato para impedir que um cliente cancele um contrato antes de quitá-lo. Além do que, tal cliente
+
+Acompanhamento do gasto
+-----------------------
+
+O gestor terá um gráfico de acompanhamento da utilização das turmas de seu contrato.
+
+Isto facilitará justificar a cobrança da parcela de dezembro, que poderia gerar dúvidas por não estar em período letivo.
+
+Inadimplência
+-------------
+
+A cobrança mensal é feita automaticamente respeitando o fluxo abaixo:
+
+1. 15 dias antes de vencer uma parcela, o cliente recebe um aviso por email com link para impressão do boleto;
+2. 1 dia antes de vencer, caso não tenha aberto o boleto, cliente recebe outro aviso;
+3. 1 dia depois de vencer, caso não tenha aberto o boleto, cliente, professores envolvidos e administração recebem aviso de que boleto não foi pago;
+4. 3 dias depois de vencer, aberto ou não, cliente, professores envolvidos e administração recebem aviso de que boleto está pendente;
+
+Se o usuário não tomar alguma atitude, suas turmas serão *congeladas* até que o pagamento seja regularizado.
+
+O cliente não pode pagar boleto atrasado: ele deve gerar um novo boleto através do sistema. Isso aumenta a taxa de pagamentos atrasados e diminui a burocracia para a quitação.
+
+O cálculo de multa e juros é feito automaticamente.
+
+Contratos parciais e validade das turmas
+----------------------------------------
+
+O administrador deve ser capaz de instituir contratos parciais, que começam na metade do ano, por exemplo. Tais contratos teriam o devido desconto monetário mas, ao encerrar o período parcial, passam a ser contratos anuais convencionais.
+
+.. warning::
+
+   As turmas tem uma data de encerramento definida pelo gestor ou professor (fim do ano letivo). Além desta data, ainda tem uma data de encerramento compulsória: 31/12 do ano corrente. Assim, nenhuma turma passa de um ano para outro. Excessões podem ser configuradas manualmente pela administração.

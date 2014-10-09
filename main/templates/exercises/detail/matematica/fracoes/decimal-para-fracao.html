@@ -1,0 +1,7 @@
+{% extends "exercises/detail/matematica/fracoes/porcentagem-para-fracao.html" %}
+{% load utils_extras %}
+
+{% block question_term %}{{ question.value|cut_zeros }}{% endblock %}
+
+{% block attempt_question_term %}{{ question.value|cut_zeros }}{% endblock %}
+

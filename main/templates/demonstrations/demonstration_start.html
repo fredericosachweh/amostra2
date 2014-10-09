@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load flatpages %}
+
+{% block title %}Demonstração do Mainiti{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block content %}
+<h1>Inicie sua demonstração</h1>
+
+<div class="module">
+    <div class="row">
+        <div class="large-4 columns">
+            <h4>Termos de uso</h4>
+
+            {% get_flatpages '/termos-de-uso/' as flatpages %}
+            {% with flatpages|first as page %}
+            <textarea style="height: 14em">{{ page.content }}</textarea>
+            {% endwith %}
+
+            <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+                <p>
+                    {{ form.has_agreed.errors }}
+                    <label>{{ form.has_agreed }} {{ form.has_agreed.label }}</label>
+                </p>
+
+                <button type="submit" class="button">
+                    {% if object.categoryusage_set.exists %}Rei{% else %}I{% endif %}niciar demonstração
+                </button>
+            </form>
+        </div>
+        <div class="large-4 columns">
+            <h4>Como funciona?</h4>
+
+            <iframe src="//player.vimeo.com/video/94071833" width="300" height="166" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+            <div class="demo-syllabus">
+                <img class="left" src="{{ STATIC_URL }}images/grad-cap.jpg" alt="Chapéu de formatura"/>
+                <p>Conheça o conteúdo programático:</p>
+                <a href="{% url 'demonstrations:programs' pk=object.pk %}" class="button">Conteúdo programático</a>
+            </div>
+        </div>
+        <div class="large-4 columns">
+            <h4>Compre agora mesmo!</h4>
+
+            <p>Aproveite a promoção especial de lançamento:</p>
+
+            <h5 class="submodule">
+                10 vezes de R${{ KLASSES_COST|floatformat:2 }}<br/>
+                <small>(valor anual por cada turma de até 50 alunos)</small>
+            </h5>
+
+            <p>Entre na era da tecnologia na área de educação!</p>
+
+            <a href="{% url 'demonstrations:purchase:start' pk=object.pk %}" class="button">Comprar agora</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

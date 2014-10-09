@@ -1,0 +1,8 @@
+/* line 1, ../sass/ie9-gradient-reset.scss */
+body .button {
+  filter: none;
+}
+/* line 4, ../sass/ie9-gradient-reset.scss */
+body .button:hover, body .button:focus {
+  filter: none;
+}

@@ -1,0 +1,50 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Programas e turmas{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current">Programas e turmas</li>
+{% endblock %}
+
+{% block content %}
+<h1>Programas e turmas</h1>
+<div class="module">
+
+    {% if not object_list.exists %}
+    <p>Você não tem nenhuma turma disponível para acompanhar.</p>
+    <p>Aguarde seu gestor de contratos alocá-lo para uma nova turma.</p>
+    {% else %}
+
+    <table>
+    <thead>
+        <tr>
+            <th>Turma</th>
+            <th>Cliente</th>
+            <th>Programa</th>
+            <th>Alunos</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.name }}</td>
+            <td>{{ object.contract.client }}</td>
+            <td>{{ object.program_usage.program|default:"Indefinido" }}</td>
+            <td>{{ object.students_count }} de {{ object.max_students }}</td>
+            <td>
+                {% if object.program_usage %}
+                <a href="{% url 'teacher:klass-dashboard' pk=object.pk %}" class="button small">Detalhar</a>
+                {% else %}
+                <a href="{% url 'teacher:klass-start' pk=object.pk %}" class="button small">Iniciar</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    {% endif %}
+
+</div>
+{% endblock %}

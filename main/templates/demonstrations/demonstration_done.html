@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Demonstração concluída{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block content %}
+<h1>Demonstração concluída</h1>
+
+<div class="module">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>Parabéns!<br/>Você concluiu sua demonstração.</h4>
+
+            <p>Até dia {{ object.valid_until|date:"SHORT_DATE_FORMAT" }},
+            você pode pode refazê-la <strong>quantas vezes quiser</strong>.</p>
+            <p>Esperamos que tenha gostado do sistema e neste caso, o
+            convidamos a concluir sua compra agora mesmo!</p>
+
+            <a class="button" href="{% url 'demonstrations:demo-start' pk=object.pk %}">refazer demonstração</a>
+        </div>
+        <div class="large-5 offset-1 columns">
+            <h4>Gostou do que viu?</h4>
+            <p>Aproveite a promoção especial de lançamento:</p>
+
+            <h5 class="submodule">
+                10 vezes de R${{ KLASSES_COST|floatformat:2 }} por ano<br/>
+                <small>(por cada turma de até 50 alunos)</small>
+            </h5>
+
+            <p>Entre na era da tecnologia na área de educação!</p>
+
+            <a class="button" href="{% url 'demonstrations:purchase:start' pk=object.pk %}">conclua sua compra</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

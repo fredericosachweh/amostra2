@@ -1,0 +1,88 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content potentiation">
+    <div class="line width-ref">
+        {% for item in questions %}
+            {% if forloop.first %}
+                {% if item.value != '+' %}
+                    <span data-terms>{{ item.value }}</span>
+                {% endif %}
+            {% else %}
+                <span data-terms>{{ item.value }}</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% for f in answers %}
+        {% if forloop.counter < 3 %}
+            {{ f.answer }}{{ f.value }}
+        {% else %}
+            <div class="line child child-{{ forloop.counter|add:"-2" }}">
+                <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+                    <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+                </object> 
+                {{ f.answer }}{{ f.value }}
+            </div>
+        {% endif %}
+    {% endfor %}
+</article>
+{% endblock exercise_content %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+function decorateInput(input, tabindex) {
+    if(input.data('decorated'))
+        return;
+    var start_negat = false;
+    var spans = input.parent().parent().find('.line:first-child span');
+
+    if (spans.length % 2 == 1) {
+        start_negat = true;
+    }
+    if (tabindex == 1) {
+        if (start_negat) {
+            partial1 = spans.slice(2, 5);
+            partial2 = spans.slice(7);
+        }
+        else {
+            partial1 = spans.slice(3, 6);
+            partial2 = spans.slice(8);
+        }
+        partial1.clone().insertAfter(input);
+        var input2 = input.parent().parent().find('[tabindex="2"]');
+        partial2.clone().insertAfter(input2);
+            
+    }
+    else {
+        var spans = input.parent().parent().find('.line:first-child span').slice(0 + tabindex * 2);
+        spans.clone().appendTo(input.parent());
+    }
+
+    var decor = input.parent().find('object, img')
+    decor.css('visibility', 'visible');
+
+    input.data('decorated', true);
+}
+$(document).ready(function() {
+    var decor = $('#exercise form .child object, #exercise form .child img');
+    decor.css('visibility', 'hidden');
+    
+    var potentiation = $('[data-terms]');
+    for (var i = 0; i < potentiation.length; i++) {
+        if (potentiation[i].innerText == '^') {
+            $('.content').width($('.content').width() - (potentiation[i].clientWidth * 2));
+            potentiation[i].remove();
+            potentiation[i + 1].className = 'exponent';
+        }
+    }
+    var inputs = $('#exercise form input[tabindex]');
+    inputs.focus(function() {
+        var next = parseInt($(this).attr('tabindex')) + 1;
+        var next_elem = inputs.filter('[tabindex="' + next + '"]');
+        decorateInput(next_elem, next);
+    });
+
+    decorateInput(inputs.filter('[tabindex="1"]'), 1);
+});
+</script>
+{% endblock %}

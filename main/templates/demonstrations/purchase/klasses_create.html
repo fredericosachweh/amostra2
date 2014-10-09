@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load utils_extras %}
+
+{% block title %}Defina quais as turmas{% endblock %}
+
+{% block breadcrumbs_start %}
+<li><a href="{% url 'demonstrations:demo-start' pk=view.demonstration.pk %}">Demonstração</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'demonstrations:purchase:start' pk=view.demonstration.pk %}">Iniciar compra</a></li>
+<li><a href="{% url 'demonstrations:purchase:contract-agree' pk=view.demonstration.pk %}">Contrato</a></li>
+<li class="current"><a href="{{ request.path }}">Turmas</a></li>
+{% endblock %}
+
+{% block content %}
+<h1>Defina quais as turmas</h1>
+
+<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+{{ forms.managers.management_form }}
+{{ forms.klasses.management_form }}
+
+<div class="module">
+    <header><div><strong>3</strong><span> de 4</span></div></header>
+
+    <h3>Gestor</h3>
+
+    <p>Especifique abaixo qual o nome e email das pessoas responsáveis por
+    gerenciar a conta no Mainiti. Elas serão incumbidas de operações como
+    adicionar/remover professores, gestão financeira e outros:</p>
+
+    {{ forms.managers.non_form_errors }}
+
+    <table id="managers">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>E-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% with forms.managers.empty_form as f %}
+            <tr class="empty-form">
+                <td>{{ f.id }}{{ f.first_name }}{{ f.first_name.errors }}</td>
+                <td>{{ f.last_name }}{{ f.last_name.errors }}</td>
+                <td>{{ f.email }}{{ f.email.errors }}</td>
+                <td></td>
+            </tr>
+            {% endwith %}
+            {% for f in forms.managers.forms %}
+            <tr>
+                <td>{{ f.id }}{{ f.first_name }}{{ f.first_name.errors }}</td>
+                <td>{{ f.last_name }}{{ f.last_name.errors }}</td>
+                <td>{{ f.email }}{{ f.email.errors }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Turmas</h3>
+
+    <p>Especifique abaixo quais turmas estarão disponíveis em seu pacote.
+    Lembre-se que <strong>cada turma</strong> tem um custo de
+    R${{ KLASSES_COST|floatformat:2 }} por mês, entre os meses de
+    fevereiro a novembro:</p>
+
+    {{ forms.klasses.non_form_errors }}
+
+    <table id="klasses">
+        <thead>
+            <tr>
+                <th>Nome da turma</th>
+                <th>Nome do professor</th>
+                <th>E-mail do professor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% with forms.klasses.empty_form as f %}
+            <tr class="empty-form">
+                <td>{{ f.id }}{{ f.name }}{{ f.name.errors }}</td>
+                <td>{{ f.teacher_name }}{{ f.teacher_name.errors }}</td>
+                <td>{{ f.teacher_email }}{{ f.teacher_email.errors }}</td>
+                <td></td>
+            </tr>
+            {% endwith %}
+            {% for f in forms.klasses.forms %}
+            <tr>
+                <td>{{ f.id }}{{ f.name }}{{ f.name.errors }}</td>
+                <td>{{ f.teacher_name }}{{ f.teacher_name.errors }}</td>
+                <td>{{ f.teacher_email }}{{ f.teacher_email.errors }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit" class="button">Continuar</button>
+</div>
+</form>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/vendor/jquery.formset.js"></script>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+    $('table#managers tbody tr').formset({
+        prefix: '{{ forms.managers.prefix }}',
+        addText: 'Adicionar gestor',
+        deleteText: 'Remover'
+    });
+
+    $('table#klasses tbody tr').formset({
+        prefix: '{{ forms.klasses.prefix }}',
+        addText: 'Adicionar turma',
+        deleteText: 'Remover'
+    });
+});
+--></script>
+{% endblock %}

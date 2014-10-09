@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Confira seus dados{% endblock %}
+
+{% block breadcrumbs_start %}
+<li><a href="{% url 'demonstrations:demo-start' pk=object.pk %}">Demonstração</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current"><a href="{{ request.path }}">Iniciar compra</a></li>
+{% endblock %}
+
+
+{% block content %}
+<h1>Confira seus dados</h1>
+
+<div class="module">
+    <header><div><strong>1</strong><span> de 4</span></div></header>
+
+    <p>Certifique-se de que os dados abaixo estão corretos:</p>
+
+    {% with object.client as c %}
+    <dl>
+        <dt>Nome fantasia</dt>
+        <dd>{{ c.name }}</dd>
+
+        <dt>Razão social</dt>
+        <dd>{{ c.company_name }}</dd>
+
+        <dt>CNPJ</dt>
+        <dd>{{ c.cnpj }}</dd>
+
+        <dt>Telefones</dt>
+        <dd>{{ c.phones }}</dd>
+
+        <dt>Endereço</dt>
+        <dd>
+            {{ c.address }}{% if c.number %}, {{ c.number }}{% endif %}
+            {% if c.complement %}- {{ c.complement }}{% endif %}
+            {% if c.quarter %}- {{ c.quarter }}{% endif %}<br/>
+            {{ c.city }}/{{ c.state }}
+            {% if c.postal_code %} - CEP: {{ c.postal_code }}{% endif %}
+        </dd>
+    </dl>
+    {% endwith %}
+
+    <a class="button" href="{% url 'demonstrations:purchase:contract-agree' pk=object.pk %}">Continuar</a>
+    <a class="button" href="{% url 'demonstrations:purchase:client-update' pk=object.pk %}">Atualizar</a>
+</div>
+{% endblock %}
+

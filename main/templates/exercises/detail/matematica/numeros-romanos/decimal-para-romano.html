@@ -1,0 +1,13 @@
+{% extends "exercises/detail/single-choice.html" %}
+
+{% block exercise_description %}
+{% with questions.0 as number %}
+<p>O número <strong>{{ number.value }}</strong> corresponde ao símbolo romano:</p>
+{% endwith %}
+{% endblock %}
+
+{% block attempt_exercise_description %}
+{% with questions.0 as number %}
+<p>O número <strong>{{ number.value }}</strong> corresponde ao símbolo romano:</p>
+{% endwith %}
+{% endblock %}

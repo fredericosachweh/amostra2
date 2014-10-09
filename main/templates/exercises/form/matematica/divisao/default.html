@@ -1,0 +1,149 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="division-container width-ref">
+        <div class="division-divided">
+            <div class="line width-ref">
+                {% for item in questions.divided %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+
+                {% block post_divided %}{% endblock %}
+            </div>
+
+            <div class="line group">
+                {% for f in answers.product0|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+                {% for item in questions.move0 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for f in answers.rest0|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+
+                {% for f in answers.down0|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+            </div>
+
+            {% if answers.product1 %}
+            <div class="line group">
+                {% for f in answers.product1|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+                {% for item in questions.move1 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for f in answers.rest1|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+
+                {% for f in answers.down1|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product2 %}
+            <div class="line group">
+                {% for f in answers.product2|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+                {% for item in questions.move2 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for f in answers.rest2|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+
+                {% for f in answers.down2|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product3 %}
+            <div class="line group">
+                {% for f in answers.product3|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+                {% for item in questions.move3 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for f in answers.rest3|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+
+                {% for f in answers.down3|slice:"::-1" %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="division-divisor">
+            <div class="line first">
+                {% for item in questions.divisor %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+
+                {% block post_divisor %}{% endblock %}
+            </div>
+            <div class="line result">
+                {% for f in answers.quotient %}
+                {{ f.answer }}{{ f.value }}
+                {% endfor %}
+            </div>
+            {% block post_result %}{% endblock %}
+        </div>
+    </div>
+</article>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+var moved = 0;
+
+$(document).ready(function() {
+    // removes one alignment helper from the last product, as the last product
+    // wont have anything to put down after him
+    $('#exercise .group:last-child i').first().remove();
+
+    // Hides hr until any input inside his parent be clicked
+    $('#exercise .group hr').css('visibility', 'hidden');
+
+    $('#exercise .group').each(function(n) {
+        // Show again the hr
+        $(this).find('input[type=text]:first').focus(function() {
+            $(this).parent().find('hr').css('visibility', 'visible');
+        });
+
+        // Moves each group of rest - down and product to right align the
+        // rest with the product
+        if(n > 0) {
+            var current = $(this);
+            var prev = current.prev('.group');
+
+            var rest = prev.find('hr ~ input[type=text]');
+
+            var split = current.find('hr');
+            var index = current.children().index(split);
+            var product = current.children().slice(0, index).filter('input[type=text]');
+
+            moved = moved + rest.length - product.length;
+            current.css('right', -4.25 * moved + 'em');
+        }
+    });
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "exercises/form/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+    <p>Escolha a resposta que representa a figura geométrica abaixo:</p>
+
+    {% with questions|first as term %}
+    <canvas class="polygon" data-term="{{ term.value }}"></canvas>
+    {% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice|polygon_name }}</small>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/polygons.js"></script>
+{% endblock %}

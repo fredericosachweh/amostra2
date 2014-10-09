@@ -1,0 +1,37 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line width-ref">
+        {% with questions.term1|first as question %}
+        <span>{{ question.value }}</span>
+        {% endwith %}
+        <span>&times;</span>
+        {% with questions.term2|first as question %}
+        <span>{{ question.value }}</span>
+        {% endwith %}
+        <span>=</span>
+        {% with answers.result|first as answer %}
+        <span>{{ answer.correct_value|floatformat:0 }}</span>{# there will be no decimal roman #}
+        {% endwith %}
+    </div>
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="line width-ref">
+        {% with questions.term1|first as question %}
+        <span>{{ question.value }}</span>
+        {% endwith %}
+        <span>&times;</span>
+        {% with questions.term2|first as question %}
+        <span>{{ question.value }}</span>
+        {% endwith %}
+        <span>=</span>
+        {% with answers.result|first as answer %}
+        <span>{{ answer.value|floatformat:0 }}</span>{# there will be no decimal roman #}
+        {% endwith %}
+    </div>
+</article>
+{% endblock %}

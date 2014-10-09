@@ -1,0 +1,8 @@
+Nova classe em seu controle,
+
+Olá {{ klass.teacher.get_full_name }}, a classe *{{ klass.name }}* foi colocada em seu controle para a instituição de ensino *{{ klass.contract.client }}* na plataforma de aprendizado *Mainiti*.</p>
+
+Acesse sua conta em http://{{ site.domain }}/ para gerenciá-la.
+
+A equipe do Mainiti agradece.
+http://{{ site.domain }}/

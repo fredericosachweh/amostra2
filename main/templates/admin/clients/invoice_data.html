@@ -1,0 +1,59 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">{% trans 'Start' %}</a></li>
+    <li><a href="{% url 'admin:app_list' 'clients' %}">{% trans 'Clients' %}</a></li>
+    <li><a href="{% url 'admin:clients_client_changelist' %}">{% trans 'Clients' %}</a></li>
+    <li>Dados do cliente</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Dados do cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nome</td>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Razão Social</td>
+                <td>{{ object.company_name }}</td>
+            </tr>
+            <tr>
+                <td>CNPJ</td>
+                <td>{{ object.cnpj }}</td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td>{{ object.email }}
+            </tr>
+            <tr>
+                <td>Endereço</td>
+                <td>{{ object.address }}</td>
+            </tr>
+            <tr>
+                <td>Número</td>
+                <td>{{ object.number }}</td>
+            </tr>
+            <tr>
+                <td>Complemento</td>
+                <td>{{ object.complement }}</td>
+            </tr>
+            <tr>
+                <td>CEP</td>
+                <td>{{ object.postal_code }}</td>
+            </tr>
+            <tr>
+                <td>Cidade</td>
+                <td>{{ object.city }}/{{ object.state }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

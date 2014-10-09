@@ -1,0 +1,37 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <p class="text-center">Calcule a {% block operation %}soma{% endblock %} das 3 frações abaixo. Indique o resultado sem simplificações:</p>
+
+    <div class="line width-ref">
+        <div class="group">
+            {% for item in questions.term1 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">{% block first_sign %}+{% endblock %}</span>
+        <div class="group">
+            {% for item in questions.term2 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">{% block second_sign %}+{% endblock %}</span>
+        <div class="group">
+            {% for item in questions.term3 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for f in answers.result %}
+            {{ f.answer }}{{ f.value }}
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}

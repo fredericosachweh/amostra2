@@ -1,0 +1,27 @@
+{% extends "exercises/form/base.html" %}
+{% load exercises_extras %}
+
+{% block exercise_content %}
+<article class="content full pic-plus-answer">
+    {% with questions.base|first as base %}
+    {% with questions.height|first as height %}
+    <p>Qual a área do {% if base.value == height.value %}quadrado{% else %}retângulo{% endif %} que tem altura {{ height.value }} e base {{ base.value }}?</p>
+
+    <canvas class="square" width="100" height="100"
+            data-term1="{{ height.value }}" data-term2="{{ base.value }}">
+        Canvas não suportado pelo browser !
+    </canvas>
+    <p>
+        Resposta:
+        {% with answers.result|first as f %}
+        {{ f.answer }}{{ f.value }}
+        {% endwith %}
+    </p>
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/areas/rectangle.js"></script>
+{% endblock %}

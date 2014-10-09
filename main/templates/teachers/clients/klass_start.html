@@ -1,0 +1,115 @@
+{% extends "teachers/base.html" %}
+{% load utils_extras %}
+
+{% block title %}Iniciar turma{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'teacher:klass-list' %}">Programas e turmas</a></li>
+<li class="current">{% block local_breadcrumbs %}Iniciar {{ klass }}{% endblock %}</li>
+{% endblock %}
+
+{% block content %}
+<h1>Iniciar turma</h1>
+
+<div class="module">
+    <form class="form ajax-form" method="post" enctype="multipart/form-data"
+        action="{{ request.path }}">{% csrf_token %}
+
+        {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+
+        <div id="klass-start" class="section-container vertical-tabs" data-section="vertical-tabs">
+            <section class="active">
+                <p class="title{% if form.start_date.errors or form.end_date.errors %} error{% endif %}"
+                    data-section-title><a href="#datas">1. Datas</a></p>
+                <div class="content" data-section-content>
+                    <p>Especifique as datas de início das atividades e fim do ano letivo. Caso necessário, reconfigure as <a href="{% url 'excludeddates:teacher-archive' pk=klass.contract.client.pk %}">datas sem atividades</a>.</p>
+                    <div class="row dates">
+                        <div class="large-6 small-12 columns">
+                            {{ form.start_date.label_tag }}
+                            {{ form.start_date }}
+                        </div>
+                        <div class="large-6 small-12 columns">
+                            {{ form.end_date.label_tag }}
+                            {{ form.end_date }}
+                        </div>
+                    </div>
+
+                    <p><a href="#programa" class="button" data-section-alt>Continuar</a></p>
+                </div>
+            </section>
+            <section>
+                <p class="title{% if form.program.errors %} error{% endif %}" data-section-title><a href="#programa">2. Programa</a></p>
+                <div class="content" data-section-content>
+                    <p>Escolha o programa adequado para sua turma:</p>
+                    {{ form.program.errors }}
+                    <div class="programs">
+                        {% for program in form.programs_choices %}
+                        <div class="program"><label>
+                            <h3>{{ program.name }}</h3>
+                            <h4>{{ program.matter }}</h4>
+                            <p>{{ program.description }}</p>
+                            <p class="radio"><input type="radio" name="{{ form.program.name }}" value="{{ program.pk }}"/> Escolher este</p>
+                            <a href="{% url 'teacher:syllabus' pk=program.pk %}" class="button small right" data-syllabus-list>Detalhes</a>
+                            <p>{{ program.batteries_count }} dia{{ program.batteries_count|pluralize }}</p>
+                        </label></div>
+                        {% endfor %}
+                    </div>
+
+                    <p><a href="#modulos" class="button" data-section-alt>Continuar</a></p>
+                </div>
+            </section>
+            <section>
+                <p class="title{% if form.modules.errors %} error{% endif %}" data-section-title><a href="#modulos">3. Módulos</a></p>
+                <div class="content" data-section-content>
+                    <p>Reordene a ordem de aplicação dos módulos conforme sua preferência:</p>
+
+                    {{ form.modules }}{{ form.modules.errors }}
+
+                    <ol class="program-modules">
+                        {% for module in form.modules_choices %}
+                        <li data-program="{{ module.program.pk }}" data-module="{{ module.pk }}"><label>
+                            {{ module }}
+                            {% comment %}
+                            For now, do not show the progress bar. We need to
+                            tell how much of the module would be used based in
+                            the excluded dates configuration.
+                            <div class="progress success round right"><span class="meter" style="width: 30%"></span></div>
+                            {% endcomment %}
+                            <em>{{ module.batteries_count }} dias</em>
+                        </label></li>
+                        {% endfor %}
+                    </ol>
+
+                    {% if form.students %}
+                    <p><a href="#alunos" class="button" data-section-alt>Continuar</a></p>
+                    {% else %}
+                    <p><button name="submit" class="button">Iniciar</button></p>
+                    {% endif %}
+                </div>
+            </section>
+            {% if form.students %}
+            <section>
+                <p class="title{% if form.students.errors %} error{% endif %}" data-section-title><a href="#alunos">4. Alunos</a></p>
+                <div class="content students" data-section-content>
+                    <p>Defina os alunos que pertencentes à turma. Escreva um nome por linha.</p>
+                    {{ form.students|render_field }}
+
+                    <p><button name="submit" class="button">Iniciar</button></p>
+                </div>
+            </section>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/autosize.js"></script>
+<script src="{{ STATIC_URL }}javascripts/vendor/jquery.sortable.js"></script>
+<script src="{{ STATIC_URL }}javascripts/klasses.js"></script>
+<script>
+$(document).ready(function() {
+    quickModal('[data-syllabus-list]');
+});
+</script>
+{% endblock %}

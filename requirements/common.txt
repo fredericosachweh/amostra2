@@ -1,0 +1,25 @@
+Django>=1.6,<1.7
+South
+django-grappelli
+git+git://github.com/django/django-localflavor-br.git
+
+# Pdf printing
+django-wkhtmltopdf
+
+# Docs compilation
+sphinx
+sphinx-rtd-theme
+
+# Complementar modules
+roman
+
+# generate billets
+git+git://github.com/arthurfurlan/pyboleto.git
+
+# Tests
+django-nose
+splinter
+mock
+git+git://github.com/rbarrois/django-factory_boy.git
+#git+git://github.com/gabrielfalcao/lettuce.git
+-e git://github.com/michelts/lettuce.git@261-before-after-outlines-examples#egg=lettuce

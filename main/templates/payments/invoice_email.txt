@@ -1,0 +1,7 @@
+Nota fiscal de pagamento
+
+Imprima a nota fiscal referente ao pagamento abaixo:
+
+{{ payment }}
+
+Imprimir nota: {{ payment.invoice_file.url }}

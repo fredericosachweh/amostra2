@@ -1,0 +1,14 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+    <p>Dada a figura abaixo:</p>
+    <p><img src="{{ STATIC_URL }}images/geometry/straightlinescombination.png" /></p>
+{% endblock %}
+
+{% block response_callout %}
+{% with questions.term1|first as term1 %}
+{% with questions.term2|first as term2 %}
+As retas {{ term1.value }} e {{ term2.value }} são:
+{% endwith %}
+{% endwith %}
+{% endblock %}

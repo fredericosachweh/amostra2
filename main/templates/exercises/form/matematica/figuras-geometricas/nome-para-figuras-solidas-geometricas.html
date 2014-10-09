@@ -1,0 +1,18 @@
+{% extends "exercises/form/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+    <p>Escolha a resposta que representa a figura sólida geométrica abaixo:</p>
+    {% with questions|first as term1 %}
+            {{ term1.value|solid_figure }}
+    {% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice|solid_name }}</small>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+{% endblock %}

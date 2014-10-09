@@ -1,0 +1,107 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span{% if forloop.counter0|divisibleby:2 %} class="even"{% endif %}>{% if item.value == '/' %}&divide;{% else %}{% if item.value == '*' %}&times;{% else %}{{ item.value }}{% endif %}{% endif %}</span>
+        {% endfor %}
+    </div>
+    <div class="line child products">
+        {% for f in answers.product %}
+        <div class="group">
+            <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+                <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+            </object> 
+            {{ f.answer }}{{ f.value }}
+        </div>
+        {% endfor %}
+    </div>
+    {% for f in answers.addition %}
+    <div class="line additions child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object> 
+        {{ f.answer }}{{ f.value }}
+    </div>
+    {% endfor %}
+</article>
+{% endblock exercise_content %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+var starts_odd = false;  // will be true when the first term is an standalone
+                        // addition or subtraction
+
+function decorateProduct(curr_input, next_input, next_tabindex) {
+    var spans = $('#exercise form .line:first-child span');
+    var container = next_input.parents('.products');
+
+    // Adds the plus or minus signal between two multiplications or divisions
+    if(!next_input.data('decorated')) {
+        if(starts_odd)
+            delta = 2;
+        else
+            delta = 0;
+
+        var joiner = spans.eq((next_tabindex - 1) * 4 + delta - 1);
+        if(joiner.length)
+            next_input.parent().before('<span>' + joiner.text() + '</span>');
+        next_input.data('decorated', true);
+    }
+}
+
+function showDecoration(next_input) {
+    var decor = next_input.parent().find('object, img')
+    decor.css('visibility', 'visible');
+}
+
+$(document).ready(function() {
+    var products = $('#exercise form .products input[tabindex]');
+    var additions = $('#exercise form .additions input[tabindex]');
+
+    products.focus(function() {
+        var tabindex = parseInt($(this).attr('tabindex')) + 1;
+        var next_elem = products.filter('[tabindex="' + tabindex + '"]');
+        if(next_elem.length) {
+            decorateProduct($(this), next_elem, tabindex);
+            showDecoration(next_elem);
+        } else {
+            showDecoration(additions.first());
+        }
+    });
+
+    additions.focus(function() {
+        var tabindex = parseInt($(this).attr('tabindex')) + 1;
+        var next_elem = additions.filter('[tabindex="' + tabindex + '"]');
+        if(next_elem.length)
+            showDecoration(next_elem);
+    });
+
+    // Odd number of terms means there is a standalone addition or
+    // subtraction in the start or the end of expression that needs to be
+    // replicated in the subsequent lines
+    var container = $('#exercise form .products');
+    var spans = $('#exercise form .line:first-child span');
+    var odd = spans.filter('.even').length % 2;
+    if(odd) {
+        var signal = spans.eq(1).text();  // zero-based indexing
+        if(signal == '-' || signal == '+') {
+            // standalone at beginning
+            var standalone = spans.slice(0, 2);  // 1st and 2nd terms
+            starts_odd = true;
+            standalone.clone().prependTo(container);
+            $('#exercise .additions').addClass('starts-odd');
+        } else {
+            var standalone = spans.slice(-2);
+            standalone.clone().appendTo(container);
+        }
+    }
+
+    // Hides the second and forward decorations
+    var decor = $('#exercise form .child object, #exercise form .child img').slice(1);
+    decor.css('visibility', 'hidden');
+
+});
+</script>
+{% endblock %}

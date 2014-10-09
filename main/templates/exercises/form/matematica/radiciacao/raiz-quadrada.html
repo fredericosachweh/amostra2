@@ -1,0 +1,16 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+	{% with questions.term|first as term %}
+    <p>Qual a raiz quadrada de {{ term.value }}?</p>
+	{% endwith %}
+
+    <p>
+        Resposta:
+        {% with answers.result|first as f %}
+        {{ f.answer }}{{ f.value }}
+        {% endwith %}
+    </p>
+</article>
+{% endblock exercise_content %}

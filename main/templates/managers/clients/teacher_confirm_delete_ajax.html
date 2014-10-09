@@ -1,0 +1,8 @@
+<form action="{% url 'manager:teacher-delete' pk=object.id %}" method="post" class="ajax-form">{% csrf_token %}
+    <h3>Remover professor?</h3>
+    <p>Tem certeza que deseja remover o professor {{ object.get_full_name }}?</p>
+    <p>
+        <button class="button" type="submit" name="teacher-remove">Sim</button>
+        <a href="#" class="button" data-reveal-close>Não</a>
+    </p>
+</form>

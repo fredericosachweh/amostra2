@@ -1,0 +1,33 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.term1|first as term1 %}
+    {% with questions.term1_plural|first as term1_plural %}
+    {% with questions.term2|first as term2 %}
+    {% with questions.term2_plural|first as term2_plural %}
+    {% with questions.conv1|first as conv1 %}
+    {% with questions.conv1_plural|first as conv1_plural %}
+    {% with questions.from_unity|first as from_unity %}
+    {% with questions.from_name|first as from_name %}
+    {% with questions.to_unity|first as to_unity %}
+    {% with questions.to_name|first as to_name %}
+    <p>Se em {{ term1.value }} {{ from_name.value }}{{ term1_plural.value|pluralize }} ({{ term1.value }}{{ from_unity.value }})
+    há {{ conv1.value }} {{ to_name.value }}{{ conv1_plural.value|pluralize }} ({{ conv1.value }}{{ to_unity.value }}),
+    quantos {{ to_name.value }}s há em {{ term2.value }} {{ from_name.value }}{{ term2_plural.value|pluralize }} ({{ term2.value }}{{ from_unity.value }})?
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+
+    {% with answers.conv2|first as f %}
+    <p>Resposta: {{ f.answer }}{{ f.value }}</p>
+    {% endwith %}
+</article>
+{% endblock %}

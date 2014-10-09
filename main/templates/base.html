@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" ><!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{% block _title %}{% block title %}{% endblock %} - Mainiti - Aprendendo todo dia{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+    {% if not IGNORE_EXTERNAL_REFS %}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Titan+One|Patrick+Hand' rel='stylesheet' />
+    {% endif %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css" />
+    <!--[if IE 8]><link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/ie8-grid-foundation-4.css" /><![endif]-->
+    <!--[if IE 9]><link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/ie9-gradient-reset.css" /><![endif]-->
+    {% block extracss %}{% endblock %}
+
+    <script src="{{ STATIC_URL }}javascripts/vendor/custom.modernizr.js"></script>
+</head>
+<body>
+<div id="outer-wrapper">
+
+<div class="row">
+    <div class="large-12 columns">
+        {% if request.user.is_authenticated %}
+        <div id="main-menu" class="right">
+            <nav class="top-bar">
+                <section class="top-bar-section">
+                    <ul class="left">
+                        <li><a href="{% url 'accounts:user-update' %}">Sua conta</a></li>
+                        {% block _menu %}
+                        <li class="has-dropdown"><a href="#">Ações</a> <ul class="dropdown">{% block menu %}
+                            <li><a href="#">Ação 1</a></li>
+                            <li><a href="#">Ação 2</a></li>
+                            <li><a href="#">Ação 3</a></li>
+                        {% endblock %}</ul></li>{% endblock _menu %}
+                        <li><a href="{% url 'logout' %}">Sair</a></li>
+                    </ul>
+                </section>
+            </nav>
+            <div class="whois">
+                Bem-vindo {{ request.user.get_full_name|default:request.user.username }}
+                {% if current_klass %}
+                <br/>Turma <em>{{ current_klass }}</em> em <em>{{ current_klass.contract.client }}</em>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% block logo %}
+        <a id="logo" href="{% url 'home' %}">Mainiti</a>
+        {% endblock %}
+    </div>
+</div>
+
+{% if messages %}
+<section id="messages">
+    <ul>
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+<div class="row">
+    <div class="large-12 columns">
+        {% block _breadcrumbs %}
+        <ul id="breadcrumbs">
+            {% block breadcrumbs_start %}<li><a href="{% url 'home' %}">Início</a></li>{% endblock %}
+            {% block breadcrumbs %}{% endblock %}
+        </ul>
+        {% endblock _breadcrumbs %}
+
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+</div>{# outer-wrapper #}
+
+<script src="{{ STATIC_URL }}javascripts/vendor/jquery.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.orbit.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.magellan.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.clearing.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.forms.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.reveal.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.joyride.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.cookie.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.dropdown.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.alerts.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.tooltips.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.placeholder.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.topbar.js"></script>
+<script src="{{ STATIC_URL }}javascripts/foundation/foundation.section.js"></script>
+<script>
+$(document).foundation();
+</script>
+
+{% block extrajs %}{% endblock %}
+
+</body>
+</html>

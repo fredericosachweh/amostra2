@@ -1,0 +1,25 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+    <p>Escolha fração irredutível da fração abaixo:</p>
+
+    <div class="group">
+        {% with questions|first as term1 %}
+        <span>{{ term1.value }}</span>
+        {% endwith %}
+        <hr/>
+        {% with questions|last as term2 %}
+        <span>{{ term2.value }}</span>
+        {% endwith %}
+    </div>
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small data-fraction>{{ choice }}</small>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

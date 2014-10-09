@@ -1,0 +1,58 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content multiplication-division-per-dozen">
+    <div class="line width-ref">
+        {% with questions.term1|first as item1 %}
+        {% with questions.term2|first as item2 %}
+        <span class="operation">
+            {{ item1.value }}
+            {% block sign %}&times;{% endblock %}
+            {{ item2.value }}
+            =
+        </span>
+        {% endwith %}
+        {% endwith %}
+
+        {% for item in answers.result %}
+        <span class="filled">{{ item.correct_value|cut_zeros }}</span>
+        {% endfor %}
+
+        <div class="commas">
+            {% for item in answers.comma %}
+            <span>{% if item.correct_value %},{% else %} {% endif %}</span>
+            {% endfor %}
+            <i></i>
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content multiplication-division-per-dozen">
+    <div class="line width-ref">
+        {% with questions.term1|first as item1 %}
+        {% with questions.term2|first as item2 %}
+        <span class="operation">
+            {{ item1.value }}
+            {% block attempt_sign %}&times;{% endblock %}
+            {{ item2.value }}
+            =
+        </span>
+        {% endwith %}
+        {% endwith %}
+
+        {% for item in answers.result %}
+        <span class="filled">{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+
+        <div class="commas">
+            {% for item in answers.comma %}
+            <span>{% if item.value %},{% else %} {% endif %}</span>
+            {% endfor %}
+            <i></i>
+        </div>
+    </div>
+</article>
+{% endblock user_attempt %}

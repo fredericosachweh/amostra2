@@ -1,0 +1,11 @@
+Bem-vindo {{ user.get_full_name }},
+
+Você foi cadastrado para ministrar atividades para uma turma na plataforma de aprendizado *Mainiti* para a{{ clients|pluralize }} instituiç{{ clients|pluralize:"ão,ões" }} de ensino {{ clients|join:", " }}.
+
+{% if not password %}Acesse o endereço http://{{ site.domain }}/ com suas credenciais.{% else %}Acesse o endereço http://{{ site.domain }}/ com as credenciais listadas abaixo:
+
+Nome de usuário: {{ user.email }}
+Senha: {{ password }}{% endif %}
+
+A equipe do Mainiti agradece.
+http://{{ site.domain }}/

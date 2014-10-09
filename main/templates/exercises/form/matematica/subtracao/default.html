@@ -1,0 +1,36 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line borrowed">
+        {% for f in answers.support %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i></i>
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+
+        <div class="borrow">
+            {% comment %}
+            The borrow span is a trigger to show the borrowed
+            input. Any number can be borrowed but not all should be.
+            {% endcomment %}
+            {% for f in answers.support %}<span></span>{% endfor %}
+            <i></i>{# ignore the last item that never would be cutted #}
+        </div>
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">-</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for f in answers.result %}{{ f.answer }}{{ f.value }}{% endfor %}
+    </div>
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock %}

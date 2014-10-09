@@ -1,0 +1,30 @@
+{% extends "students/base.html" %}
+
+{% block title %}Iniciar tarefa{% endblock %}
+
+{% block content %}
+	<h1>Atenção</h1>
+
+	<div class="module" id="exercise">
+        <p>Você está prestes a iniciar uma bateria de exercícios. Fique atento
+        as dicas:</p>
+
+        <div class="instructions">
+            <p>Procure responder todos os exercícios da bateria. 
+            Você tem <strong>{{ object.attempts }} tentativa{{ object.attempts|pluralize }}
+            </strong> por exercício!</p>
+            <p>Use o mouse ou a <strong>tecla &lt;TAB&gt;</strong> para avançar
+            pelos campos.</p>
+            <p>Caso não saiba como responder, você pode <strong>pular</strong>
+            um exercício e deixá-lo para o final.</p>
+        </div>
+
+        <div class="button-bar">
+            <div class="button-group right">
+                <a class="button" href="{% url 'student:chance-create' user_battery=object.pk position=next.position %}">Iniciar</a>
+            </div>
+        </div>
+
+	</div>
+
+{% endblock %}

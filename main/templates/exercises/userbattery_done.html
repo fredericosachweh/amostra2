@@ -1,0 +1,18 @@
+{% extends "students/base.html" %}
+
+{% block title %}Tarefa concluída{% endblock %}
+
+{% block content %}
+<h1>Parabéns, <small>você terminou seus exercícios!</small></h1>
+<section id="exercise" class="module">
+    <article class="result-message">
+        {% if success_rate > 0.7 %}
+        <h3>Muito bem!</h3>
+        {% else %}
+        <h3>Você pode melhorar!</h3>
+        {% endif %}
+        <h4>Você acertou <br/> {{ correct_count }} de {{ exercises_count }}!</h4>
+        <a href="{% url 'home' %}" class="button">Minhas tarefas</a>
+    </article>
+</section>
+{% endblock %}

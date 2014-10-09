@@ -1,0 +1,18 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Olá,</h3>
+
+<p>Sua demonstração do <a href="http://{{ site.domain }}/">Mainiti</a> está pronta!</p>
+
+<p>
+    Acesse o endereço
+    <a href="http://{{ site.domain }}{{ demonstration.get_absolute_url }}">
+    http://{{ site.domain }}{{ demonstration.get_absolute_url }}</a> em até
+    {{ demonstration.valid_until|timeuntil }} para experimentá-lo.
+</p>
+
+{% if greeting %}
+{{ greeting|linebreaks }}
+{% endif %}
+{% endblock content %}

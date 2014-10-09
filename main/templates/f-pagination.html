@@ -1,0 +1,19 @@
+{# foundation pagination #}
+{% load utils_extras %}
+{% if paginator %}
+<ul class="pagination">
+    {% with paginator.count as count %}
+    <li class="count">
+    <a>{{ page_obj.start_index }} a {{ page_obj.end_index }} de {{ count }} ite{{ count|pluralize:"m,ns" }}</a>
+    </li>
+    {% endwith %}
+    {% if paginator.num_pages > 1 %}
+    {% for p in paginator.page_range|round_range:page_obj.number %}
+    <li{% if p = page_obj.number %} class="current"{% endif %}>
+        <a href="?page={{ p }}&{% pagination_parameters %}" data-page="{{ p }}">{{ p }}</a>
+    </li>
+    {% endfor %}
+    {% endif %}
+</ul>
+{% endif %}
+

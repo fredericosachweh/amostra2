@@ -1,0 +1,4 @@
+{% extends "exercises/form/matematica/area/perimetro-dos-quadrados.html" %}
+{% load utils_extras %}
+
+{% block square_data %}lados de {{ term2.value|cut_zeros }}{{ unity.value }}{% endblock %}

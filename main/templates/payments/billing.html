@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Pagamento{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'manager:contract-list' %}">Contratos</a></li>
+<li><a href="{% url 'payments:payment-list' contract_pk=object.contract.id %}">Financeiro</a></li>
+<li class="current"><a href="{{ request.path }}">Pagamento</a></li>
+{% endblock %}
+
+{% block content %}
+{% include "payments/billing_content.html"%}
+{% endblock %}

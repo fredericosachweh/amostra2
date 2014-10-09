@@ -1,0 +1,357 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+
+//
+// Use this grid if you want to start using the new Foundation 5 grid early.
+// It will change breakpoints to min-width: 640px and 1024px.
+//
+// @import "foundation/components/grid-5";
+//
+
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+// Additional resets
+:focus { outline: none }  // remove chrome input focus outline
+table input[type=checkbox] { margin: 0 }
+
+// general utilities
+@import "transitions.scss";
+@import "mixins.scss";
+@import "datepicker.scss";
+
+.module {
+    position: relative;
+
+    @include panel();
+    @include radius($global-radius);
+
+    border-color: $panel-border-color;
+
+    h3, h4, h5, h6 {
+        color: $header-font-color;
+
+        small {
+            color: $success-color;
+        }
+    }
+    ul, ol {
+        margin-left: emCalc(21px);
+
+        &.errorlist {
+            margin-left: 0;
+        }
+    }
+
+    .submodule {
+        background: lighten($tertiary-color, 40%);
+        padding: emCalc(15px);
+        @include radius;
+    }
+
+    header {
+        height: emCalc(60px);  // compensates the abs positioned elements
+
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: $header-font-family;
+
+            strong, span {
+                position: relative;
+                display: inline-block;
+            }
+
+            strong {
+                z-index: 302;
+                padding: emCalc(10px) 0;
+                margin: emCalc(-10px) 0 0 emCalc(-10px);
+                height: 2em;
+                line-height: 0.7em;
+                width: 2em;
+                font-size: 2em;
+                font-weight: normal;
+                color: $secondary-color;
+                background: $success-color;
+                text-align: center;
+                @include radius($global-rounded);
+                @include radial-gradient(lighten($success-color, 10%), darken($success-color, 10%));
+                @include box-shadow(2px 2px 10px #aaa);
+                @include box-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
+            }
+
+            span {
+                z-index: 301;
+                padding: 0 emCalc(6px) 0 emCalc(36px);
+                margin-left: emCalc(-30px);
+                font-size: 1.5em;
+                line-height: 1.5em;
+                color: $tertiary-color;
+                background: darken($secondary-color, 10%);
+                vertical-align: top;
+                @include side-radius('right', $global-radius);
+            }
+        }
+
+        time {
+            position: absolute;
+            top: -1.4em;
+            right: 0;
+            min-width: 3.8em;
+            height: 1.4em;
+            line-height: 1.4em;
+            margin: emCalc(-7.5px) emCalc(-2.5px) 0 0;
+            padding: 0 0.3em;
+            font-size: 2em;
+            font-family: $header-font-family;
+            color: $tertiary-color;
+            border: 2px solid $secondary-color;
+            @include linear-gradient($secondary-color, darken($secondary-color, 20%));
+            @include radius($global-radius);
+            @include box-shadow(2px 2px 10px #aaa);
+            @include box-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
+        }
+    }
+}
+
+// general styling
+.button {
+    @include button-bevel();
+    @include radius();
+    behavior: url(/static/PIE.htc)
+}
+
+.close-reveal-modal {
+    text-decoration: none;
+
+    &:hover {
+        color: darken($reveal-close-color, 30%);
+    }
+}
+
+.errorlist {
+    @include form-error-message();
+    list-style: none;
+
+    // by default, foundation puts margin in input and negative margin in
+    // errors to glue then, we cleared the inputs margin and must clear the
+    // errorlist too
+    margin-top: 0;
+}
+
+html, body {
+    height: 100%;
+}
+#outer-wrapper {
+    min-height: 100%;
+    padding-bottom: 250px;
+    background: url(../images/bg-footer.png) $body-bg center bottom no-repeat fixed;
+}
+
+// Use heading 1 and heading 2 to titles outside modules (i.e. page title)
+h1, h2 {
+    color: #fffc00;
+    text-shadow: 0px 1px 1px #333;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    line-height: 1em;
+}
+
+table {
+    width: 100%;
+
+    tbody th, tbody td {
+        border-top: 1px solid $table-border-color;
+    }
+
+    .button {
+        margin: 0;
+    }
+
+    tr.empty-form:first-child { display: none }
+}
+
+#logo {
+    position: relative;
+    display: block;
+    width: 320px;
+    height: 119px;
+    margin: 0 135px;
+    background: url(../images/logo.png) left top no-repeat scroll;
+    text-indent: -5000%;
+    overflow: hidden;
+}
+// logo is static in pages with menu
+#logo.decorated {
+    background-image: url(../images/logo-home.png);
+    width: 417px;
+    height: 149px;
+    margin: 0 auto;
+}
+
+#main-menu {
+    // due the overflow: visible of the topbar, we can't sue radius on it, we
+    // mitigate it doing radius in the first and last buttons and clearing the
+    // bar bg
+    .top-bar, .top-bar-section, .top-bar-section > ul { background: transparent; }
+    .top-bar-section > ul > li { height: $topbar-height }
+    .top-bar-section > ul > li:first-child > a { @include radius(0 0 0 $global-radius); }
+    .top-bar-section > ul > li:last-child > a { @include radius(0 0 $global-radius 0); }
+
+    .top-bar {
+        float: right;
+
+        & a {
+            text-decoration: none;
+        }
+    }
+
+    .whois {
+        clear: right;
+        font-size: emCalc(12px);
+        padding-left: 1em;
+        text-align: right;
+    }
+
+    @media (max-width: 800px) {
+        .top-bar {
+            height: auto !important;
+        }
+    }
+}
+
+// use title wrappers to put buttons and labels after titles vertically aligned
+// and outside his context
+.title-wrapper {
+    h1, h2, h3, h4, h5, h6 {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    a, span {
+        margin: 0 0 0 1em;
+    }
+}
+
+#messages {
+    @include grid-row();
+
+    ul {
+        @include grid-column(12);
+    }
+
+    li {
+        @include alert-base();
+        @include radius();
+
+        &.error { @include alert-style($alert-color); }
+        &.success { @include alert-style($success-color); }
+        &.warning { @include alert-style($warning-color); }
+    }
+}
+
+.section-container.accordion {
+    border: 0;
+
+    section {
+        & + section {
+            border-top: 1px dotted lighten($anchor-font-color, 50%);
+        }
+
+        .title  {
+            background: transparent;
+            border: 0;
+            line-height: emCalc(30px);
+
+            &:hover { background: transparent; }
+
+            a {
+                color: $anchor-font-color;
+                text-decoration: $anchor-text-decoration;
+                padding: 0;
+
+                &:hover {
+                    color: $anchor-font-color-hover;
+                }
+
+                &:before {
+                    @include css-triangle(8px, $anchor-font-color, left);
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: emCalc(12px);
+                }
+            }
+        }
+
+        .content {
+            border: 0;
+        }
+    }
+
+    section.active .title {
+        background: transparent;
+
+        a:before {
+            @include css-triangle(8px, $anchor-font-color, top);
+            display: inline-block;
+            vertical-align: bottom;
+        }
+    }
+}
+
+.pagination li.count a {
+    color:  #1c7393;
+    font-weight: bold;
+    cursor: default;
+}
+
+// components
+@import "informations.scss";
+@import "login.scss";
+@import "forms.scss";
+@import "excluded_dates.scss";
+@import "breadcrumbs.scss";
+@import "klasses.scss";
+@import "exercises/main.scss";

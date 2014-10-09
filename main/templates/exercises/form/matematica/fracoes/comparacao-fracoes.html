@@ -1,0 +1,26 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+{% with questions.operator|first as operator %}
+<p>Qual das frações abaixo é a <strong>{{ operator.value }}</strong>?</p>
+{% endwith %}
+
+<div class="row">
+    <div class="small-6 columns">
+        <small data-fraction>{% for q in questions.fraction1 %}{{ q.value }}{% if not forloop.last %}/{% endif %}{% endfor %}</small>
+        <canvas class="pie"{% for q in questions.fraction1 %} data-term{{ forloop.counter }}="{{ q.value }}"{% endfor %}></canvas>
+    </div>
+    <div class="small-6 columns">
+        <small data-fraction>{% for q in questions.fraction2 %}{{ q.value }}{% if not forloop.last %}/{% endif %}{% endfor %}</small>
+        <canvas class="pie"{% for q in questions.fraction2 %} data-term{{ forloop.counter }}="{{ q.value }}"{% endfor %}></canvas>
+    </div>
+</div>
+{% endblock %}
+
+{% block choice_description %}
+<small data-fraction>{{ choice }}</small>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">{% trans 'Start' %}</a></li>
+    <li><a href="{% url 'admin:app_list' 'clients' %}">{% trans 'Clients' %}</a></li>
+    <li><a href="{% url 'admin:clients_client_changelist' %}">{% trans 'Clients' %}</a></li>
+    <li>Importar Clientes</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<p>Escolha um arquivo CSV (comma separated values ou valores separados por vírgula) que respeite o <a href="{{ STATIC_URL }}import_sample.xlsx">modelo disponível</a>:</p>
+<br/>
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+    <fieldset class="grp-module">
+    <div class="grp-row grp-cells-1"><div class="l-2c-fluid l-d-4">
+        <div class="c-1"><label class="required">Arquivo:</label></div>
+        <div class="c-2">
+            {{ form.csv_data }}
+            {% if form.csv_data.errors %}
+                <br style="clear: both;"><br>
+                {{ form.csv_data.errors }}
+            {% endif %}
+        </div>
+    </div></div>
+    </fieldset>
+
+    <div class="grp-module grp-submit-row grp-fixed-footer">
+        <ul>
+            <li><input type="submit" value="Enviar" class="grp-button grp-default"/></li>
+        </ul>
+    </div>
+</form>
+{% endblock %}

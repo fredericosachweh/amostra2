@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block menu %}
+<li><a href="{% url 'teacher:klass-list' %}">Turmas</a></li>
+<li><a href="{% url 'excludeddates:teacher-disambiguation' %}">Datas sem atividades</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'teacher:klass-list' %}">Programas e turmas</a></li>
+<li><a href="{% url 'teacher:klass-dashboard' pk=klass.pk %}">{{ klass }}</a></li>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/base.js"></script>
+<script src="{{ STATIC_URL }}javascripts/excluded_dates.js"></script>
+<script src="{{ STATIC_URL }}javascripts/datepicker.js"></script>
+{% endblock %}

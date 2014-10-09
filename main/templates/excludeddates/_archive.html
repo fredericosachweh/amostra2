@@ -1,0 +1,42 @@
+<h1>Datas sem atividades</h1>
+
+<div class="module" id="excluded-dates">
+    <a class="button left" data-action="navigate-month"
+       href="{{ archive_url }}?year={{ previous_month|date:'Y' }}&month={{ previous_month|date:'m' }}"
+       >anterior</a>
+    <a class="button right" data-action="navigate-month"
+       href="{{ archive_url }}?year={{ next_month|date:'Y' }}&month={{ next_month|date:'m' }}">próximo</a>
+
+    <h3 class="text-center">Em {{ month|date:"b/Y" }}{% if client %} - {{ client }}{% endif %}</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dom</th>
+                <th>Seg</th>
+                <th>Ter</th>
+                <th>Qua</th>
+                <th>Qui</th>
+                <th>Sex</th>
+                <th>Sab</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for week in date_list %}
+            <tr>
+                {% for item in week %}
+                {% spaceless %}
+                <td class="{{ item.state }}">
+                    <a data-action="toggle-date"
+                       href="{{ toggle_url }}?year={{ month|date:'Y' }}&month={{ month|date:'m' }}&day={{ item.day }}"
+                       >{{ item.day|default:"" }}</a>
+                </td>
+                {% endspaceless %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "excludeddates/legend.html" %}
+</div>

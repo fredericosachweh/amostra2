@@ -1,0 +1,33 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<article class="content full answer">
+    {% block exercise_description %}
+    <p>{{ object.exercise.description }}</p>
+    {% endblock %}
+    <p>{% block response_callout %}Resposta:{% endblock %}</p>
+    {% with answers.0 as answer_chance %}
+    <ul{% block choices_params %}{% endblock %}>
+        {% for choice in answer_chance.answer.choice_set.correct %}
+        <li class="correct">{% block choice_description %}{{ choice }}{% endblock %}</li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content full answer">
+    {% block attempt_exercise_description %}
+    <p>{{ object.exercise.description }}</p>
+    {% endblock %}
+    <p>{% block attempt_response_callout %}Resposta:{% endblock %}</p>
+    {% with answers.0 as answer_chance %}
+    <ul{% block attempt_choices_params %}{% endblock %}>
+        {% for choice in answer_chance.choices.all %}
+        <li class="correct">{% block attempt_choice_description %}{{ choice }}{% endblock %}</li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</article>
+{% endblock %}

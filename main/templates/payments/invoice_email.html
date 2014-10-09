@@ -1,0 +1,11 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Nota fiscal de pagamento</h3>
+
+<p>Imprima a nota fiscal referente ao pagamento abaixo:</p>
+
+<p>{{ payment }}</p>
+
+<p><a href="{{ payment.invoice_file.url }}">Imprimir nota</a></p>
+{% endblock content %}

@@ -1,0 +1,1672 @@
+[
+{
+ "pk": 1, 
+ "model": "exercises.matter", 
+ "fields": {
+  "name": "Matem\u00e1tica", 
+  "slug": "matematica"
+ }
+},
+{
+ "pk": 2, 
+ "model": "exercises.matter", 
+ "fields": {
+  "name": "Portugu\u00eas", 
+  "slug": "portugues"
+ }
+},
+{
+ "pk": 1, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "Note que o expoente ser\u00e1 como for especificado na importa\u00e7\u00e3o de dados. Se for especificado como zero, esperar\u00e1 um zero. Se for deixado em branco, esperar\u00e1 ser deixado em branco quando um aluno interagir.", 
+  "name": "Adi\u00e7\u00e3o", 
+  "slug": "adicao"
+ }
+},
+{
+ "pk": 3, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "Note que o corte define o empr\u00e9stimo e o emprestado. N\u00e3o \u00e9 necess\u00e1rio defini-los. O corte \u00e9 boleano, especifique valor 0 para quando n\u00e3o houver corte e valor 1 para quando houver.", 
+  "name": "Subtra\u00e7\u00e3o", 
+  "slug": "subtracao"
+ }
+},
+{
+ "pk": 4, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Multiplica\u00e7\u00e3o", 
+  "slug": "multiplicacao"
+ }
+},
+{
+ "pk": 5, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "N\u00fameros primos", 
+  "slug": "numeros-primos"
+ }
+},
+{
+ "pk": 6, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "N\u00fameros romanos", 
+  "slug": "numeros-romanos"
+ }
+},
+{
+ "pk": 7, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Divis\u00e3o", 
+  "slug": "divisao"
+ }
+},
+{
+ "pk": 8, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Express\u00f5es adi\u00e7\u00e3o e subtra\u00e7\u00e3o", 
+  "slug": "expressoes-adicao-subtracao"
+ }
+},
+{
+ "pk": 9, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Express\u00f5es multiplica\u00e7\u00e3o e divis\u00e3o", 
+  "slug": "expressoes-multiplicacao-divisao"
+ }
+},
+{
+ "pk": 10, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Fra\u00e7\u00f5es", 
+  "slug": "fracoes"
+ }
+},
+{
+ "pk": 11, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Unidades de medida", 
+  "slug": "unidades-de-medida"
+ }
+},
+{
+ "pk": 12, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Medidas de tempo", 
+  "slug": "medidas-de-tempo"
+ }
+},
+{
+ "pk": 13, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Figuras geom\u00e9tricas", 
+  "slug": "figuras-geometricas"
+ }
+},
+{
+ "pk": 14, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "\u00c1rea", 
+  "slug": "area"
+ }
+},
+{
+ "pk": 16, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Radicia\u00e7\u00e3o", 
+  "slug": "radiciacao"
+ }
+},
+{
+ "pk": 17, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Exponencia\u00e7\u00e3o", 
+  "slug": "exponenciacao"
+ }
+},
+{
+ "pk": 18, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Express\u00f5es potencia\u00e7\u00e3o e radicia\u00e7\u00e3o", 
+  "slug": "expressoes-potenciacao-radiciacao"
+ }
+},
+{
+ "pk": 19, 
+ "model": "exercises.subject", 
+ "fields": {
+  "matter": 1, 
+  "description": "", 
+  "name": "Geometria", 
+  "slug": "geometria"
+ }
+},
+{
+ "pk": 1, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Soma dois andares", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "soma-dois-andares", 
+  "subject": 1
+ }
+},
+{
+ "pk": 5, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "multiplicacao", 
+  "subject": 4
+ }
+},
+{
+ "pk": 6, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "MMC", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "mmc", 
+  "subject": 5
+ }
+},
+{
+ "pk": 7, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Subtra\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "subtracao", 
+  "subject": 3
+ }
+},
+{
+ "pk": 13, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Romano para decimal", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "romano-para-decimal", 
+  "subject": 6
+ }
+},
+{
+ "pk": 14, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "divisao", 
+  "subject": 7
+ }
+},
+{
+ "pk": 15, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Decimal para romano", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "decimal-para-romano", 
+  "subject": 6
+ }
+},
+{
+ "pk": 16, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o em ordem 3 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-subtracao-em-ordem-3-termos", 
+  "subject": 8
+ }
+},
+{
+ "pk": 17, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o em ordem 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "adicao-subtracao-em-ordem-4-termos", 
+  "subject": 8
+ }
+},
+{
+ "pk": 18, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o em ordem 5 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-subtracao-em-ordem-5-termos", 
+  "subject": 8
+ }
+},
+{
+ "pk": 19, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Tabuada", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "tabuada", 
+  "subject": 4
+ }
+},
+{
+ "pk": 20, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o por dezena, centena e milhar", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-por-dezena", 
+  "subject": 4
+ }
+},
+{
+ "pk": 21, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o 3 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-divisao-3-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 22, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "multiplicacao-divisao-4-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 23, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o 5 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-divisao-5-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 24, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o 6 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-divisao-6-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 25, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o fra\u00e7\u00f5es mesmo denominador", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-fracoes-mesmo-denominador", 
+  "subject": 10
+ }
+},
+{
+ "pk": 26, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Subtra\u00e7\u00e3o fra\u00e7\u00f5es mesmo denominador", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "subtracao-mesmo-denominador", 
+  "subject": 10
+ }
+},
+{
+ "pk": 27, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas - metros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "problemas-metros", 
+  "subject": 11
+ }
+},
+{
+ "pk": 28, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas - gramas", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "problemas-gramas", 
+  "subject": 11
+ }
+},
+{
+ "pk": 29, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas - litros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "problemas-litros", 
+  "subject": 11
+ }
+},
+{
+ "pk": 30, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Hora para minuto", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "hora-para-minuto", 
+  "subject": 12
+ }
+},
+{
+ "pk": 31, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Figura para fra\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": true, 
+  "slug": "figura-para-fracao", 
+  "subject": 10
+ }
+},
+{
+ "pk": 32, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o para figura", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-para-figura", 
+  "subject": 10
+ }
+},
+{
+ "pk": 33, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Compara\u00e7\u00e3o de fra\u00e7\u00f5es", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "comparacao-fracoes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 34, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Soma dois andares (decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "soma-dois-andares-decimal", 
+  "subject": 1
+ }
+},
+{
+ "pk": 35, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Subtra\u00e7\u00e3o (decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "subtracao-decimal", 
+  "subject": 3
+ }
+},
+{
+ "pk": 36, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Figura para fra\u00e7\u00e3o (por extenso)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "figura-para-fracao-extenso", 
+  "subject": 10
+ }
+},
+{
+ "pk": 37, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o para figura (por extenso)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-para-figura-extenso", 
+  "subject": 10
+ }
+},
+{
+ "pk": 38, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o de porcentagem", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-de-porcentagem", 
+  "subject": 10
+ }
+},
+{
+ "pk": 39, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o de porcentagem (por extenso)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-de-porcentagem-extenso", 
+  "subject": 10
+ }
+},
+{
+ "pk": 40, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o (decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-decimal", 
+  "subject": 4
+ }
+},
+{
+ "pk": 41, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Figura para fra\u00e7\u00e3o impr\u00f3pria", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "figura-para-fracao-impropria", 
+  "subject": 10
+ }
+},
+{
+ "pk": 42, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o impr\u00f3pria para figura", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-impropria-para-figura", 
+  "subject": 10
+ }
+},
+{
+ "pk": 43, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o impr\u00f3pria para n\u00famero misto", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-impropria-para-misto", 
+  "subject": 10
+ }
+},
+{
+ "pk": 44, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "N\u00famero misto para fra\u00e7\u00e3o impr\u00f3pria", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "misto-para-fracao-impropria", 
+  "subject": 10
+ }
+},
+{
+ "pk": 45, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00f5es equivalentes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracoes-equivalentes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 47, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00f5es Irredut\u00edveis", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracoes-irredutiveis", 
+  "subject": 10
+ }
+},
+{
+ "pk": 48, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o fra\u00e7\u00f5es denominadores diferentes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-fracoes-denominadores-diferentes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 49, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Subtra\u00e7\u00e3o fra\u00e7\u00f5es denominadores diferentes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "subtracao-fracoes-denominadores-diferentes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 50, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Escolha da fra\u00e7\u00e3o irredut\u00edvel", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "escolha-da-fracao-irredutivel", 
+  "subject": 10
+ }
+},
+{
+ "pk": 51, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o de fra\u00e7\u00e3o por inteiro", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-fracao-por-inteiro", 
+  "subject": 10
+ }
+},
+{
+ "pk": 52, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o de fra\u00e7\u00f5es", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-fracoes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 53, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o de fra\u00e7\u00f5es", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-fracoes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 54, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos quadrados", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-dos-quadrados", 
+  "subject": 14
+ }
+},
+{
+ "pk": 56, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "S\u00f3lidos geom\u00e9tricos para nome", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "solidos-geometricos-para-nome", 
+  "subject": 13
+ }
+},
+{
+ "pk": 57, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Nome para s\u00f3lidos geom\u00e9tricos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "nome-para-solidos-geometricos", 
+  "subject": 13
+ }
+},
+{
+ "pk": 58, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Faces de poliedros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "faces-de-poliedros", 
+  "subject": 13
+ }
+},
+{
+ "pk": 59, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Arestas de poliedros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "arestas-de-poliedros", 
+  "subject": 13
+ }
+},
+{
+ "pk": 60, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "V\u00e9rtices de poliedros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "vertices-de-poliedros", 
+  "subject": 13
+ }
+},
+{
+ "pk": 61, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Volume de poliedros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "volume-de-poliedros", 
+  "subject": 13
+ }
+},
+{
+ "pk": 62, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Figuras geom\u00e9tricas planas para nome", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "figuras-geometricas-planas-para-nome", 
+  "subject": 13
+ }
+},
+{
+ "pk": 63, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o de fra\u00e7\u00e3o por inteiro", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-fracao-por-inteiro", 
+  "subject": 10
+ }
+},
+{
+ "pk": 65, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Nome para figuras geom\u00e9tricas planas", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "nome-para-figuras-geometricas-planas", 
+  "subject": 13
+ }
+},
+{
+ "pk": 66, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o (resposta decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-resposta-decimal", 
+  "subject": 7
+ }
+},
+{
+ "pk": 67, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o (decimal por inteiro)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-decimal-por-inteiro", 
+  "subject": 4
+ }
+},
+{
+ "pk": 68, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00edvel por n", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisivel-por-n", 
+  "subject": 7
+ }
+},
+{
+ "pk": 69, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Raiz quadrada", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "raiz-quadrada", 
+  "subject": 16
+ }
+},
+{
+ "pk": 70, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Potencia\u00e7\u00e3o de inteiros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "potenciacao-de-inteiros", 
+  "subject": 17
+ }
+},
+{
+ "pk": 71, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divisor de n", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisor-de-n", 
+  "subject": 7
+ }
+},
+{
+ "pk": 73, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Per\u00edmetro dos quadrados", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "perimetro-dos-quadrados", 
+  "subject": 14
+ }
+},
+{
+ "pk": 74, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Soma tr\u00eas andares", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "soma-tres-andares", 
+  "subject": 1
+ }
+},
+{
+ "pk": 75, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Minuto para segundo", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "minuto-para-segundo", 
+  "subject": 12
+ }
+},
+{
+ "pk": 76, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o (decimal por inteiro)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-decimal-por-inteiro", 
+  "subject": 7
+ }
+},
+{
+ "pk": 77, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o para porcentagem", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-para-porcentagem", 
+  "subject": 10
+ }
+},
+{
+ "pk": 78, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Porcentagem para fra\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "porcentagem-para-fracao", 
+  "subject": 10
+ }
+},
+{
+ "pk": 79, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Decomposi\u00e7\u00e3o em fatores primos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "decomposicao-em-fatores-primos", 
+  "subject": 5
+ }
+},
+{
+ "pk": 80, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o com parenteses 3 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-subtracao-parenteses-3-termos", 
+  "subject": 8
+ }
+},
+{
+ "pk": 81, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o com parenteses 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-e-subtracao-com-parenteses-4-termos", 
+  "subject": 8
+ }
+},
+{
+ "pk": 82, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o com parenteses 3 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-divisao-parenteses-3-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 83, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o e divis\u00e3o com parenteses 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-divisao-parenteses-4-termos", 
+  "subject": 9
+ }
+},
+{
+ "pk": 84, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Potencia\u00e7\u00e3o e radicia\u00e7\u00e3o 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "potenciacao-radiciacao-4-termos", 
+  "subject": 18
+ }
+},
+{
+ "pk": 85, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Crit\u00e9rios de divisibilidade", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "criterios-divisibilidade", 
+  "subject": 7
+ }
+},
+{
+ "pk": 86, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o decimal", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-decimal", 
+  "subject": 7
+ }
+},
+{
+ "pk": 87, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o de 3 fra\u00e7\u00f5es mesmo denominador", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-3-fracoes-mesmo-denominador", 
+  "subject": 10
+ }
+},
+{
+ "pk": 88, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Subtra\u00e7\u00e3o de 3 fra\u00e7\u00f5es mesmo denominador", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "subtracao-3-fracoes-mesmo-denominador", 
+  "subject": 10
+ }
+},
+{
+ "pk": 89, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o de 3 fra\u00e7\u00f5es", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-3-fracoes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 90, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Multiplica\u00e7\u00e3o de decimal por dezena, centena e milhar", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "multiplicacao-decimal-por-dezena-centena-e-milhar", 
+  "subject": 4
+ }
+},
+{
+ "pk": 91, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Divis\u00e3o de decimal por dezena, centena e milhar", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "divisao-de-decimal-por-dezena-centena-e-milhar", 
+  "subject": 7
+ }
+},
+{
+ "pk": 92, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas fracion\u00e1rios - metros", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "problemas-fracionarios-metros", 
+  "subject": 11
+ }
+},
+{
+ "pk": 93, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Per\u00edmetro dos quadrados (decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "perimetro-dos-quadrados-decimal", 
+  "subject": 14
+ }
+},
+{
+ "pk": 94, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas - metros quadrados", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "problemas-metros-quadrados", 
+  "subject": 11
+ }
+},
+{
+ "pk": 95, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos tri\u00e2ngulos is\u00f3sceles", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-triangulos-isosceles", 
+  "subject": 14
+ }
+},
+{
+ "pk": 96, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos paralelogramos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-paralelogramos", 
+  "subject": 14
+ }
+},
+{
+ "pk": 97, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea de figura em malha", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-figura-malha", 
+  "subject": 14
+ }
+},
+{
+ "pk": 98, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Soma tr\u00eas andares (decimal)", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "soma-tres-andares-decimal", 
+  "subject": 1
+ }
+},
+{
+ "pk": 99, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Figura para tri\u00e2ngulo ou quadril\u00e1tero", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "figura-para-triangulo-ou-quadrilatero", 
+  "subject": 13
+ }
+},
+{
+ "pk": 100, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Fra\u00e7\u00e3o para decimal", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "fracao-para-decimal", 
+  "subject": 10
+ }
+},
+{
+ "pk": 101, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Decimal para fra\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "decimal-para-fracao", 
+  "subject": 10
+ }
+},
+{
+ "pk": 102, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Retas paralelas, perpendiculares e secantes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "retas-paralelas-perpendiculares-secantes", 
+  "subject": 19
+ }
+},
+{
+ "pk": 103, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos tri\u00e2ngulos ret\u00e2ngulos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-triangulos-retangulos", 
+  "subject": 14
+ }
+},
+{
+ "pk": 104, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Encontre o n\u00famero primo", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "encontre-numero-primo", 
+  "subject": 5
+ }
+},
+{
+ "pk": 105, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Potencia\u00e7\u00e3o e radicia\u00e7\u00e3o com par\u00eanteses 4 termos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "potenciacao-e-radiciacao-com-parenteses-4-termos", 
+  "subject": 18
+ }
+},
+{
+ "pk": 106, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "MDC", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "mdc", 
+  "subject": 5
+ }
+},
+{
+ "pk": 107, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Medida de segmentos de reta", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "reta-e-segmento", 
+  "subject": 19
+ }
+},
+{
+ "pk": 108, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Identifique segmentos congruentes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "identifique-segmentos-congruentes", 
+  "subject": 19
+ }
+},
+{
+ "pk": 109, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Identifique segmentos consecutivos e colineares", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "identifique-segmentos-consecutivos-colineares", 
+  "subject": 19
+ }
+},
+{
+ "pk": 110, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Per\u00edmetro de figura em malha", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "perimetro-figura-malha", 
+  "subject": 14
+ }
+},
+{
+ "pk": 111, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos quadrados e ret\u00e2ngulos", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-quadrados-retangulos", 
+  "subject": 14
+ }
+},
+{
+ "pk": 112, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "\u00c1rea dos trap\u00e9zios", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "area-trapezios", 
+  "subject": 14
+ }
+},
+{
+ "pk": 113, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Problemas - quilates e toneladas", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "problemas-quilates-toneladas", 
+  "subject": 11
+ }
+},
+{
+ "pk": 114, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o de 3 fra\u00e7\u00f5es mesmo denominador", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-subtracao-3-fracoes-mesmo-denominador", 
+  "subject": 10
+ }
+},
+{
+ "pk": 115, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Adi\u00e7\u00e3o e subtra\u00e7\u00e3o de 3 fra\u00e7\u00f5es denominadores diferentes", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "adicao-subtracao-3-fracoes-denom-diferentes", 
+  "subject": 10
+ }
+},
+{
+ "pk": 116, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Conte os segmentos de reta da figura", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "conte-segmentos-de-reta", 
+  "subject": 19
+ }
+},
+{
+ "pk": 118, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Express\u00f5es potencia\u00e7\u00e3o/radicia\u00e7\u00e3o adi\u00e7\u00e3o/subtra\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "expressoes-potenciacao-radiciacao-adicao-subtracao", 
+  "subject": 18
+ }
+},
+{
+ "pk": 119, 
+ "model": "exercises.category", 
+ "fields": {
+  "name": "Express\u00f5es potencia\u00e7\u00e3o radiciacao multiplica\u00e7\u00e3o", 
+  "sites": [
+   1
+  ], 
+  "matter": 1, 
+  "eligible_for_demos": false, 
+  "slug": "expressoes-potenciacao-radiciacao-multiplicacao", 
+  "subject": 18
+ }
+}
+]

@@ -1,0 +1,39 @@
+<div class="module">
+    <a href="#" data-dropdown="dropdown-{{ object.pk }}" class="button right dropdown">Ações</a>
+    <ul id="dropdown-{{ object.pk }}" class="f-dropdown">
+        <li><a href="{% url 'payments:payment-list' contract_pk=object.id %}">Financeiro</a></li>
+        <li><a href="{% url 'manager:klass-create' contract_pk=object.id %}" data-action="klass-create">Adicionar turma</a></li>
+    </ul>
+
+    <div class="title-wrapper">
+        <h3>{{ object }} / <small>{{ object.client }}</small></h3>
+        {% if object.pending_payment %}
+            <a class="label alert radius" href="{% url 'payments:payment-list' contract_pk=object.id %}">Pendente</a>
+        {% endif %}
+    </div>
+
+    <div class="section-container accordion" data-section="accordion">
+        <section>
+            <p class="title" data-section-title><a href="#">Ver turmas (<span>{{ object.klass_set.count }}</span>)</a></p>
+            <div class="content" data-section-content>
+                <table>
+                    <thead>
+                        <th>Turma</th>
+                        <th>Alunos</th>
+                        <th>Professor</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                    {% for klass in object.klass_set.all %}
+                    {% include "managers/clients/klass_detail_ajax.html" %}
+                    {% empty %}
+                    <tr class="empty">
+                        <td colspan="4">Nenhuma turma cadastrada.</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>{# /accordion #}
+</div>{# /module #}

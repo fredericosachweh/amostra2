@@ -1,0 +1,14 @@
+{% extends "exercises/detail/matematica/fracoes/figura-para-fracao.html" %}
+{% load exercises_extras %}
+
+{% block choices_params %}{% endblock %}
+
+{% block choice_description %}
+{{ choice|fraction_name }}
+{% endblock %}
+
+{% block attempt_choices_params %}{% endblock %}
+
+{% block attempt_choice_description %}
+{{ choice|fraction_name }}
+{% endblock %}

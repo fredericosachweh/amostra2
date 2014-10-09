@@ -1,0 +1,8 @@
+<form action="{% url 'manager:klass-delete' pk=object.id contract_pk=object.contract.id %}" method="post" class="ajax-form">{% csrf_token %}
+    <h3>Remover turma?</h3>
+    <p>Tem certeza que deseja apagar a turma {{ object }}?</p>
+    <p>
+        <button class="button" type="submit">Sim</button>
+        <a href="#" class="button" data-reveal-close>Não</a>
+    </p>
+</form>

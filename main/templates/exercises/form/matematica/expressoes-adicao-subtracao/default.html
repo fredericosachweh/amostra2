@@ -1,0 +1,49 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% for f in answers %}
+    <div class="line child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object> 
+        {{ f.answer }}{{ f.value }}
+    </div>
+    {% endfor %}
+</article>
+{% endblock exercise_content %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+function decorateInput(input, tabindex) {
+    if(input.data('decorated'))
+        return;
+
+    var spans = input.parent().parent().find('.line:first-child span').slice(2 + tabindex * 2);
+    spans.clone().appendTo(input.parent());
+
+    var decor = input.parent().find('object, img')
+    decor.css('visibility', 'visible');
+
+    input.data('decorated', true);
+}
+$(document).ready(function() {
+    var decor = $('#exercise form .child object, #exercise form .child img')
+    decor.css('visibility', 'hidden');
+
+    var inputs = $('#exercise form input[tabindex]');
+    inputs.focus(function() {
+        var next = parseInt($(this).attr('tabindex')) + 1;
+        var next_elem = inputs.filter('[tabindex="' + next + '"]');
+        decorateInput(next_elem, next);
+    });
+
+    decorateInput(inputs.filter('[tabindex="1"]'), 1);
+});
+</script>
+{% endblock %}

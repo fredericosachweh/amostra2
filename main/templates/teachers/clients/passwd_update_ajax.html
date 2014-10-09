@@ -1,0 +1,31 @@
+<form method="post" action="{% url 'teacher:passwd-update' pk=klass.pk %}">{% csrf_token %}
+    {% if form.students.errors %}
+    <div class="alert-box alert">Escolha um ou mais alunos para redefinir a senha.</div>
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="check-all"></th>
+                <th>Aluno</th>
+                <th>Último login</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in object.students.all %}
+            <tr>
+                <td><input type="checkbox" name="{{ form.students.name }}" value="{{ user.pk }}"/></td>
+                <td>{{ user.get_full_name }}</td>
+                <td>{% if user.last_login|date:"DATETIME_FORMAT" != user.date_joined|date:"DATETIME_FORMAT" %}
+                    {{ user.last_login|timesince }}
+                    {% else %}
+                    --
+                    {% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit" class="button">Salvar</button>
+</form>

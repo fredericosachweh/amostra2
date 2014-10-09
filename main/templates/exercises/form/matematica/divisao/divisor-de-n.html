@@ -1,0 +1,11 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+    {% with questions|first as term %}
+    <p>O número <small>{{ term.value }}</small> é divisível por qual número abaixo?</p>
+    {% endwith %}
+{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice }}</small>
+{% endblock %}

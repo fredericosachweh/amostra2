@@ -1,0 +1,29 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Turmas com pagamento atrasado</h3>
+
+<p>Ol&aacute;, Consta pagamento(s) atrasado(s) para a(s) turma(s) abaixo:<p>
+{% regroup klasses by contract.client as contract_klasses %}
+<table width="550">
+    <thead>
+        <tr align="left">
+            <th>Cliente</th>
+            <th>Turma(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for group in contract_klasses %}
+            <tr>
+                <td>{{ group.grouper }}</td> 
+                <td>{{ group.list|join:", " }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<p>Acesse sua conta em <a href="http://{{ site.domain }}">{{ site.domain }}</a> para visualiz&aacute;-las.</p>
+
+<p>A equipe do <a href="http://{{ site.domain }}/">Mainiti</a> agradece.</p>
+{% endblock content %}

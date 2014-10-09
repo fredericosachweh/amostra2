@@ -1,0 +1,1525 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-23 11:28-0300\n"
+"Language: pt-br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: accounts/models.py:29 exercises/models.py:734
+msgid "user"
+msgstr "usuário"
+
+#: accounts/models.py:32
+msgid "user profile"
+msgstr "perfil de usuário"
+
+#: accounts/models.py:33
+msgid "user profiles"
+msgstr "perfis de usuário"
+
+#: accounts/models.py:58
+msgid "Student"
+msgstr "Aluno"
+
+#: accounts/models.py:59
+msgid "Teacher"
+msgstr "Professor"
+
+#: accounts/models.py:60
+msgid "Manager"
+msgstr "Gerente"
+
+#: accounts/views.py:50
+msgid "User account update successful"
+msgstr "Conta de usuário atualizada com sucesso"
+
+#: clients/admin.py:50
+#, python-brace-format
+msgid "You need at least one person performing the roles: {0}."
+msgstr "Voce necessita de ao menos uma pessoa efetuando as funções: {0}."
+
+#: clients/admin.py:114
+#, python-brace-format
+msgid "<a href=\"{0}\">Send&nbsp;demonstration</a>"
+msgstr "<a href=\"{0}\">Enviar&nbsp;demonstração</a>"
+
+#: clients/admin.py:116
+msgid "Demonstration expired"
+msgstr "Demonstração expirada"
+
+#: clients/admin.py:123 demonstrations/forms.py:62
+msgid "CNPJ Number"
+msgstr "Número de CNPJ"
+
+#: clients/admin.py:125
+msgid "State"
+msgstr "Estado"
+
+#: clients/admin.py:130
+msgid "Phones"
+msgstr "Telefones"
+
+#: clients/admin.py:180
+msgid "Address Information"
+msgstr "Informações de Endereço"
+
+#: clients/forms.py:19
+msgid "Key"
+msgstr "Chave"
+
+#: clients/forms.py:26
+msgid "Klass key not found"
+msgstr "Chave de classe não encontrada"
+
+#: clients/forms.py:40
+msgid "select a client..."
+msgstr "selecione um cliente..."
+
+#: clients/forms.py:62
+msgid "select a teacher..."
+msgstr "selecione um professor..."
+
+#: clients/forms.py:63
+msgid ""
+"The class will be operated by a teacher but you can leave this field blank "
+"until the teacher is registered."
+msgstr ""
+"A será operada por um professor mas você pode deixar este campo em branco "
+"até ele estar registrado."
+
+#: clients/forms.py:88 clients/models.py:27 clients/models.py:203
+#: clients/models.py:282 clients/models.py:296 exercises/models.py:39
+#: exercises/models.py:52 exercises/models.py:76 exercises/models.py:385
+#: exercises/models.py:405
+msgid "name"
+msgstr "nome"
+
+#: clients/forms.py:89 clients/models.py:297
+msgid "e-mail"
+msgstr "e-mail"
+
+#: clients/forms.py:108
+msgid "There is already a teacher with this email in your company."
+msgstr "Já existe um professor com este e-mail em sua empresa."
+
+#: clients/forms.py:114
+msgid "Program"
+msgstr "Programa"
+
+#: clients/forms.py:120
+msgid "Start date"
+msgstr "Data de início"
+
+#: clients/forms.py:125
+msgid "End date"
+msgstr "Data de fim"
+
+#: clients/forms.py:130
+msgid "Modules"
+msgstr "Módulos"
+
+#: clients/forms.py:156
+msgid "Students"
+msgstr "Alunos"
+
+#: clients/forms.py:167
+#, python-brace-format
+msgid "You cannot set more than {0} students."
+msgstr "Você não pode definir mais que {0} alunos."
+
+#: clients/forms.py:173
+#, python-brace-format
+msgid "The name {0} appears more than once."
+msgstr "O nome {0} é usado mais de uma vez."
+
+#: clients/forms.py:197
+msgid "Name"
+msgstr "Nome"
+
+#: clients/forms.py:201 main/templates/admin/clients/clients_import.html:6
+#: main/templates/admin/clients/invoice_data.html:6
+#: main/templates/admin/demonstrations/demonstration_send.html:6
+msgid "Start"
+msgstr "Início"
+
+#: clients/forms.py:202
+msgid "End"
+msgstr "Fim"
+
+#: clients/forms.py:230
+#, python-brace-format
+msgid "Expected {exp} columns, found {fnd} at line {line}."
+msgstr "Esperado {exp} colunas, encontrado {fnd} na linha {line}."
+
+#: clients/forms.py:238
+#, python-brace-format
+msgid "Name cannot be blank at line: {0}"
+msgstr "Nome não pode estar em branco na linha: {0}"
+
+#: clients/forms.py:248
+#, python-brace-format
+msgid "Error found on CNPJ at line: {0}."
+msgstr "Erro encontrado em CNPJ na linha: {0}"
+
+#: clients/forms.py:250
+#, python-brace-format
+msgid "CNPJ already exists at line: {0}."
+msgstr "CNPJ já existe em linha: {0}."
+
+#: clients/forms.py:258
+#, python-brace-format
+msgid "Error found on the email at line: {0}."
+msgstr "Erro encontrado no e-mail na linha: {0}"
+
+#: clients/forms.py:264
+#, python-brace-format
+msgid "State must be with 2 characters length at line: {0}."
+msgstr "O estado precisa ter 2 caractéres na linha: {0}"
+
+#: clients/models.py:14
+msgid "Suspect"
+msgstr "Suspect"
+
+#: clients/models.py:15
+msgid "Prospect"
+msgstr "Prospect"
+
+#: clients/models.py:16
+msgid "Lead"
+msgstr "Lead"
+
+#: clients/models.py:17
+msgid "Active"
+msgstr "Ativo"
+
+#: clients/models.py:18
+msgid "Frozen"
+msgstr "Congelado"
+
+#: clients/models.py:19
+msgid "Inactive"
+msgstr "Inativo"
+
+#: clients/models.py:20
+msgid "Suspended"
+msgstr "Suspenso"
+
+#: clients/models.py:21
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: clients/models.py:22
+msgid "Removed"
+msgstr "Removido"
+
+#: clients/models.py:28 followup/models.py:44
+msgid "responsible"
+msgstr "responsável"
+
+#: clients/models.py:29
+msgid "managers"
+msgstr "gestores"
+
+#: clients/models.py:30 clients/models.py:146
+msgid "teachers"
+msgstr "professores"
+
+#: clients/models.py:31
+msgid "company name"
+msgstr "razão social"
+
+#: clients/models.py:32
+msgid "CNPJ number"
+msgstr "número de CNPJ"
+
+#: clients/models.py:33
+msgid "phones"
+msgstr "telefones"
+
+#: clients/models.py:34
+msgid "email"
+msgstr "e-mail"
+
+#: clients/models.py:35
+#, fuzzy
+msgid "site"
+msgstr "site"
+
+#: clients/models.py:36
+msgid "address"
+msgstr "endereço"
+
+#: clients/models.py:37 clients/models.py:107 exercises/models.py:904
+#: payments/admin.py:76
+msgid "number"
+msgstr "número"
+
+#: clients/models.py:38
+msgid "complement"
+msgstr "complemento"
+
+#: clients/models.py:39
+msgid "quarter"
+msgstr "bairro"
+
+#: clients/models.py:40
+msgid "postal code"
+msgstr "cep"
+
+#: clients/models.py:41
+msgid "city"
+msgstr "cidade"
+
+#: clients/models.py:42
+msgid "state"
+msgstr "estado"
+
+#: clients/models.py:43
+msgid "status"
+msgstr "status"
+
+#: clients/models.py:44
+msgid "has agreed with contract?"
+msgstr "concordou com o contrato?"
+
+#: clients/models.py:46
+msgid "external source"
+msgstr "fonte externa"
+
+#: clients/models.py:47
+msgid "external code"
+msgstr "código externo"
+
+#: clients/models.py:48
+msgid "administrative structure"
+msgstr "estrutura administrativa"
+
+#: clients/models.py:49
+msgid "private school category"
+msgstr "categoria de escola privada"
+
+#: clients/models.py:52 clients/models.py:106 clients/models.py:295
+#: demonstrations/models.py:26 excludeddates/models.py:53
+#: exercises/models.py:581 followup/models.py:34 payments/admin.py:72
+msgid "client"
+msgstr "cliente"
+
+#: clients/models.py:53
+msgid "clients"
+msgstr "clientes"
+
+#: clients/models.py:95
+#, python-brace-format
+msgid "Status changed from {0} to {1}."
+msgstr "Status modificado de {0} para {1}"
+
+#: clients/models.py:108 demonstrations/models.py:27 exercises/models.py:149
+msgid "created at"
+msgstr "data de criação"
+
+#: clients/models.py:109
+msgid "document"
+msgstr "documento"
+
+#: clients/models.py:110
+msgid "classes count"
+msgstr "número de turmas"
+
+#: clients/models.py:111
+msgid "day of payment"
+msgstr "data de pagamento"
+
+#: clients/models.py:112
+msgid "any pending payment?"
+msgstr "algum pagamento pendente?"
+
+#: clients/models.py:115 clients/models.py:202 exercises/models.py:582
+#: payments/models.py:28
+msgid "contract"
+msgstr "contrato"
+
+#: clients/models.py:116
+msgid "contracts"
+msgstr "contratos"
+
+#: clients/models.py:140 clients/models.py:145 clients/models.py:205
+#: excludeddates/models.py:65
+msgid "teacher"
+msgstr "professor"
+
+#: clients/models.py:141
+msgid "is confirmed?"
+msgstr "está confirmado?"
+
+#: clients/models.py:204
+msgid "max students"
+msgstr "número máx. de alunos"
+
+#: clients/models.py:206 exercises/models.py:578
+msgid "end date"
+msgstr "data de fim"
+
+#: clients/models.py:206 exercises/models.py:578
+msgid "E.g.: the end of school year."
+msgstr "Ex.: final do ano letivo."
+
+#: clients/models.py:207
+msgid "students"
+msgstr "alunos"
+
+#: clients/models.py:208
+msgid "students count"
+msgstr "número de alunos"
+
+#: clients/models.py:209
+msgid "password list printed at"
+msgstr "lista de senha impressa em"
+
+#: clients/models.py:211
+msgid "key"
+msgstr "chave"
+
+#: clients/models.py:212 payments/admin.py:80 payments/models.py:37
+msgid "cost"
+msgstr "custo"
+
+#: clients/models.py:217 exercises/models.py:575 payments/models.py:155
+msgid "class"
+msgstr "turma"
+
+#: clients/models.py:218 payments/models.py:35
+msgid "classes"
+msgstr "turmas"
+
+#: clients/models.py:283
+msgid "mandatory"
+msgstr "obrigatório"
+
+#: clients/models.py:284
+msgid ""
+"Mark this to force at least one person in this role when saving a client."
+msgstr ""
+"Marque esta opção para forçar ao menos uma pessoa nesta função ao salvar o "
+"cliente."
+
+#: clients/models.py:287
+msgid "role"
+msgstr "função"
+
+#: clients/models.py:288 clients/models.py:300
+msgid "roles"
+msgstr "funções"
+
+#: clients/models.py:298
+msgid "telephone"
+msgstr "telefone"
+
+#: clients/models.py:299
+msgid "cellphone"
+msgstr "celular"
+
+#: clients/models.py:303
+msgid "person"
+msgstr "pessoa"
+
+#: clients/models.py:304
+msgid "persons"
+msgstr "pessoas"
+
+#: clients/views/admin.py:29
+#, python-brace-format
+msgid "{0} clients imported successfuly."
+msgstr "{0} clientes importados com sucesso"
+
+#: clients/views/admin.py:35
+msgid "Import clients"
+msgstr "Importar clientes"
+
+#: clients/views/admin.py:48
+msgid "Invoice data"
+msgstr ""
+
+#: clients/views/managers/_klasses.py:26
+msgid "New class under your control"
+msgstr "Nova classe sob seu controle"
+
+#: clients/views/managers/_klasses.py:122
+msgid "Class deleted successfully!"
+msgstr "Turma removida com sucesso."
+
+#: clients/views/managers/_teachers.py:120
+#: demonstrations/views/purchases.py:139 demonstrations/views/purchases.py:211
+msgid "Welcome to Mainiti"
+msgstr "Bem-vindo ao Mainiti"
+
+#: demonstrations/forms.py:11
+msgid "Entity name"
+msgstr "Nome da entidade"
+
+#: demonstrations/forms.py:27
+msgid "Persons"
+msgstr "Pessoas"
+
+#: demonstrations/forms.py:31
+msgid "Greeting"
+msgstr "Saudação"
+
+#: demonstrations/forms.py:49
+msgid "I read and agree with terms"
+msgstr "Eu li e concordo com os termos"
+
+#: demonstrations/forms.py:54
+msgid "You must agree with the terms!"
+msgstr "Você precisa concordar com os termos!"
+
+#: demonstrations/forms.py:77
+msgid "I read and agree with contract"
+msgstr "Eu li e concordo com o contrato"
+
+#: demonstrations/forms.py:82
+msgid "You must agree with the contract!"
+msgstr "Você precisa concordar com o contrato!"
+
+#: demonstrations/forms.py:101
+msgid "Add at least one entry"
+msgstr "Adicione ao mesno uma entrada"
+
+#: demonstrations/forms.py:105
+msgid "Teacher name"
+msgstr "Nome do professor"
+
+#: demonstrations/forms.py:106
+msgid "Teacher email"
+msgstr "E-mail do professor"
+
+#: demonstrations/models.py:28
+msgid "valid until"
+msgstr "válido até"
+
+#: demonstrations/models.py:29
+msgid "has agreed with terms?"
+msgstr "concordou com os termos?"
+
+#: demonstrations/models.py:34
+msgid "demonstration"
+msgstr "demonstração"
+
+#: demonstrations/models.py:35
+msgid "demonstrations"
+msgstr "demonstrações"
+
+#: demonstrations/models.py:63 exercises/models.py:216 exercises/models.py:271
+#: exercises/models.py:442 exercises/models.py:848
+msgid "position"
+msgstr "posição"
+
+#: demonstrations/models.py:67
+msgid "category usage"
+msgstr "utilização de categoria"
+
+#: demonstrations/models.py:68
+msgid "categories usage"
+msgstr "utilizações de categoria"
+
+#: demonstrations/views/main.py:42
+msgid "Demonstration requested for a just registered client."
+msgstr "Requisição de demonstração para cliente recém-cadastrado."
+
+#: demonstrations/views/main.py:57
+msgid "Cannot send an expired demonstration!"
+msgstr "Não pode enviar uma demonstração expirada!"
+
+#: demonstrations/views/main.py:60
+msgid "There are no possible destinataries to send the demonstration!"
+msgstr "Não há destinatários possíveis para enviar a demonstração!"
+
+#: demonstrations/views/main.py:79
+#, python-brace-format
+msgid "{0} <{1}> (Institutional)"
+msgstr "{0} <{1}> (Institucional)"
+
+#: demonstrations/views/main.py:91
+msgid "Send demonstration"
+msgstr "Enviar demonstração"
+
+#: demonstrations/views/main.py:100
+msgid "Access your Mainiti's demonstration"
+msgstr "Acesse sua demonstração do Mainiti"
+
+#: demonstrations/views/main.py:109
+msgid "Demonstration sent with success!"
+msgstr "Demonstração enviada com sucesso!"
+
+#: demonstrations/views/main.py:235
+msgid ""
+"The client just done his demonstration, contact him to keep the negotiation."
+msgstr ""
+"O cliente acabou sua demonstração, entre em contato com ele para manter a "
+"negociação."
+
+#: demonstrations/views/purchases.py:52
+msgid "Client update successful"
+msgstr "Cliente atualizada com sucesso"
+
+#: demonstrations/views/purchases.py:77
+msgid "Service agreement contract"
+msgstr "Contrato de prestação de serviços"
+
+#: demonstrations/views/purchases.py:264
+msgid "The payment was updated, make sure you print the new version!"
+msgstr "O pagamento foi atualizado, certifique-se de imprimir a nova versão!"
+
+#: excludeddates/models.py:30 exercises/models.py:709 followup/models.py:40
+msgid "date"
+msgstr "data"
+
+#: excludeddates/models.py:45
+msgid "system excluded date"
+msgstr "data excluída pelo sistema"
+
+#: excludeddates/models.py:46
+msgid "system excluded dates"
+msgstr "datas excluídas pelo sistema"
+
+#: excludeddates/models.py:57
+msgid "client excluded date"
+msgstr "data excluída por cliente"
+
+#: excludeddates/models.py:58
+msgid "client excluded dates"
+msgstr "datas excluídas por cliente"
+
+#: excludeddates/models.py:69
+msgid "teacher excluded date"
+msgstr "data excluída por professor"
+
+#: excludeddates/models.py:70
+msgid "teacher excluded dates"
+msgstr "datas excluídas por professor"
+
+#: exercises/admin.py:56 exercises/models.py:81
+msgid "sites"
+msgstr "sites"
+
+#: exercises/admin.py:65 exercises/models.py:202 exercises/models.py:736
+msgid "exercises"
+msgstr "exercícios"
+
+#: exercises/admin.py:72
+msgid "upper limit 1"
+msgstr "limite superior 1"
+
+#: exercises/admin.py:76
+msgid "upper limit 2"
+msgstr "limite superior 2"
+
+#: exercises/admin.py:131
+#, python-format
+msgid "<a href=\"%s\">View on site</a>"
+msgstr "<a href=\"%s\">Ver no site</a>"
+
+#: exercises/admin.py:133
+msgid "view"
+msgstr "ver"
+
+#: exercises/models.py:19
+msgid "One line text"
+msgstr "Texto em uma linha"
+
+#: exercises/models.py:20
+msgid "Boolean option"
+msgstr "Opção boleana"
+
+#: exercises/models.py:21
+msgid "Multi line text"
+msgstr "Texto em múltiplas linhas"
+
+#: exercises/models.py:22
+msgid "Image"
+msgstr "Imagem"
+
+#: exercises/models.py:27
+msgid "Boolean"
+msgstr "Boleano"
+
+#: exercises/models.py:28
+msgid "Exact digit"
+msgstr "Dígito exato"
+
+#: exercises/models.py:29
+msgid "Exact digit or blank"
+msgstr "Dígito exato ou em branco"
+
+#: exercises/models.py:30
+msgid "Exact"
+msgstr "Exato"
+
+#: exercises/models.py:31
+msgid "Exact or blank"
+msgstr "Exato ou em branco"
+
+#: exercises/models.py:32
+msgid "Approximate"
+msgstr "Aproximado"
+
+#: exercises/models.py:33
+msgid "Single choice"
+msgstr "Uma opção"
+
+#: exercises/models.py:34
+msgid "Multiple choices"
+msgstr "Várias opções"
+
+#: exercises/models.py:40 exercises/models.py:53 exercises/models.py:77
+msgid "slug"
+msgstr "slug"
+
+#: exercises/models.py:46 exercises/models.py:51 exercises/models.py:72
+#: exercises/models.py:173 exercises/models.py:384
+msgid "matter"
+msgstr "matéria"
+
+#: exercises/models.py:47 exercises/models.py:445
+msgid "matters"
+msgstr "matérias"
+
+#: exercises/models.py:54 exercises/models.py:148 exercises/models.py:370
+#: exercises/models.py:386
+msgid "description"
+msgstr "descrição"
+
+#: exercises/models.py:60 exercises/models.py:70 exercises/models.py:179
+msgid "subject"
+msgstr "assunto"
+
+#: exercises/models.py:61 exercises/models.py:450
+msgid "subjects"
+msgstr "assuntos"
+
+#: exercises/models.py:78
+msgid "eligible for demonstrations?"
+msgstr "elegível para demonstrações?"
+
+#: exercises/models.py:89 exercises/models.py:99 exercises/models.py:115
+#: exercises/models.py:140 exercises/models.py:498
+msgid "category"
+msgstr "categoria"
+
+#: exercises/models.py:90 exercises/models.py:454
+msgid "categories"
+msgstr "categorias"
+
+#: exercises/models.py:100 exercises/models.py:116 exercises/models.py:215
+#: exercises/models.py:270
+msgid "type"
+msgstr "tipo"
+
+#: exercises/models.py:101 exercises/models.py:117
+msgid "group name"
+msgstr "nome do grupo"
+
+#: exercises/models.py:102 exercises/models.py:118
+msgid "group short name"
+msgstr "nome curto do grupo"
+
+#: exercises/models.py:104 exercises/models.py:120
+msgid "Short group name for data importing."
+msgstr "Nome curto do grupo para importação de dados."
+
+#: exercises/models.py:110
+msgid "question type"
+msgstr "tipo de pergunta"
+
+#: exercises/models.py:111
+msgid "question types"
+msgstr "tipos de pergunta"
+
+#: exercises/models.py:123
+msgid "next group"
+msgstr "próximo grupo"
+
+#: exercises/models.py:127
+msgid "answer type"
+msgstr "tipo de resposta"
+
+#: exercises/models.py:128
+msgid "answer types"
+msgstr "tipos de resposta"
+
+#: exercises/models.py:141 exercises/models.py:509
+msgid "tags"
+msgstr "tags"
+
+#: exercises/models.py:145 exercises/models.py:510
+msgid "Comma separated list of tags to be more specific than category"
+msgstr ""
+"Lista de tags separada por vírgula para melhor especificar uma categoria"
+
+#: exercises/models.py:151
+msgid "times used"
+msgstr "vezes que foi usada"
+
+#: exercises/models.py:152
+msgid "is public?"
+msgstr "é público?"
+
+#: exercises/models.py:156
+msgid "filter 1"
+msgstr "filtro 1"
+
+#: exercises/models.py:163
+msgid "filter 2"
+msgstr "filtro 2"
+
+#: exercises/models.py:201 exercises/models.py:214 exercises/models.py:269
+#: exercises/models.py:847 exercises/models.py:910
+msgid "exercise"
+msgstr "exercício"
+
+#: exercises/models.py:217 exercises/models.py:273
+msgid "group"
+msgstr "grupo"
+
+#: exercises/models.py:218
+msgid "one line text"
+msgstr "texto em uma linha"
+
+#: exercises/models.py:222
+msgid "boolean value"
+msgstr "valor boleano"
+
+#: exercises/models.py:226
+msgid "multiline text"
+msgstr "texto em múltiplas linhas"
+
+#: exercises/models.py:227
+msgid "image"
+msgstr "imagem"
+
+#: exercises/models.py:235
+msgid "question"
+msgstr "pergunta"
+
+#: exercises/models.py:236
+msgid "questions"
+msgstr "perguntas"
+
+#: exercises/models.py:272
+msgid "tabindex"
+msgstr "tabindex"
+
+#: exercises/models.py:274 exercises/models.py:1000
+msgid "value"
+msgstr "valor"
+
+#: exercises/models.py:280
+msgid "error limit"
+msgstr "limite de erro"
+
+#: exercises/models.py:286 exercises/models.py:380 exercises/models.py:1002
+msgid "choices"
+msgstr "opções"
+
+#: exercises/models.py:288
+msgid ""
+"Set a choice per line, start with a plus sign (+) for a correct choice and a "
+"minus sign (-) for a incorrect choice."
+msgstr ""
+"Defina uma opção por linha, comece com um sinal de mais (+) para uma opção "
+"correta e um sinal de menos (-) para uma opção incorreta."
+
+#: exercises/models.py:294
+msgid "choices samples"
+msgstr "amostra de opções"
+
+#: exercises/models.py:297
+msgid "How many choices to pick from all choices map?"
+msgstr "Quantas opções pegar da lista de todas as opções?"
+
+#: exercises/models.py:305 exercises/models.py:369 exercises/models.py:999
+msgid "answer"
+msgstr "resposta"
+
+#: exercises/models.py:306
+msgid "answers"
+msgstr "respostas"
+
+#: exercises/models.py:371 exercises/models.py:851
+msgid "is correct?"
+msgstr "está correta?"
+
+#: exercises/models.py:379
+msgid "choice"
+msgstr "opção"
+
+#: exercises/models.py:387 exercises/models.py:406
+msgid "batteries count"
+msgstr "número de baterias"
+
+#: exercises/models.py:390 exercises/models.py:409
+msgid "Would reflect the number of activity days."
+msgstr "Refletirá o número de dias de atividade."
+
+#: exercises/models.py:399 exercises/models.py:404 exercises/models.py:576
+msgid "exercises program"
+msgstr "programa de exercícios"
+
+#: exercises/models.py:400
+msgid "exercises programs"
+msgstr "programas de exercícios"
+
+#: exercises/models.py:415
+msgid "syllabus"
+msgstr "conteúdo programático"
+
+#: exercises/models.py:419 exercises/models.py:428
+msgid "exercises program's module"
+msgstr "módulo de programa de exercícios"
+
+#: exercises/models.py:420
+msgid "exercises program's modules"
+msgstr "módulos de programa de exercícios"
+
+#: exercises/models.py:433
+msgid "Choose categories to use exercises from"
+msgstr "Escolha categorias de onde vem os exercícios"
+
+#: exercises/models.py:436
+msgid "optional name"
+msgstr "nome opcional"
+
+#: exercises/models.py:438
+msgid "Set an optional name for the battery."
+msgstr "Especifique um nome opcional para a bateria."
+
+#: exercises/models.py:460
+msgid "exercises battery"
+msgstr "bateria de exercícios"
+
+#: exercises/models.py:461
+msgid "exercises batteries"
+msgstr "baterias de exercícios"
+
+#: exercises/models.py:470 exercises/models.py:497 exercises/models.py:708
+#: exercises/models.py:740
+msgid "battery"
+msgstr "bateria"
+
+#: exercises/models.py:499 exercises/models.py:743
+msgid "exercises count"
+msgstr "número de exercícios"
+
+#: exercises/models.py:500
+msgid "sorting"
+msgstr "ordenação"
+
+#: exercises/models.py:501
+msgid "Sequential"
+msgstr "Sequencial"
+
+#: exercises/models.py:502
+msgid "Random"
+msgstr "Aleatório"
+
+#: exercises/models.py:505
+msgid "filter 1 lower limit"
+msgstr "limite inferior do filtro 1"
+
+#: exercises/models.py:506
+msgid "filter 1 upper limit"
+msgstr "limite superior do filtro 1"
+
+#: exercises/models.py:507
+msgid "filter 2 lower limit"
+msgstr "limite inferior do filtro 2"
+
+#: exercises/models.py:508
+msgid "filter 2 upper limit"
+msgstr "limite superior do filtro 2"
+
+#: exercises/models.py:514
+msgid "battery's category usage"
+msgstr "utilização de categoria por bateria"
+
+#: exercises/models.py:515
+msgid "battery's categories usage"
+msgstr "utilizações de categorias por bateria"
+
+#: exercises/models.py:518
+#, python-brace-format
+msgid "{count} exercises from {category}"
+msgstr "{count} exercícios de {category}"
+
+#: exercises/models.py:577
+msgid "start date"
+msgstr "data de início"
+
+#: exercises/models.py:585 exercises/models.py:707
+msgid "program usage"
+msgstr "Aplicação de programa"
+
+#: exercises/models.py:586
+msgid "program usages"
+msgstr "Aplicações de programa"
+
+#: exercises/models.py:589
+#, python-format
+msgid "%(program)s usage by %(client)s"
+msgstr "Aplicação de %(program)s por %(client)s"
+
+#: exercises/models.py:710
+msgid "attempts count"
+msgstr "número de tentativas"
+
+#: exercises/models.py:711
+msgid "How many attempts the user will have for each exercise of this battery?"
+msgstr "Quantas tentativas o usuário terá para cada exercício da bateria?"
+
+#: exercises/models.py:716 exercises/models.py:735
+msgid "battery schedule"
+msgstr "agenda de bateria"
+
+#: exercises/models.py:717
+msgid "batteries schedule"
+msgstr "agendas de baterias"
+
+#: exercises/models.py:737
+msgid "is done?"
+msgstr "está concluída?"
+
+#: exercises/models.py:742
+msgid "correct answers count"
+msgstr "número acertos"
+
+#: exercises/models.py:744
+msgid "attempts spent"
+msgstr "tentativas tomadas"
+
+#: exercises/models.py:745
+msgid "Average attempts count."
+msgstr "Número médio de tentativas."
+
+#: exercises/models.py:746 exercises/models.py:853
+msgid "time spent"
+msgstr "tempo tomado"
+
+#: exercises/models.py:747
+msgid "Sum of the overall time spent."
+msgstr "Soma de todo o tempo gasto."
+
+#: exercises/models.py:751 exercises/models.py:846 exercises/models.py:903
+#: exercises/models.py:911
+msgid "user battery"
+msgstr "bateria de usuário"
+
+#: exercises/models.py:752
+msgid "user batteries"
+msgstr "baterias de usuário"
+
+#: exercises/models.py:852
+msgid "attempts left"
+msgstr "tentativas disponíveis"
+
+#: exercises/models.py:906
+msgid "started at"
+msgstr "iniciado em"
+
+#: exercises/models.py:907
+msgid "finished at"
+msgstr "finalizado em"
+
+#: exercises/models.py:917 exercises/models.py:998
+msgid "chance"
+msgstr "tentativa"
+
+#: exercises/models.py:918
+msgid "chances"
+msgstr "tentativas"
+
+#: exercises/models.py:1041
+msgid "chance item"
+msgstr "item de tentativa"
+
+#: exercises/models.py:1042
+msgid "chance items"
+msgstr "itens de tentativa"
+
+#: exercises/management/commands/createsquarerectanglearea.py:54
+#: utils/polygons.py:68
+msgid "square"
+msgstr "quadrado"
+
+#: exercises/management/commands/createsquarerectanglearea.py:56
+#: utils/polygons.py:69
+msgid "rectangle"
+msgstr "retângulo"
+
+#: exercises/views/admin.py:147
+msgid "Unexpected columns was ignored!"
+msgstr "Colunas não esperadas foram ignoradas!"
+
+#: exercises/views/admin.py:148
+#, python-format
+msgid "%d exercises imported successfully"
+msgstr "%d exercícios importados com sucesso"
+
+#: exercises/views/admin.py:171
+msgid "Category duplication sucessful"
+msgstr "Categoria duplicada com sucesso"
+
+#: exercises/views/admin.py:222
+msgid "Program batteries"
+msgstr "Baterias do programa"
+
+#: exercises/views/admin.py:238
+msgid "Replace program from CSV import"
+msgstr "Substituir programa a partir de importação de CSV"
+
+#: exercises/views/admin.py:255
+msgid "Program redefinition successful"
+msgstr "Redefinição do programa bem sucedida."
+
+#: exercises/views/admin.py:304
+#, python-brace-format
+msgid "Category not found: \"{0}\""
+msgstr "Categoria não encontrada: \"{0}\""
+
+#: exercises/views/admin.py:378
+msgid "Audit program usage"
+msgstr "Auditar aplicação de programa"
+
+#: exercises/views/main.py:81
+msgid "You already answered this exercise!"
+msgstr "Você já respondeu este exercício!"
+
+#: followup/models.py:36
+msgid "author"
+msgstr "autor"
+
+#: followup/models.py:39
+msgid "content"
+msgstr "conteúdo"
+
+#: followup/models.py:42
+msgid "due date"
+msgstr "data de entrega"
+
+#: followup/models.py:50
+msgid "ref date"
+msgstr "data de referência"
+
+#: followup/models.py:65 followup/models.py:66
+msgid "followup"
+msgstr "follow up"
+
+#: followup/models.py:73
+msgid "task"
+msgstr "tarefa"
+
+#: followup/models.py:74
+msgid "tasks"
+msgstr "tarefas"
+
+#: followup/management/commands/pending_tasks.py:14
+msgid "Sends e-mails to everyone with tasks from the current week."
+msgstr "Envia e-mail para todos que tiverem tarefas nesta semana."
+
+#: followup/management/commands/pending_tasks.py:28
+msgid "New task for this week"
+msgstr "Novas tarefas para esta semana"
+
+#: main/dashboard.py:25
+msgid "Users"
+msgstr "Usuários"
+
+#: main/dashboard.py:35
+msgid "Exercises"
+msgstr "Exercícios"
+
+#: main/dashboard.py:47
+msgid "Exercise Programs"
+msgstr "Programas de exercício"
+
+#: main/dashboard.py:57
+msgid "Excluded dates"
+msgstr "Datas excluídas"
+
+#: main/dashboard.py:66
+msgid "Advanced"
+msgstr "Avançado"
+
+#: main/dashboard.py:74
+msgid "Payment"
+msgstr "Pagamento"
+
+#: main/dashboard.py:77
+msgid "Payments"
+msgstr "Pagamentos"
+
+#: main/dashboard.py:82
+msgid "Follow Up"
+msgstr "Follow Up"
+
+#: main/dashboard.py:85
+msgid "Tasks"
+msgstr "Tarefas"
+
+#: main/dashboard.py:90
+msgid "Complementar actions"
+msgstr "Ações complementares"
+
+#: main/dashboard.py:93
+msgid "Usage documentation"
+msgstr "Documentação de uso"
+
+#: main/dashboard.py:94
+msgid "Demonstrations"
+msgstr "Demonstrações"
+
+#: main/dashboard.py:95
+msgid "Flatpages"
+msgstr "Páginas planas"
+
+#: main/templates/admin/clients/change_list.html:6
+#, python-format
+msgid "Add %(name)s"
+msgstr "Adicionar %(name)s"
+
+#: main/templates/admin/clients/change_list.html:7
+#, python-format
+msgid "Import %(name)s"
+msgstr "Importar %(name)s"
+
+#: main/templates/admin/clients/clients_import.html:7
+#: main/templates/admin/clients/clients_import.html:8
+#: main/templates/admin/clients/invoice_data.html:7
+#: main/templates/admin/clients/invoice_data.html:8
+#: main/templates/admin/demonstrations/demonstration_send.html:7
+#: main/templates/admin/demonstrations/demonstration_send.html:8
+msgid "Clients"
+msgstr "Clientes"
+
+#: main/templates/registration/password_reset_complete.html:4
+#: main/templates/registration/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr ""
+
+#: main/templates/registration/password_reset_complete.html:10
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: main/templates/registration/password_reset_complete.html:12
+msgid "Log in"
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:6
+msgid "Home"
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:7
+#, fuzzy
+msgid "Password reset confirmation"
+msgstr "Informações de Endereço"
+
+#: main/templates/registration/password_reset_confirm.html:11
+#: main/templates/registration/password_reset_form.html:4
+#: main/templates/registration/password_reset_form.html:8
+msgid "Password reset"
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:16
+msgid "Enter new password"
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:18
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:24
+msgid "Change my password"
+msgstr ""
+
+#: main/templates/registration/password_reset_confirm.html:29
+#, fuzzy
+msgid "Password reset unsuccessful"
+msgstr "Turma removida com sucesso."
+
+#: main/templates/registration/password_reset_confirm.html:32
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: main/templates/registration/password_reset_done.html:4
+#: main/templates/registration/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr "Senha resetada com sucesso."
+
+#: main/templates/registration/password_reset_done.html:11
+msgid ""
+"We've emailed you instructions for setting your password. You should be "
+"receiving them shortly."
+msgstr ""
+
+#: main/templates/registration/password_reset_done.html:13
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: main/templates/registration/password_reset_form.html:11
+msgid ""
+"Forgotten your password? Enter your email address, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+"Esqueceu a senha? Forneça o seu endereço de email e te enviaremos instruções "
+"para definir uma nova."
+
+#: main/templates/registration/password_reset_form.html:17
+msgid "send"
+msgstr "enviar"
+
+#: payments/admin.py:21
+msgid "Mark selected payments as paid"
+msgstr "Marcar pagamentos selecionados como pagos"
+
+#: payments/admin.py:29
+msgid "Client"
+msgstr "Cliente"
+
+#: payments/admin.py:84
+msgid "open/visit"
+msgstr "abertura/visita"
+
+#: payments/models.py:29 payments/models.py:131 payments/models.py:141
+#: payments/models.py:157
+msgid "create at"
+msgstr "data de criação"
+
+#: payments/models.py:30
+msgid "reference date"
+msgstr "data de referência"
+
+#: payments/models.py:31
+msgid "expiry date"
+msgstr "data de vencimento"
+
+#: payments/models.py:32
+msgid "payment date"
+msgstr "data do pagamento"
+
+#: payments/models.py:33
+msgid "was paid"
+msgstr "pago"
+
+#: payments/models.py:38
+msgid "invoice file"
+msgstr ""
+
+#: payments/models.py:42 payments/models.py:130 payments/models.py:140
+#: payments/models.py:156
+msgid "payment"
+msgstr "pagamento"
+
+#: payments/models.py:43
+msgid "payments"
+msgstr "pagamentos"
+
+#: payments/models.py:48
+msgid "in the classes"
+msgstr "nas turmas"
+
+#: payments/models.py:50
+msgid "in the class"
+msgstr "na turma"
+
+#: payments/models.py:52
+#, python-brace-format
+msgid ""
+"Referring to use of Mainiti Software {in_klass} {klasses}, at month {month} "
+"of {year}, by the company {client}."
+msgstr ""
+"Referente a utilização do Software Mainiti {in_klass} {klasses}, no mês de "
+"{month} de {year}, pela empresa {client}."
+
+#: payments/models.py:118
+#, fuzzy
+msgid "Invoice from Mainiti"
+msgstr "Bem-vindo ao Mainiti"
+
+#: payments/models.py:134
+msgid "visit of payment"
+msgstr "visita do pagamento"
+
+#: payments/models.py:135
+msgid "visits of payments"
+msgstr "visitas dos pagamentos"
+
+#: payments/models.py:144
+msgid "opening of payment"
+msgstr "abertura do pagamento?"
+
+#: payments/models.py:145
+msgid "opening of payments"
+msgstr "aberturas dos pagamentos"
+
+#: payments/models.py:158
+msgid "update_at"
+msgstr "data de atualização"
+
+#: payments/models.py:159
+msgid "current cost"
+msgstr "valor corrente"
+
+#: payments/models.py:163
+msgid "payment value of class"
+msgstr "Valor do pagamento da turma"
+
+#: payments/models.py:164
+msgid "payments values of classes"
+msgstr "valor do pagamento das turmas"
+
+#: payments/views.py:68
+msgid "Do not accept payment after due date."
+msgstr "Não aceitar o pagamento após a data de vencimento."
+
+#: payments/views.py:96
+#, python-brace-format
+msgid "billet-{0}.pdf"
+msgstr "boleto-{0}.pdf"
+
+#: payments/management/commands/generatepayments.py:11
+msgid ""
+"Generate payment for the current month for all contracts with classes, using "
+"the 1st day as ref_date"
+msgstr ""
+"Gerar pagamento para o mês corrente para todos os contratos com turmas, "
+"usando o primeiro dia com data de referência."
+
+#: payments/management/commands/latepayments.py:11
+msgid "Sends e-mails to managers with klass with late payments"
+msgstr "Envia e-mail para gerentes com turmas com pagamentos atrasados"
+
+#: payments/management/commands/latepayments.py:18
+msgid "Klasses with late payments"
+msgstr "Turmas com pagamentos atrasados"
+
+#: utils/polygons.py:4
+msgid "triangle"
+msgstr "triângulo"
+
+#: utils/polygons.py:5
+msgid "quadrilateral"
+msgstr "quadrilátero"
+
+#: utils/polygons.py:6
+msgid "pentagon"
+msgstr "pentágono"
+
+#: utils/polygons.py:7
+msgid "hexagon"
+msgstr "hexágono"
+
+#: utils/polygons.py:8
+msgid "heptagon"
+msgstr "heptágono"
+
+#: utils/polygons.py:9
+msgid "octagon"
+msgstr "octógono"
+
+#: utils/polygons.py:10
+msgid "enneagon"
+msgstr "eneágono"
+
+#: utils/polygons.py:11
+msgid "decagon"
+msgstr "decágono"
+
+#: utils/polygons.py:12
+msgid "hendecagon"
+msgstr "undecágono"
+
+#: utils/polygons.py:13
+msgid "dodecagon"
+msgstr "dodecágono"
+
+#: utils/polygons.py:17
+msgid "cube"
+msgstr "cubo"
+
+#: utils/polygons.py:18
+msgid "rectangular prism"
+msgstr "prisma retangular"
+
+#: utils/polygons.py:19
+msgid "triangular prism"
+msgstr "prisma triangular"
+
+#: utils/polygons.py:20
+msgid "quadrangular prism"
+msgstr "prisma quadrangular"
+
+#: utils/polygons.py:21
+msgid "pentagonal prism"
+msgstr "prisma pentagonal"
+
+#: utils/polygons.py:22
+msgid "triangular pyramid"
+msgstr "pirâmide triangular"
+
+#: utils/polygons.py:23
+msgid "quadrangular pyramid"
+msgstr "pirâmide quadrangular"
+
+#: utils/polygons.py:24
+msgid "pentagonal pyramid"
+msgstr "pirâmide pentagonal"
+
+#: utils/polygons.py:25
+msgid "sphere"
+msgstr "esfera"
+
+#: utils/polygons.py:26
+msgid "cylinder"
+msgstr "cilindro"
+
+#: utils/polygons.py:27
+msgid "cone"
+msgstr "cone"
+
+#: utils/polygons.py:64
+msgid "equilateral triangle"
+msgstr "triângulo equilátero"
+
+#: utils/polygons.py:65
+msgid "isosceles triangle"
+msgstr "triângulo isósceles"
+
+#: utils/polygons.py:66
+msgid "scalene triangle"
+msgstr "triângulo escaleno"
+
+#: utils/polygons.py:67
+msgid "right triangle"
+msgstr "triângulo retângulo"
+
+#: utils/polygons.py:70
+msgid "rhombus"
+msgstr "losango"
+
+#: utils/polygons.py:71
+msgid "trapezoid"
+msgstr "trapézio"
+
+#: utils/polygons.py:72
+msgid "parallelogram"
+msgstr "paralelogramo"
+
+#~ msgid "scalene"
+#~ msgstr "escaleno"

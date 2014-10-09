@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block menu %}
+<li><a href="{% url 'manager:contract-list' %}">Contratos</a></li>
+<li><a href="{% url 'manager:teacher-list' %}">Professores</a></li>
+<li><a href="{% url 'excludeddates:client-disambiguation' %}">Datas sem atividades</a></li>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/base.js"></script>
+<script src="{{ STATIC_URL }}javascripts/manager.js"></script>
+<script src="{{ STATIC_URL }}javascripts/excluded_dates.js"></script>
+<script src="{{ STATIC_URL }}javascripts/datepicker.js"></script>
+{% endblock %}

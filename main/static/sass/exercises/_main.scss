@@ -1,0 +1,546 @@
+$exercise-field-color: #00678c;
+$exercise-field-bg: #fdf7d1;
+$exercise-field-border-color: #e5dc54;
+
+
+$exercise-wrong-color: #fb5e39;
+$exercise-wrong-complementar-color: #fd9359;
+
+$field-width: 1.5;
+$field-height: 1.75;
+$field-padding: 0.1;
+$field-margin: 0.1;
+$field-font-size: 2.5;
+
+// width refered to 1em font size
+$field-base-width: ($field-width + $field-padding + $field-margin) * $field-font-size;
+
+$field-small-font-size: 2;
+$field-small-margin: $field-margin * $field-font-size / $field-small-font-size;
+$field-small-compensation: 0.5;  // margin to move small field left
+
+#exercise {
+    position: relative;
+
+    small {
+        font-size: 1em;  // reset size and make small useful
+        color: inherit;
+    }
+
+    div.instructions {
+        @include clearfix();
+
+        counter-reset: counter;
+
+        p {
+            position: relative;
+            display: block;
+            float: left;
+            width: 30%;
+            margin-left: 5%;
+            padding: 4em 2em 2em 2em;
+            height: 12em;
+            background: lighten($tertiary-color, 40%);
+
+            @include radius();
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &:before {
+                counter-increment: counter;
+                content: counter(counter, decimal) ". ";
+                position: absolute;
+                top: 0.5em;
+                left: 1em;
+                font-family: $header-font-family;
+                font-size: 2em;
+                color: $tertiary-color;
+            }
+        }
+    }
+
+    .tabs {
+        & > section > .title {
+            display: block;
+            border: 0;
+            background: transparent;
+            width: 49%;
+            margin: 0 1% 0 0;
+            line-height: 0.8em;
+            text-align: right;
+
+            a {
+                display: inline-block;
+                width: auto;
+                text-decoration: none;
+                font-family: $header-font-family;
+                font-weight: normal;
+                font-size: 1.25em;
+
+                color: $success-color;
+                background: lighten($success-color, 30%);
+
+                @include radius();
+            }
+        }
+
+        & > section + section > .title {
+            text-align: left;
+            margin: 0 0 0 1%;
+
+            a {
+                color: $exercise-wrong-color;
+                background: lighten($exercise-wrong-color, 30%);
+            }
+        }
+
+        & > section.active > .title a {
+            color: lighten($success-color, 30%);
+            background: $success-color;
+        }
+
+        & > section + section.active > .title a {
+            color: lighten($exercise-wrong-color, 30%);
+            background: $exercise-wrong-color;
+        }
+
+        & > section > .content {
+            border: 0;
+            padding: $section-content-padding 0 0 0;
+        }
+    }
+
+    article.content {
+        margin: 0 auto;
+        text-align: right;
+
+        // The default width fits 3 fields. A field is:
+        // (width + margins) * (font size) * (number fields)
+        width: ($field-width + $field-margin + $field-padding) * 2.5 * 2em;
+
+        // The full content (or a full div inside content) fits single and
+        // multiple choices exercises
+        &.full, & .full {
+            width: 90%;
+            text-align: left;
+
+            p {
+                font-size: 1.25em;
+            }
+
+            input[type=text] {
+                width: $field-width * 2em;  // double input width to support
+                                            // larger numbers, not only digits
+            }
+
+            ul {
+                list-style: none;
+                margin-left: 0;
+
+                li {
+                    position: relative;
+                    font-size: 1.5em;
+                    font-family: 'Patrick Hand', cursive;
+                    padding-left: 1em;
+
+                    input {
+                        position: absolute;
+                        left: 0;
+                        top: 0.5em;
+                    }
+                }
+            }
+
+            &.answer li {
+                padding-left: 0;
+                color: lighten($primary-color, 25%);
+
+                &.correct {
+                    color: $primary-color;
+                }
+            }
+        }
+
+
+        .line {
+            position: relative;
+            white-space: nowrap;
+
+            p {
+                // description inside the line
+                display: inline-block;
+                margin-right: 0.5em;
+            }
+        }
+
+        input[type=text], span, i {
+            font-family: 'Patrick Hand', cursive;
+            display: inline-block;
+            width: $field-width * 1em;
+            height: $field-height * 1em;
+            line-height: $field-height * 1em;
+            margin: $field-margin * 1em;
+            padding: $field-padding * 1em;
+            font-size: $field-font-size * 1em;
+            text-align: center;
+            vertical-align: middle;
+
+            // each input with has 1.7em width for 2.5em font-size, so, it is
+            // 4.25em when converted to 1em font-size
+        }
+
+        span, i {
+            color: $tertiary-color;
+            font-style: normal;
+
+            &.sign {
+                /* absolute-positioned in the last line */
+                position: absolute;
+                top: 0;
+                left: $field-width * -1em;
+            }
+
+            &.inter-sign {
+                /* sign used in the middle of expressions */
+                width: 1.5rem;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        span.filled {
+            background: lighten($tertiary-color, 40%);
+            @include radius();
+        }
+
+        input[type=text] {
+            border: 3px solid $exercise-field-border-color;
+            background: $exercise-field-bg;
+            color: $exercise-field-color;
+            @include radius();
+
+            &:focus {
+                background: darken($exercise-field-bg, 10%);
+                border-color: darken($exercise-field-border-color, 10%);
+            }
+        }
+        input[type=radio]:checked + label {
+            font-weight: bold;
+            color: $tertiary-color;
+        }
+
+        .divisor {
+            border-top: 2px solid $tertiary-color;
+        }
+
+        /* Addition excedent number over the first line. */
+        .line.sup {
+            input[type=text], span {
+                width: $field-base-width / $field-small-font-size * 1em - $field-small-margin * 2em - $field-small-compensation * 1em;
+                height: $field-height - $field-small-margin * 2em;
+                font-size: $field-small-font-size * 1em;
+                margin: $field-small-margin * 1em
+                        ($field-small-margin + $field-small-compensation) * 1em
+                        $field-small-margin * 1em
+                        $field-small-margin * 1em;
+                line-height: 0.75em;
+            }
+        }
+    }
+
+    .hidden-field {
+        position:absolute;
+        top: -9999px;
+        visibility:hidden;
+    }
+
+    .result-message {
+        text-align: center;
+        font-size: 1.25em;
+
+        h4 { color: $primary-color; }
+
+        &.result-correct {
+            h3 { color: $success-color; }
+            small { color: $tertiary-color; }
+        }
+
+        &.result-wrong {
+            h3 { color: $exercise-wrong-color; }
+            small { color: $exercise-wrong-complementar-color; }
+        }
+    }
+
+    .button-bar {
+        font-size: 1.25em;
+        margin-top: emCalc(50px);
+        margin-bottom: emCalc(-32px);
+
+        .button {
+            margin-bottom: 0;
+        }
+
+        .button + .button {
+            margin-left: 0.5em;
+        }
+    }
+
+    .detail {
+        margin-top: em-calc(3*16);
+
+        .content {
+            width: 100%;
+        }
+    }
+
+    &.decimal-para-romano .content ul li,
+    &.romano-para-decimal .content p strong {
+        font-family: "Georgia", "Times", "Times New Roman", serif;
+    }
+
+    &.divisao {
+        .division-container {
+            display: table;
+        }
+        .division-divided {
+            display: table-cell;
+            vertical-align: top;
+            text-align: left;
+
+            .line {
+                float: left;
+                clear: left;
+                text-align: right;
+            }
+            .group {
+                position: relative;
+            }
+        }
+        .division-divisor {
+            display: table-cell;
+            vertical-align: top;
+            text-align: left;
+
+            .line.first {
+                border-left: 1px solid #000;
+            }
+            .line.result {
+                border-top: 1px solid #000;
+            }
+        }
+
+    }
+
+    &.expressoes-adicao-subtracao .content,
+    &.expressoes-multiplicacao-divisao .content,
+    &.expressoes-potenciacao-radiciacao .content {
+        text-align: left;
+
+        .line.child {
+            object, img {
+                display: block;
+                width: $field-base-width * 2em;
+                margin: 0.5em 0 0.5em -2em;
+            }
+
+            &.child-1 { padding-left: $field-base-width * 2em; }
+            &.child-2 { padding-left: $field-base-width * 3em; }
+            &.child-3 { padding-left: $field-base-width * 4em; }
+            &.child-4 { padding-left: $field-base-width * 5em; }
+            &.child-5 { padding-left: $field-base-width * 6em; }
+        }
+
+        .products {
+            .group {
+                display: inline-block;
+                width: $field-base-width * 2em;
+                margin-left: $field-base-width * 1em;
+            }
+        }
+
+        .line.additions {
+            object, img {
+            }
+
+            &.child-1 { padding-left: $field-base-width * 3em; }
+            &.child-2 { padding-left: $field-base-width * 7em; }
+
+            &.starts-odd.child-1 { padding-left: $field-base-width * 1em + 1em; }
+            &.starts-odd.child-2 { padding-left: $field-base-width * 5em; }
+        }
+    }
+
+    &.fracoes {
+        input[type=text] {
+            width: $field-width * 2em;  // double size of a common input
+        }
+
+        article.content.full input[type="text"] {
+            width: 1.5em;
+        }
+
+        .group, .large-group {
+            display: inline-block;
+            width: auto;
+            white-space: normal;
+            vertical-align: middle;
+
+            hr {
+                border-width: 2px 0 0 0;
+                border-color: $header-font-color;
+                margin: 0;
+            }
+
+            &.centered-base {
+                hr ~ input[type=text], hr ~ span {
+                    margin-left: 1.75em;
+                    margin-right: 1.75em;
+                }
+            }
+        }
+
+        article.content.full p input[type=text], article.content .large-group input[type=text] {
+            width: 2em;
+        }
+
+        .small-group {
+            display: inline-block;
+            font-size: 1em;
+
+            b {
+                display: block;
+                text-align: center;
+                font-weight: normal;
+            }
+
+            b + b:before {
+                display: block;
+                content: "";
+                border: 2px solid $body-font-color;
+                border-width: 2px 0 0 0;
+            }
+        }
+
+        .small-group {
+            vertical-align: middle;
+            margin: 0 0.5em;
+        }
+
+        input[type=radio]:checked + label .small-group b + b:before {
+            border-color: $header-font-color;
+        }
+
+        .inline-list {
+            font-size: 1.25em;
+
+            input[type=radio] {
+                top: 1em;
+            }
+        }
+
+        .f-sign {
+            height: $field-height * 2em;
+            line-height: $field-height * 1.85em;
+            vertical-align: middle;
+        }
+
+        canvas.pie {
+            width: 12em;
+            height: 12em;
+            margin-bottom: 1em;
+        }
+
+        ul canvas.pie {
+            width: 6em;
+            height: 6em;
+        }
+
+        &.comparacao-fracoes {
+            .row small {
+                font-size: 2em;
+                margin-right: 1em;
+            }
+            .row small, .row canvas {
+                vertical-align: middle;
+            }
+        }
+
+        table {
+            width: 50%;
+
+            td {
+                background: $secondary-color;
+                width: 10%;
+                height: 3em;
+                border: 1px solid darken($header-font-color, 10%);
+
+                &:hover {
+                    background: darken($secondary-color, 10%);
+                }
+
+                &.selected {
+                    background: lighten($header-font-color, 10%);
+                }
+
+                &.selected:hover {
+                    background: $header-font-color;
+                }
+
+            }
+
+        }
+    }
+
+    &.exponenciacao {
+        .last-step ~ input[type=text] {
+            width: $field-width * 2.25em;  // larger input for higher final results
+        }
+
+        .detail .content > p {
+            font-family: 'Patrick Hand', cursive;
+            font-size: $field-font-size * 1em;
+            color: $tertiary-color;
+        }
+    }
+
+    .polyhedron {
+        div {
+            display: inline-block;
+            margin-right: 2em;
+        }
+
+        p {
+            display: inline-block;
+        }
+    }
+
+    .multiplication-division-per-dozen {
+        span.operation {
+            width: auto;
+        }
+    }
+
+    .potentiation {
+        span.exponent {
+            font-size: 1.0em;
+            margin-left: -30px;
+            margin-top: -5px;
+        }
+    }
+
+    &.area .pic-plus-answer {
+        @include clearfix();
+
+        canvas {
+            float: left;
+            margin-right: 2em;
+        }
+    }
+
+}
+
+@import "borrow.scss";
+@import "commas.scss";
+@import "lcm.scss";

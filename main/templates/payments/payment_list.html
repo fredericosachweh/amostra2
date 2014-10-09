@@ -1,0 +1,50 @@
+{% extends "managers/base.html" %}
+
+{% block title %}Financeiro{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'manager:contract-list' %}">Contratos</a></li>
+<li class="current"><a href="{{ request.path }}">Financeiro</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="title-wrapper"><h1>Financeiro</h1></div>
+    <div class="panel">
+    {% include "f-pagination.html" %} 
+        <table>
+            <thead>
+                <tr>
+                    <th>Data de vencimento</th>
+                    <th>Pago?</th>
+                    <th>Valor</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for payment in object_list %}
+                <tr>
+                    <td>{{ payment.due_date|date:"d/m/Y" }}</td>
+                    <td>
+                        {% if payment.was_paid %}
+                            <span class="label success radius">Pago</span>
+                        {% else %}
+                            <span class="label alert radius">Pendente</span>
+                        {% endif %}
+                    </td>
+                    <td>R$ {{ payment.cost }}</td>
+                    <td>
+                        {% if payment.invoice_file %}
+                        <a href="{{ payment.invoice_file.url }}" class="button small">Nota</a>
+                        {% endif %}
+                        <a href="{{ payment.get_absolute_url }}" class="button small">Boleto</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr class="empty">
+                    <td colspan="4">Nenhum pagamento disponível.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

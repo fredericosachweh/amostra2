@@ -1,0 +1,76 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line sup">
+        {% for item in answers.support %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i></i>{# ignore first exponent #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">+</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line">
+        <span class="sign">+</span>
+        {% for item in questions.line3 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line3 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="line sup">
+        {% for item in answers.support %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i></i>{# ignore first exponent #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">+</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line2 %}{% endblock %}
+    <div class="line">
+        <span class="sign">+</span>
+        {% for item in questions.line3 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line3 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_result %}{% endblock %}
+</article>
+{% endblock %}

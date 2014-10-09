@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Como pretende usar o Mainiti hoje?{% endblock %}
+
+{% block _menu %}{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block content %}
+{% with request.user.get_home_urls as dests %}
+{% if dests %}
+<h1>Como pretende usar o Mainiti hoje?</h1>
+<div class="module">
+    <p>Seu perfil de usuário tem acesso a diferentes visões, escolha abaixo como deseja usar o Mainiti hoje:</p>
+    {% for name, url in dests %}
+    <a class="button" href="{{ url }}">{{ name }}</a>
+    {% endfor %}
+</div>
+{% else %}
+<h1>Acesso negado</h1>
+<div class="module">
+    <p>Seu perfil de usuário não tem nenhuma ação relacionada a ele: não há turmas a gerir ou exercícios a executar.</p>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock %}

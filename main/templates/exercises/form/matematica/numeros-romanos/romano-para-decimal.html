@@ -1,0 +1,12 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.number.0 as number %}
+    <p>Digite o número que corresponde ao símbolo romano <strong>{{ number.value }}</strong>:</p>
+    {% endwith %}
+    {% with answers.result.0 as f %}
+    <p>Resposta: {{ f.answer }}{{ f.value }}</p>
+    {% endwith %}
+</article>
+{% endblock %}

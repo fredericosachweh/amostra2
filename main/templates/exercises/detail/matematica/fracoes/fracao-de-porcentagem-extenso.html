@@ -1,0 +1,6 @@
+{% extends "exercises/detail/matematica/fracoes/fracao-de-porcentagem.html" %}
+{% load exercises_extras %}
+
+{% block fraction_repr %}{% filter fraction_name %}{{ term1.value }}/100{% endfilter %}{% endblock %}
+
+{% block attempt_fraction_repr %}{% filter fraction_name %}{{ term1.value }}/100{% endfilter %}{% endblock %}

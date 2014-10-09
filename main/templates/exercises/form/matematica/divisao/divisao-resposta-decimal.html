@@ -1,0 +1,11 @@
+{% extends "exercises/form/matematica/divisao/default.html" %}
+
+{% block post_result %}
+<div class="commas trigger">
+    {% for f in answers.comma %}
+    {{ f.answer }}
+    {{ f.value }}
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}

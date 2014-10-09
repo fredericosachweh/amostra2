@@ -1,0 +1,12 @@
+{% extends "registration/base_login.html" %}
+
+{% block title %}Sessão encerrada{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Sessão encerrada</h1>
+    <a href="{% url 'home' %}" class="button">acessar novamente</a>
+</div>
+{% endblock %}

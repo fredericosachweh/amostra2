@@ -1,0 +1,32 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content multiplication-division-per-dozen">
+    <div class="line width-ref">
+        {% with questions.term1|first as item1 %}
+        {% with questions.term2|first as item2 %}
+        <span class="operation">
+            {{ item1.value }}
+            {% block sign %}&times;{% endblock %}
+            {{ item2.value }}
+            =
+        </span>
+        {% endwith %}
+        {% endwith %}
+
+        {% if answers.result %}
+            {% for f in answers.result %}
+                {{ f.answer }}{{ f.value }}
+            {% endfor %}
+        {% endif %}
+
+        <div class="commas trigger">
+            {% for f in answers.comma %}
+            {{ f.answer }}
+            {{ f.value }}
+            {% endfor %}
+            <i></i>
+        </div>
+    </div>
+</article>
+{% endblock %}

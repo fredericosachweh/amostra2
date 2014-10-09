@@ -1,0 +1,24 @@
+{% extends "managers/base.html" %}
+
+{% block title %}Datas sem atividades{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current">Datas sem atividade</li>
+{% endblock %}
+
+{% block content %}
+<h1>Datas sem atividades</h1>
+
+<div class="module">
+    {% if object_list.exists %}
+    <p>Escolha um cliente:</p>
+    <ul>
+        {% for client in object_list %}
+        <li><a href="{% url 'excludeddates:client-archive' pk=client.pk %}">{{ client }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Não há nenhum cliente gerenciado para adicionar datas sem atividade.</p>
+    {% endif %}
+</div>
+{% endblock content %}

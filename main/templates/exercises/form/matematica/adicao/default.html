@@ -1,0 +1,27 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line sup">
+        {% for f in answers.support %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">+</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for f in answers.result %}{{ f.answer }}{{ f.value }}{% endfor %}
+    </div>
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock exercise_content %}

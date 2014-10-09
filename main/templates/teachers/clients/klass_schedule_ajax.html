@@ -1,0 +1,44 @@
+<a class="button left" data-action="navigate-month"
+    href="{% url 'teacher:klass-schedule' year=previous_month|date:'Y' month=previous_month|date:'m' pk=klass.pk %}">Anterior</a>
+<a class="button right" data-action="navigate-month"
+    href="{% url 'teacher:klass-schedule' year=next_month|date:'Y' month=next_month|date:'m' pk=klass.pk %}">próximo</a>
+
+<h3 class="text-center">Em {{ month|date:"b/Y" }} para {{ klass }}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sab</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for week in date_list %}
+        <tr>
+            {% for date in week %}
+            {% spaceless %}
+            <td{% if date.is_included %} class="{% if date.is_past %}in{% endif %}active"{% endif %}>
+                {% if date.is_included %}
+                <a href="{% url 'teacher:klass-schedule-detail' year=month|date:'Y' month=month|date:'m' day=date.day pk=klass.pk %}">{{ date.day|default:"" }}</a>
+                {% else %}
+                {{ date.day|default:"" }}
+                {% endif %}
+            </td>
+            {% endspaceless %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h4>Legenda</h4>
+<ul>
+    <li>Data sem atividades previstas</li>
+    <li class="active">Data com atividades agendadas</li>
+    <li class="inactive">Data com atividades já realizadas</li>
+</ul>

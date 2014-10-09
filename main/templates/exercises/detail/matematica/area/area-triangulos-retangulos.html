@@ -1,0 +1,13 @@
+{% extends "exercises/detail/matematica/area/area-triangulos-isosceles.html" %}
+
+{% block exercise_description %}
+<p>Qual a área do triângulo retângulo que tem altura {{ height.value }} e base {{ base.value }}?</p>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+<p>Qual a área do triângulo retângulo que tem altura {{ height.value }} e base {{ base.value }}?</p>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/areas/right_triangle.js"></script>
+{% endblock %}

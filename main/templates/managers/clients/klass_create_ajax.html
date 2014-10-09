@@ -1,0 +1,8 @@
+{% load utils_extras %}
+<form method="post" class="form ajax-form" enctype="multipart/form-data"
+    action="{% block formaction %}{% url 'manager:klass-create' contract_pk=contract.id %}{% endblock %}">{% csrf_token %}
+    <h3>{% block formlegend %}Nova turma{% endblock %}</h3>
+    {{ form|render_form }}
+    <button class="button" type="submit" name="klass-create">Salvar</button>
+    <a href="#" class="button" data-reveal-close>Cancelar</a>
+</form>

@@ -1,0 +1,12 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions|first as q %}
+    {% with answers|first as f %}
+    <p>{{ q.value }} {% if exercise.tags = 'direct' %}hora{% else %}minuto{% endif %}{{ q.value|pluralize }} =
+       {{ f.answer }}{{ f.value }} {% if exercise.tags = 'direct' %}minuto{% else %}hora{% endif %}(s)</p>
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}

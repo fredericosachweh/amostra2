@@ -1,0 +1,100 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span{% if forloop.counter0|divisibleby:2 %} class="even"{% endif %}>{% if item.value == '/' %}&divide;{% else %}{% if item.value == '*' %}&times;{% else %}{{ item.value }}{% endif %}{% endif %}</span>
+        {% endfor %}
+    </div>
+    <div class="line child products">
+        {% for item in answers.product %}
+        <div class="group">
+            <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+                <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+            </object>
+            <span data-index="{{ forloop.counter }}">{{ item.correct_value|cut_zeros }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% for item in answers.addition %}
+    <div class="line additions child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object>
+        <span data-index="{{ forloop.counter }}">{{ item.correct_value|cut_zeros }}</span>
+    </div>
+    {% endfor %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span{% if forloop.counter0|divisibleby:2 %} class="even"{% endif %}>{% if item.value == '/' %}&divide;{% else %}{% if item.value == '*' %}&times;{% else %}{{ item.value }}{% endif %}{% endif %}</span>
+        {% endfor %}
+    </div>
+    <div class="line child products">
+        {% for item in answers.product %}
+        <div class="group">
+            <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+                <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+            </object>
+            <span data-index="{{ forloop.counter }}">{{ item.value|cut_zeros }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% for item in answers.addition %}
+    <div class="line additions child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object>
+        <span data-index="{{ forloop.counter }}">{{ item.value|cut_zeros }}</span>
+    </div>
+    {% endfor %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+var starts_odd = false;
+
+$(document).ready(function() {
+
+    $('#exercise article.content').each(function() {
+        var container = $(this).find('.products');
+        var spans = $(this).find('.line:first-child span');
+        var odd = spans.filter('.even').length % 2;
+        if(odd) {
+            var signal = spans.eq(1).text();  // zero-based indexing
+            if(signal == '-' || signal == '+') {
+                // standalone at beginning
+                var standalone = spans.slice(0, 2);  // 1st and 2nd terms
+                starts_odd = true;
+                standalone.clone().prependTo(container);
+                $(this).find('.additions').addClass('starts-odd');
+            } else {
+                var standalone = spans.slice(-1);  // the plus or minus signal came through groups above
+                standalone.clone().appendTo(container);
+            }
+        }
+
+        var delta = 0;
+        var groups = $(this).find('.products .group');
+        for(var i=0; i<groups.length; i++) {
+            if(starts_odd)
+                delta = 2;
+            else
+                delta = 0;
+
+            var group = $(groups[i]);
+            var joiner = spans.eq((i + 1) * 4 + delta - 1);
+            if(joiner.length)
+                group.after('<span>' + joiner.text() + '</span>');
+        }
+    });
+});
+</script>
+{% endblock %}

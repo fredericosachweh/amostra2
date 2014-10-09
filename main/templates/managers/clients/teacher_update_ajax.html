@@ -1,0 +1,5 @@
+{% extends "managers/clients/teacher_create_ajax.html" %}
+
+{% block formaction %}{% url 'manager:teacher-update' pk=object.id %}{% endblock %}
+
+{% block formlegend %}Alterar professor{% endblock %}

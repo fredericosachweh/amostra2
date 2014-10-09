@@ -1,0 +1,14 @@
+Turmas com pagamento atrasado
+
+Olá, Consta pagamento(s) atrasado(s) para a(s) turma(s) abaixo:
+{% regroup klasses by contract.client as contract_klasses %}
+{% for group in contract_klasses %}
+    Cliente: {{ group.grouper }}
+    Turma(s): {{ group.list|join:", " }}
+
+{% endfor %}
+
+Acesse sua conta em http://{{ site.domain }}/ para visualizá-las.
+
+A equipe do Mainiti agradece.
+http://{{ site.domain }}/

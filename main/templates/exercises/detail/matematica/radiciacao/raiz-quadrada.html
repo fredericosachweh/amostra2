@@ -1,0 +1,26 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+	{% with questions.term|first as term %}
+    <p>Qual a raiz quadrada de {{ term.value }}?</p>
+	{% endwith %}
+
+    {% with answers.result|first as item %}
+    <p>Resposta: <span>{{ item.correct_value|cut_zeros }}</span></p>
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content full">
+	{% with questions.term|first as term %}
+    <p>Qual a raiz quadrada de {{ term.value }}?</p>
+	{% endwith %}
+
+    {% with answers.result|first as item %}
+    <p>Resposta: <span>{{ item.value|cut_zeros }}</span></p>
+    {% endwith %}
+</article>
+{% endblock %}

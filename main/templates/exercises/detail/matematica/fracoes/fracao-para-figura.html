@@ -1,0 +1,31 @@
+{% extends "exercises/detail/single-choice.html" %}
+
+{% block exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+{% with questions|last as term2 %}
+<p>A fração {% block fraction_repr %}<small data-fraction>{{ term1.value }}/{{ term2.value }}</small>{% endblock %} é representada por qual das figuras apresentadas abaixo?</p>
+{% endwith %}
+{% endwith %}
+{% endblock %}
+
+{% block choice_description %}
+<canvas class="pie" data-terms="{{ choice }}"></canvas>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+{% with questions|last as term2 %}
+<p>A fração {% block attempt_fraction_repr %}<small data-fraction>{{ term1.value }}/{{ term2.value }}</small>{% endblock %} é representada por qual das figuras apresentadas abaixo?</p>
+{% endwith %}
+{% endwith %}
+{% endblock %}
+
+{% block attempt_choice_description %}
+<canvas class="pie" data-terms="{{ choice }}"></canvas>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

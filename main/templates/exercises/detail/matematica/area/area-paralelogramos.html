@@ -1,0 +1,54 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras exercises_extras %}
+
+{% block exercise_content %}
+<article class="content full pic-plus-answer">
+    {% with questions.base|first as base %}
+    {% with questions.height|first as height %}
+    {% with questions.displacement|first as displacement %}
+    <p>Qual a área do paralelogramo que tem altura {{ height.value }} e base {{ base.value }}?</p>
+
+    <canvas class="parallelogram" width="100" height="100"
+            data-term1="{{ height.value }}" data-term2="{{ base.value }}"  data-term3="{{ displacement.value }}">
+        Canvas não suportado pelo browser !
+    </canvas>
+
+    <p>
+        Resposta:
+        {% with answers.result|first as item %}
+        <span>{{ item.correct_value|cut_zeros }}</span>
+        {% endwith %}
+    </p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content full pic-plus-answer">
+    {% with questions.base|first as base %}
+    {% with questions.height|first as height %}
+    {% with questions.displacement|first as displacement %}
+    <p>Qual a área do paralelogramo que tem altura {{ height.value }} e base {{ base.value }}?</p>
+
+    <canvas class="parallelogram" width="100" height="100"
+            data-term1="{{ height.value }}" data-term2="{{ base.value }}"  data-term3="{{ displacement.value }}">
+        Canvas não suportado pelo browser !
+    </canvas>
+
+    <p>
+        Resposta:
+        {% with answers.result|first as item %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endwith %}
+    </p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/areas/parallelogram.js"></script>
+{% endblock %}

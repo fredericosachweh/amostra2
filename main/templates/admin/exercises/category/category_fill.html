@@ -1,0 +1,48 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">Início</a></li>
+    <li><a href="{% url 'admin:app_list' 'exercises' %}">Exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_category_changelist' %}">Categorias</a></li>
+    <li><a href="{% url 'admin:exercises_category_change' category.id %}">{{ category }}</a></li>
+    <li>{{ title }}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<p>Escolha um arquivo CSV (comma separated values ou valores separados por vírgula). Certifique-se de que ele tenha um formato similar ao modelo apresentado abaixo. O importante é que existam os campos necessários para representar o exercício e que cada campo se divida em vários grupos indexados de forma reversa.</p><br/>
+
+<p style="font-family: monospace; font-size: 1.2em;">
+    {% spaceless %}
+    <span>descricao,</span>
+    {# questions #}
+    {% for type in category.questiontype_set.all %}
+    {% for i in 'abc' %}<span>{{ type.group }}-{{ forloop.revcounter }},</span>{% endfor %}
+    {% endfor %}
+    {# answers #}
+    {% for type in category.answertype_set.all %}
+    {% for i in 'abc' %}<span>{{ type.group }}-{{ forloop.revcounter }}</span>
+        {% if forloop.parentloop.last and forloop.last %}{% else %}<span>,</span>{% endif %}{% endfor %}
+    {% endfor %}
+    {% endspaceless %}
+</p><br/>
+
+<p>Note que a ordem dos campos não é pertinente, eles não precisam seguir a ordem especificada acima mas devem ter cuidado na nomenclatura e indexação, exceto pelo campo "descrição", que deve ser sempre o primeiro.</p><br/>
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+    <fieldset class="grp-module">
+    <div class="grp-row grp-cells-1"><div class="l-2c-fluid l-d-4">
+        <div class="c-1"><label class="required">Arquivo:</label></div>
+        <div class="c-2">{{ form.csv_file }}</div>
+    </div></div>
+    </fieldset>
+
+    <div class="grp-module grp-submit-row grp-fixed-footer">
+        <ul>
+            <li><input type="submit" value="Enviar" class="grp-button grp-default"/></li>
+        </ul>
+    </div>
+</form>
+
+{% endblock %}

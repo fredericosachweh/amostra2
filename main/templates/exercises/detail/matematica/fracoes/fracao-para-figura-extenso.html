@@ -1,0 +1,10 @@
+{% extends "exercises/detail//matematica/fracoes/fracao-para-figura.html" %}
+{% load exercises_extras %}
+
+{% block fraction_repr %}
+<strong>{% filter fraction_name %}{{ term1.value }}/{{ term2.value }}{% endfilter %}</strong>
+{% endblock %}
+
+{% block attempt_fraction_repr %}
+<strong>{% filter fraction_name %}{{ term1.value }}/{{ term2.value }}{% endfilter %}</strong>
+{% endblock %}

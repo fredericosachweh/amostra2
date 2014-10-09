@@ -1,0 +1,23 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Agenda da turma{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li class="current">Agenda da turma</li>
+{% endblock %}
+
+{% block content %}
+<h1>Agenda da turma</h1>
+
+<div class="module" id="excluded-dates">
+{% include "teachers/clients/klass_schedule_ajax.html" %}
+</div>
+{% endblock content %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).ready(function() {
+    quickModal('td a');
+});
+</script>
+{% endblock %}

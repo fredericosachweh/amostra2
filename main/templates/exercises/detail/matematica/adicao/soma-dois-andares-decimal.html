@@ -1,0 +1,55 @@
+{% extends "exercises/detail/matematica/adicao/default.html" %}
+
+{% block post_line1 %}
+<div class="commas">
+    {% for item in questions.comma1 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block post_line2 %}
+<div class="commas">
+    {% for item in questions.comma2 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block post_result %}
+<div class="commas">
+    {% for item in answers.comma %}
+    <span>{% if item.correct_value %},{% else %} {% endif %}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block attempt_post_line1 %}
+<div class="commas">
+    {% for item in questions.comma1 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block attempt_post_line2 %}
+<div class="commas">
+    {% for item in questions.comma2 %}
+    <span>{{ item.value }}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}
+
+{% block attempt_post_result %}
+<div class="commas">
+    {% for item in answers.comma %}
+    <span>{% if item.value %},{% else %} {% endif %}</span>
+    {% endfor %}
+    <i></i>
+</div>
+{% endblock %}

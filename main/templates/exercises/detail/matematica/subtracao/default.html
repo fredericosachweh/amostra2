@@ -1,0 +1,78 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line borrowed">
+        {% for item in answers.support %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+        <i></i>
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+
+        <div class="borrow">
+            {# every number can be cutted but not all of them should be #}
+            {% for item in answers.support %}
+            <span{% if item.correct_value != '' %} data-check="checked"{% endif %}></span>
+            {% endfor %}
+            <i></i>{# ignore the last item that never would be cutted #}
+        </div>
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">-</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.correct_value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="line borrowed">
+        {% for item in answers.support %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+        <i></i>
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+
+        <div class="borrow">
+            {# every number can be cutted but not all of them should be #}
+            {% for item in answers.support %}
+            <span{% if item.value|default_if_none:'' != ''%} data-check="checked"{% endif %}></span>
+            {% endfor %}
+            <i></i>{# ignore the last item that never would be cutted #}
+        </div>
+    </div>
+    {% block attempt_post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">-</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_line2 %}{% endblock %}
+    <div class="line result divisor width-ref">
+        {% for item in answers.result %}
+        <span>{{ item.value|cut_zeros }}</span>
+        {% endfor %}
+    </div>
+    {% block attempt_post_result %}{% endblock %}
+</article>
+{% endblock %}

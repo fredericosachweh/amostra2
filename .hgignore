@@ -1,0 +1,9 @@
+database.sqlite
+main/settings/custom.py
+
+media/*
+site-static/*
+docs/build/*
+
+.twill-history
+.sass-cache/*

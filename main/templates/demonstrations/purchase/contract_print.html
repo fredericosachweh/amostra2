@@ -1,0 +1,9 @@
+{% extends "print.html" %}
+{% load flatpages %}
+
+{% block content %}
+{% get_flatpages '/contrato/' as flatpages %}
+{% with flatpages|first as page %}
+{{ page.content|linebreaks }}
+{% endwith %}
+{% endblock %}

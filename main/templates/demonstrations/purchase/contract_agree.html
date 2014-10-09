@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load flatpages %}
+
+{% block title %}Leia o contrato{% endblock %}
+
+{% block breadcrumbs_start %}
+<li><a href="{% url 'demonstrations:demo-start' pk=view.demonstration.pk %}">Demonstração</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'demonstrations:purchase:start' pk=view.demonstration.pk %}">Iniciar compra</a></li>
+<li class="current"><a href="{{ request.path }}">Contrato</a></li>
+{% endblock %}
+
+{% block content %}
+<h1>Leia o contrato</h1>
+
+<div class="module">
+    <header><div><strong>2</strong><span> de 4</span></div></header>
+
+    <p>Leia o contrato de prestação de serviços abaixo para continuar:</p>
+
+    {% get_flatpages '/contrato/' as flatpages %}
+    {% with flatpages|first as page %}
+    <textarea style="height: 14em">{{ page.content }}</textarea>
+    {% endwith %}
+
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        <p>
+            {{ form.has_agreed.errors }}
+            <label>{{ form.has_agreed }} {{ form.has_agreed.label }}</label>
+        </p>
+
+        <button type="submit" class="button">Continuar</button>
+        <a class="button" target="_blank" href="{% url 'demonstrations:purchase:contract-print' pk=view.demonstration.pk %}">Imprimir</a>
+    </form>
+</div>
+{% endblock %}
+

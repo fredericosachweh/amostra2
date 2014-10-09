@@ -1,0 +1,25 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% block exercise_description %}
+    <p>{{ exercise.description }}</p>
+    {% endblock %}
+    <p>{% block response_callout %}Resposta:{% endblock %}</p>
+    {% with answers.0 as f %}{{ f.answer }}
+    <ul{% block choices_params %}{% endblock %}>
+        {% for choice in f.initial.answer.get_random_choices %}
+        <li><input type="radio"
+                   name="{{ f.prefix }}-{{ f.choices.name }}"
+                   id="{{ f.choices.id_for_label }}-{{ forloop.counter }}"
+                   tabindex="{{ f.initial.answer.tabindex }}"
+                   {% if forloop.first %}autofocus="autofocus"{% endif %}
+                   value="{{ choice.id }}"/>
+            <label for="{{ f.choices.id_for_label }}-{{ forloop.counter }}"
+                   >{% block choice_description %}{{ choice }}{% endblock %}</label>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</article>
+{% endblock exercise_content %}

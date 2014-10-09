@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gerenciamento de turmas &mdash; Mainiti 1.0 documentação</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'./',
+        VERSION:'1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Mainiti 1.0 documentação" href="index.html"/>
+        <link rel="next" title="Gestão de contratos" href="contract-management.html"/>
+        <link rel="prev" title="Modelagem de exercícios" href="exercises-modeling.html"/> 
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Mainiti</a>
+        <form class="wy-form" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="create-classes.html">Passos para configurar uma turma</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#criacao-do-cliente-e-do-gestor">Criação do cliente e do gestor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#contratos">Contratos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#professores-e-turmas">Professores e turmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#datas-sem-atividade">Datas sem atividade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#inicializacao-da-turma">Inicialização da turma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#identificacao-do-usuario">Identificação do usuário</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises-modeling.html">Modelagem de exercícios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises-modeling.html#programas-de-exercicios">Programas de exercícios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises-modeling.html#tipos-de-exercicios">Tipos de exercícios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises-modeling.html#adicao-e-subtracao-de-fracoes-de-mesma-base">Adição e subtração de frações de mesma base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises-modeling.html#sequencia-de-execucao-de-exercicio">Sequencia de execução de exercício</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Gerenciamento de turmas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#relatorios-de-performance">Relatórios de performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#certificado">Certificado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contract-management.html">Gestão de contratos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#contrato-padrao">Contrato padrão</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#acompanhamento-do-gasto">Acompanhamento do gasto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#inadimplencia">Inadimplência</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#contratos-parciais-e-validade-das-turmas">Contratos parciais e validade das turmas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises-usage.html">Exercícios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-map.html">Mapa de views e templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#gestor-manager">Gestor / Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#professor-teacher">Professor / Teacher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#aluno-student">Aluno / Student</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-5">Versão 0.9.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-4">Versão 0.9.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-3">Versão 0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-2">Versão 0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-1">Versão 0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9">Versão 0.9</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Mainiti</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html">Docs</a> &raquo;</li>
+  <li><a href="">Gerenciamento de turmas</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="gerenciamento-de-turmas">
+<h1>Gerenciamento de turmas<a class="headerlink" href="#gerenciamento-de-turmas" title="Link permanente para este título">¶</a></h1>
+<p>TODO</p>
+<div class="section" id="relatorios-de-performance">
+<h2>Relatórios de performance<a class="headerlink" href="#relatorios-de-performance" title="Link permanente para este título">¶</a></h2>
+<p>Para poder avaliar seus alunos, tanto individualmente quanto coletivamente, o professor possui alguns gráficos de performance a seu dispor:</p>
+<ul class="simple">
+<li>Médias de tempo, nota e tentativas geral, para uma visão coletiva rápida através de indicadores;</li>
+<li>Médias de tempo, nota e tentativas por aluno no programa, com foco na avaliação individual;</li>
+<li>Evolução da performance de <strong>aluno</strong> em gráfico temporal que confronta nota, tempo <strong>e</strong> número de tentativas;</li>
+<li>Evolução da performance de <strong>alunos</strong> em gráfico temporal que confronta nota, tempo <strong>ou</strong> tentativas de todos os alunos;</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Existe a possibilidade de confrontar a média da turma com a média do sistema, se isso for interessante. Há que se pensar em como calcular a média normal, ignorando extremos.</p>
+</div>
+</div>
+<div class="section" id="certificado">
+<h2>Certificado<a class="headerlink" href="#certificado" title="Link permanente para este título">¶</a></h2>
+<p>O certificado será emitido pelo professor ou opcionalmente pelo gestor. Ele deve escolher quais alunos devem receber o certificado para então gerar um arquivo PDF no qual cada aluno tem seu certificado em uma página.</p>
+<p>Em cada certificado constam o logotipo do <em>Mainiti</em> e o logotipo da instituição de ensino em questão.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Aviso</p>
+<p class="last">É ônus do professor ou gestor tomar a decisão de quem recebe certificado ou não, afinal, ele não é tão importante que não possa ser gerado para um aluno que não teve participação efetiva.</p>
+</div>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="contract-management.html" class="btn btn-neutral float-right" title="Gestão de contratos"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="exercises-modeling.html" class="btn btn-neutral" title="Modelagem de exercícios"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright 2013, Michel Sabchuk.
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

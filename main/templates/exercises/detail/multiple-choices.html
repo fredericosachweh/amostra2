@@ -1,0 +1,14 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<div class="choices clearfix">
+    <p>{{ object.exercise.description }}</p>
+    {% with answers.0 as answer_chance %}
+    <ul>
+        {% for choice in answer_chance.answer.choice_set.all %}
+        <li>{{ choice }} {% if choice.is_correct %}(correta){% endif %}</li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</div>
+{% endblock %}

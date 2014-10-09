@@ -1,0 +1,30 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    {% spaceless %}
+    <div class="line text-left width-ref">
+       {% with questions.term1|first as term1 %}
+       {% with questions.term2|first as term2 %}
+           <span>{{ term1.value }}<sup>{{ term2.value }}</sup></span>
+       {% endwith %}
+       {% endwith %}
+
+       <span class="inter-sign">=</span>
+
+       {% for item in answers.partial %}
+           {% if not forloop.first %}
+           <span class="inter-sign">&times;</span>
+           {% endif %}
+           {{ item.answer }}{{ item.value }}
+       {% endfor %}
+
+       <span class="inter-sign last-step">=</span>
+
+       {% with answers.result|first as item %}
+           {{ item.answer }}{{ item.value }}
+       {% endwith %}
+    </div>
+    {% endspaceless %}
+</article>
+{% endblock exercise_content %}

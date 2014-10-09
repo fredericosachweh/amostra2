@@ -1,0 +1,249 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="division-container width-ref">
+        <div class="division-divided">
+            <div class="line width-ref">
+                {% for item in questions.divided %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+                {% block post_divided %}{% endblock %}
+            </div>
+
+            <div class="line group">
+                {% for item in answers.product0|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move0 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest0|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down0|slice:"::-1" %}
+                <span>{{ item.correct_value }}</span>
+                {% endfor %}
+            </div>
+
+            {% if answers.product1 %}
+            <div class="line group">
+                {% for item in answers.product1|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move1 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest1|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down1|slice:"::-1" %}
+                <span>{{ item.correct_value }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product2 %}
+            <div class="line group">
+                {% for item in answers.product2|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move2 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest2|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down2|slice:"::-1" %}
+                <span>{{ item.correct_value }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product3 %}
+            <div class="line group">
+                {% for item in answers.product3|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move3 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest3|slice:"::-1" %}
+                <span>{{ item.correct_value|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down3|slice:"::-1" %}
+                <span>{{ item.correct_value }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="division-divisor">
+            <div class="line first">
+                {% for item in questions.divisor %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+
+                {% block post_divisor %}{% endblock %}
+            </div>
+            <div class="line result">
+                {% for item in answers.quotient %}
+                <span>{{ item.correct_value }}</span>
+                {% endfor %}
+            </div>
+            {% block post_result %}{% endblock %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="division-container width-ref">
+        <div class="division-divided">
+            <div class="line width-ref">
+                {% for item in questions.divided %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+
+                {% block attempt_post_divided %}{% endblock %}
+            </div>
+
+            <div class="line group">
+                {% for item in answers.product0|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move0 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest0|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down0|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% endfor %}
+            </div>
+
+            {% if answers.product1 %}
+            <div class="line group">
+                {% for item in answers.product1|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move1 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest1|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down1|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product2 %}
+            <div class="line group">
+                {% for item in answers.product2|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move2 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest2|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down2|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if answers.product3 %}
+            <div class="line group">
+                {% for item in answers.product3|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+                {% for item in questions.move3 %}<i></i>{% endfor %}
+                <i></i>
+
+                <hr/>
+
+                {% for item in answers.rest3|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros|default:0 }}</span>
+                {% endfor %}
+
+                {% for item in answers.down3|slice:"::-1" %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="division-divisor">
+            <div class="line first">
+                {% for item in questions.divisor %}
+                <span>{{ item.value }}</span>
+                {% endfor %}
+
+                {% block attempt_post_divisor %}{% endblock %}
+            </div>
+            <div class="line result">
+                {% for item in answers.quotient %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% endfor %}
+            </div>
+            {% block attempt_post_result %}{% endblock %}
+        </div>
+    </div>
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).ready(function() {
+    // removes last product alignment helper, as the last product wont have
+    // anything to put down
+    $('#exercise article.content').each(function() {
+        var moved = 0;
+
+        $(this).find('.group:last-child i').first().remove();
+
+        // Moves each group of rest - down and product to right align the rest with
+        // the product
+        $(this).find('.group').slice(1).each(function() {
+            var current = $(this);
+            var prev = current.prev('.group');
+
+            var rest = prev.find('hr ~ span');
+
+            var split = current.find('hr');
+            var index = current.children().index(split);
+            var product = current.children().slice(0, index).filter('span');
+
+            moved = moved + rest.length - product.length;
+            current.css('right', -4.25 * moved + 'em');
+        });
+    });
+});
+</script>
+{% endblock extrajs %}

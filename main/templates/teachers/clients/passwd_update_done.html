@@ -1,0 +1,14 @@
+{% extends "teachers/clients/klass_started.html" %}
+
+{% block title %}Senhas atualizadas{% endblock %}
+
+{% block local_breadcrumbs %}
+<li><a href="{% url 'teacher:passwd-update' pk=klass.pk %}">Alunos e senhas</a></li>
+<li class="current">Senhas atualizadas</li>
+{% endblock %}
+
+{% block local_title %}Senhas atualizadas{% endblock %}
+
+{% block local_content %}
+<p>As senhas dos usuários selecionados da turma {{ klass }} foram atualizadas com sucesso.</p>
+{% endblock %}

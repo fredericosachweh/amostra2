@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block _title %}Mainiti - Aprendendo todo dia{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block logo %}
+<a id="logo" class="decorated" href="{% block logo_url %}{% url 'home' %}{% endblock %}">
+    Mainiti
+    <img src="{{ STATIC_URL }}images/img-balloon.png" id="balloon" alt="Balão decorativo"/>
+</a>
+{% endblock %}
+
+{% block content %}
+<div id="login" class="right">
+    <header>
+        <h2>Acessar</h2>
+
+        <div class="section-container accordion" data-section="accordion">
+            <section class="active">
+                <p class="title"><a href="#">Informe uma turma</a></p>
+                <form method="post" action="{% url 'student:klass-access' %}" enctype="multipart/form-data" class="content" data-section-content>{% csrf_token %}
+                    {% for field in klass_form.visible_fields %}
+                    <div class="row">
+                        <div class="small-4 columns">{{ field.label_tag }}</div>
+                        <div class="small-8 columns{% if field.errors %} error{% endif %}">{{ field }} {{ field.errors }}</div>
+                    </div>
+                    {% endfor %}
+
+                    <footer>
+                        <button class="button" type="submit">Continuar</button>
+                    </footer>
+                </form>
+            </section>
+            <section{% if request.GET.next or request.POST.next or login_form.errors %} class="active"{% endif %}>
+                <p class="title"><a href="#">Informe suas credenciais</a></p>
+                <form method="post" action="{% url 'home' %}" enctype="multipart/form-data" class="content" data-section-content>{% csrf_token %}
+                    {% if request.GET.next or request.POST.next %}
+                    <div class="alert-box alert radius">
+                    Página restrita a usuários autenticados. Entre com
+                    seus dados abaixo:
+                    </div>
+                    {% endif %}
+
+                    {{ login_form.non_field_errors }}
+
+                    {% for field in login_form.visible_fields %}
+                    <div class="row">
+                        <div class="small-4 columns">{{ field.label_tag }}</div>
+                        <div class="small-8 columns{% if field.errors %} error{% endif %}">{{ field }} {{ field.errors }}</div>
+                    </div>
+                    {% endfor %}
+
+                    <footer>
+                        <a href="{% url 'password_reset' %}" class="forgot-pwd">Esqueci minha senha</a>
+                        <button class="button" type="submit">Enviar</button>
+                    </footer>
+                </form>
+            </section>
+        </div>
+    </header>
+</div>
+
+<div id="welcome">
+    <h1>Conheça o Mainiti</h1>
+    <iframe src="//player.vimeo.com/video/94071833" width="450" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <p>O Mainiti é um método de aprendizagem estruturado em um ambiente
+    dinâmico, interativo e totalmente virtual, que proporciona aos alunos uma
+    experiência inovadora.</p>
+    <a href="{% url 'demonstrations:demo-create' %}" class="button">Solicite uma demonstração</a>
+    <a href="{% url 'informations' %}" class="button">Saiba Mais</a>
+</div>
+
+{% endblock %}

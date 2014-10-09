@@ -1,0 +1,24 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+    <p>Escolha a fração que representa a parte colorida da figura abaixo, considerando a parte colorida:</p>
+
+    {% with questions|first as term1 %}
+    {% with questions|last as term2 %}
+    <canvas class="pie"
+            data-term1="{{ term1.value }}"
+            data-term2="{{ term2.value }}">
+    </canvas>
+    {% endwith %}
+    {% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small data-fraction>{{ choice }}</small>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

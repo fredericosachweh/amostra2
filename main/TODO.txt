@@ -1,0 +1,60 @@
+O campo de alinhamento de multiplicação deve aceitar zero ou espaço em branco.
+
+Rever ações de clique de teclas, tratar tab, enter, esc, etc.
+
+Criar glossário para administradores.
+
+Criar cadastro de feriados para alocação de datas de atividades. Professores terão controle da agenda do programa e poderão reagendar ou ignorar bateria. A interface deve usar drag-and-drop permitindo mover atividades subsequentes, trocar atividades de data.
+
+Pensar em como fazer a cobrança. O programa deve ter data de validade. Isto é, a instituição contrata o programa para usar diariamente durante a vigência do contrato, o contrato pode ser prorrogado.
+
+Os contratos serão periódicos parceláveis. Teremos contrato anual, semestral e contratos de curto prazo. O parcelamento depende do contrato. Gerente tem opção de criar vários contratos com números variados de atividades por dia e assim, terá nota e boleto separados por contrato (há instituições que precisam disso separado).
+
+Fazer randomização dos exercícios de uma bateria mesmo que os usados sejam iguais aos disponíveis. Isso redefine a ordem deles. Baterias que envolvam mais de uma categoria devem permitir especificar o número de atividades por categoria.
+
+Permitir complementar o programa.
+
+Permitir oferecer um mês de cortesia.
+
+Converter sprites de botões que hoje são imagens para sprites que usem composição de cantos e meio.
+
+
+
+Tipos de exercício a tratar:
+
+Números romanos
+Antecessor e sucessor
+Arredondamento para a dezena mais próxima
+Problemas com números naturais (ADIÇÃO 9999+999)
+Problemas com números naturais (SUBTRAÇÃO 9999-999)
+Adição 9999+9999
+Subtração 9999-9999
+Expressões numéricas envolvendo adição e subtração
+Multiplicação
+Multiplicação 10,  100 E 1000
+Divisão com número inteiro
+Divisão com 10, 100 e 1000
+EXPRESSÕES NUMERICAS (DIVISÃO, MULTIP., ADIÇÃO E SUBTRAÇÃO)
+sólidos geométricos
+faces, arestas e vértices
+polígonos
+pesos e medidas
+área
+decomposição em fatores primos até 100
+mmc de 2 números   
+frações
+frações equivalentes
+simplificação de frações
+conversão de frações e porcentagens
+adição de frações
+subtração de frações
+multiplicação de frações
+divisão de frações
+números expressos na forma decimal
+adição com números decimais
+subtração com números decimais
+multiplicando número decimal com número natural
+multiplicando número decimal por 10, 100 e 1000
+divisão com resultado de número decimal
+divisão com número decimal por número natural
+divisão de número decimal por 10 100 e 1000

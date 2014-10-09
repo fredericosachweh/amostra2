@@ -1,0 +1,24 @@
+{% extends "exercises/detail/matematica/numeros-primos/default.html" %}
+{% load utils_extras %}
+
+{% block exercise_description %}Calcule o máximo divisor comum abaixo:{% endblock %}
+
+{% block result %}
+<div class="lcm-result">
+{% with answers.result|first as item %}
+    <span>MDC({% for item in questions.numbers %}{{ item.value }}{% if not forloop.last %}, {% endif %}{% endfor %}) =
+          {{ item.correct_value|cut_zeros }}</span>
+{% endwith %}
+</div>
+{% endblock %}
+
+{% block attempt_description %}Calcule o máximo divisor comum abaixo:{% endblock %}
+
+{% block attempt_result %}
+<div class="lcm-result">
+{% with answers.result|first as item %}
+    <span>MDC({% for item in questions.numbers %}{{ item.value }}{% if not forloop.last %}, {% endif %}{% endfor %}) =
+          {{ item.value|cut_zeros }}</span>
+{% endwith %}
+</div>
+{% endblock %}

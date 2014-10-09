@@ -1,0 +1,15 @@
+{% extends "registration/base_login.html" %}
+{% load utils_extras %}
+
+{% block content %}
+<h1>Solicitar demonstração</h1>
+<div class="module">
+    <p>Preencha os dados do formulário ao lado para solicitar sua demonstração.</p>
+    <form method="post" action="" enctype="multipart/form-data" class="form">{% csrf_token %}
+        {{ form|render_form }}
+        <button type="submit" class="button">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}
+

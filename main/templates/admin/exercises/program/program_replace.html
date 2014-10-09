@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">Início</a></li>
+    <li><a href="{% url 'admin:app_list' 'exercises' %}">Exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_program_changelist' %}">Programas de exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_program_change' program.pk %}">{{ program }}</a></li>
+    <li>{{ title }}</li>
+<ul>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<p>Escolha um arquivo CSV (comma separated values ou valores separados por vírgula). Certifique-se de que ele siga as especificações de formato definidas na <a href="http://mainiti.net.br/docs/">documentação</a>.</p><br/>
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+    <fieldset class="grp-module">
+    <div class="grp-row grp-cells-1"><div class="l-2c-fluid l-d-4">
+        <div class="c-1"><label class="required">Arquivo:</label></div>
+        <div class="c-2">{{ form.csv_file }}</div>
+    </div></div>
+    </fieldset>
+
+    <div class="grp-module grp-submit-row grp-fixed-footer">
+        <ul>
+            <li><input type="submit" value="Enviar" class="grp-button grp-default"/></li>
+        </ul>
+    </div>
+</form>
+{% endblock %}

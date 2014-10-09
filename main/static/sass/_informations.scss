@@ -1,0 +1,47 @@
+#informations {
+    .complement {
+        margin-bottom: 2em;
+
+        h4 {
+            position: relative;
+            color: $success-color;
+            font-size: em-calc(18);
+            margin: 14px 0 0 64px;
+            height: 54px;
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -14px;
+                left: -64px;
+                width: 54px;
+                height: 64px;
+                background: url(../images/information-icons.jpg) top left no-repeat;
+                margin-right: em-calc(8);
+            }
+
+            &.ok:before {
+                background-position: center left;
+            }
+
+            &.globe:before {
+                background-position: bottom left;
+            }
+        }
+    }
+
+    .demo-call {
+        margin-top: 2em;
+        margin-bottom: -1 * em-calc(20);
+    }
+}
+
+.demo-syllabus {
+    margin-top: 1em;
+
+    p {
+        padding-top: 1em;
+    }
+}
+

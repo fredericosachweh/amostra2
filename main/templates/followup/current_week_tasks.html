@@ -1,0 +1,20 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Tarefas para esta semana,</h3>
+
+<p>Ol&aacute; {{ user.get_full_name }}, você possui a(s) seguinte(s) tarefa(s) em seu nome:<p>
+<ul style="margin: 10px 0 0 0;">
+    {% for task in user.followup_tasks.all %}
+        <li style="margin: 0 0 10px;">
+            {{ task.due_date|date:"d/m/Y H:i" }}:
+            <a href="http://{{ site.domain }}{% url 'admin:followup_task_change' task.id %}">{{ task.content }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+<p>Acesse sua conta em <a href="http://{{ site.domain }}">{{ site.domain }}</a> para visualiz&aacute;-las.</p>
+
+<p>A equipe do <a href="http://{{ site.domain }}/">Mainiti</a> agradece.</p>
+{% endblock content %}

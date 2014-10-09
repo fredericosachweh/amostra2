@@ -1,0 +1,53 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% for item in answers %}
+    <div class="line child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object>
+        <span data-index="{{ forloop.counter }}">{{ item.correct_value|floatformat:"0" }}</span>
+    </div>
+    {% endfor %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content">
+    <div class="line width-ref">
+        {% for item in questions %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% for item in answers %}
+    <div class="line child child-{{ forloop.counter }}">
+        <object data="{{ STATIC_URL }}images/arrow-1.svg" type="image/svg+xml">
+            <img src="{{ STATIC_URL }}images/arrow-1.png" alt="Seta para baixo"/>{# fallback #}
+        </object>
+        <span data-index="{{ forloop.counter }}">{{ item.value|floatformat:"0" }}</span>
+    </div>
+    {% endfor %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).ready(function() {
+
+    $('#exercise article.content').each(function() {
+        var results = $(this).find('.child');
+        var spans = $(this).find('.line:first-child span');
+        for(var i=0; i<results.length; i++) {
+            var result = results[i];
+            spans.slice(2 + (i + 1) * 2).clone().appendTo(result);
+        }
+    });
+});
+</script>
+{% endblock %}

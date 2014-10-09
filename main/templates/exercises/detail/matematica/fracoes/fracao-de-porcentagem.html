@@ -1,0 +1,45 @@
+{% extends "exercises/detail/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions|first as term1 %}
+    <p>Marque o número de quadrados que representa a fração {% block fraction_repr %}<small data-fraction>{{ term1.value }}/100</small>{% endblock %}. Clique sobre um quadro para marcá-lo. Clique, mantenha o mouse pressionado e arraste-o sobre vários itens para selecioná-los:</p>
+    {% endwith %}
+
+    {% with answers|first as answer %}
+    <table data-selected="{{ answer.correct_value|stringformat:'d' }}">
+        {% for i in 'abcdefghij' %}
+        <tr>
+            {% for j in 'abcdefghij' %}
+            <td></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endwith %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions|first as term1 %}
+    <p>Marque o número de quadrados que representa a fração {% block attempt_fraction_repr %}<small data-fraction>{{ term1.value }}/100</small>{% endblock %}. Clique sobre um quadro para marcá-lo. Clique, mantenha o mouse pressionado e arraste-o sobre vários itens para selecioná-los:</p>
+    {% endwith %}
+
+    {% with answers|first as answer %}
+    <table data-selected="{{ answer.value|stringformat:'d' }}">
+        {% for i in 'abcdefghij' %}
+        <tr>
+            {% for j in 'abcdefghij' %}
+            <td></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endwith %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

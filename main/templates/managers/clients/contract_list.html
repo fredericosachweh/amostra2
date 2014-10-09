@@ -1,0 +1,22 @@
+{% extends "managers/base.html" %}
+
+{% block title %}Programas{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current">Contratos</li>
+{% endblock %}
+
+{% block content %}
+    <div class="title-wrapper"><h1>Contratos</h1></div>
+
+    <div class="contract-list">
+        {% for object in object_list %}
+        {% include "managers/clients/contract_detail_ajax.html" %}
+        {% empty %}
+        <div class="module empty">
+            <p>Nenhum contrato disponível.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

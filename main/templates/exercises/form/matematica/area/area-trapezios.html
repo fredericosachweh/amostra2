@@ -1,0 +1,30 @@
+{% extends "exercises/form/base.html" %}
+{% load exercises_extras %}
+
+{% block exercise_content %}
+<article class="content full pic-plus-answer">
+    {% with questions.base1|first as base %}
+    {% with questions.height|first as height %}
+    {% with questions.base2|first as base2 %}
+    <p>Qual a área do trapézio que tem altura {{ height.value }}, base maior {{ base.value }} e base menor {{ base2.value }}?</p>
+
+    <canvas class="trapezoid" width="100" height="100"
+            data-height="{{ height.value }}" data-larger-base="{{ base.value }}"  data-shorter-base="{{ base2.value }}">
+        Canvas não suportado pelo browser !
+    </canvas>
+
+    <p>
+        Resposta:
+        {% with answers.result|first as f %}
+        {{ f.answer }}{{ f.value }}
+        {% endwith %}
+    </p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/areas/trapezoid.js"></script>
+{% endblock %}

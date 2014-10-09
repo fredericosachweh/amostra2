@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">{% trans 'Start' %}</a></li>
+    <li><a href="{% url 'admin:app_list' 'clients' %}">{% trans 'Clients' %}</a></li>
+    <li><a href="{% url 'admin:clients_client_changelist' %}">{% trans 'Clients' %}</a></li>
+    <li><a href="{% url 'admin:clients_client_change' demonstration.client.pk %}">{{ demonstration.client }}</a></li>
+    <li>Enviar demonstração</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<p>Escolha uma ou mais pessoas que receberão a proposta por email:</p>
+<br/>
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+    <fieldset class="grp-module">
+        {% for field in form.visible_fields %}
+        <div class="grp-row grp-cells-1"><div class="l-2c-fluid l-d-4">
+            <div class="c-1"><label class="required">{{ field.label }}:</label></div>
+            <div class="c-2">
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        </div></div>
+        {% endfor %}
+    </fieldset>
+
+    <div class="grp-module grp-submit-row grp-fixed-footer">
+        <ul>
+            <li><input type="submit" value="Enviar" class="grp-button grp-default"/></li>
+        </ul>
+    </div>
+</form>
+{% endblock %}

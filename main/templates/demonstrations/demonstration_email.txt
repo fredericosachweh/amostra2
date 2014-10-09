@@ -1,0 +1,9 @@
+Olá,
+
+Sua demonstração do Mainiti está pronta!
+
+Acesse o endereço abaixo em até {{ demonstration.valid_until|timeuntil }} para experimentá-lo.
+
+http://{{ site.domain }}{{ demonstration.get_absolute_url }}
+
+{% if greeting %}{{ greeting }}{% endif %}

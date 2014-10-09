@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load utils_extras %}
+
+{% block title %}Atualizar conta de usuário{% endblock %}
+
+{% block breadcrumbs %}<li class="current">Conta de usuário</li>{% endblock %}
+
+{% block content %}
+<h1>Atualizar conta de usuário</h1>
+<div class="module">
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        {{ form|render_form }}
+        <button type="submit" class="button">Salvar</button>
+    </form>
+</div>
+{% endblock %}
+

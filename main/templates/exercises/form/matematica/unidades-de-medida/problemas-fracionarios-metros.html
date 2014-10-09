@@ -1,0 +1,16 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.question|first as question %}
+    {% with questions.question_type|first as question_type %}
+    {% with questions.result_type|first as result_type %}
+    <p>Quantos {{ result_type.value }} há em {{ question.value }} {{ question_type.value }}?</p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% with answers.result|first as f %}
+    <p>Resposta: {{ f.answer }}{{ f.value }}</p>
+    {% endwith %}
+</article>
+{% endblock %}

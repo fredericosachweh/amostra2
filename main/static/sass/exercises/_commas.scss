@@ -1,0 +1,44 @@
+#exercise article.content {
+    /* Addition, subtraction or multiplication with comma. */
+    .commas {
+        position: relative;
+        top: 0;
+        right: -3.25em;
+        margin-top: -1.5em;
+
+        span, i, a {
+            width: 0.56em;
+            height: 0.56em;
+            line-height: 0; // force comma to be in the top of the font-size height
+            margin: 0.08em 0.72em 0.08em 0.08em;
+            padding: 0;
+            font-size: 3.125em;
+            vertical-align: bottom;
+        }
+
+        a span {
+            font-size: 1em;
+            padding-bottom: 0.64em;
+            @include radius();
+            cursor: pointer;
+
+            margin: 0;
+
+            color: darken($secondary-color, 20%);
+            border: 3px dotted darken($secondary-color, 20%);
+            background: $secondary-color;
+        }
+
+        a.checked span {
+            border: 3px solid $exercise-field-border-color;
+            background: $exercise-field-bg;
+            color: $exercise-field-color;
+        }
+
+        a:focus span, a:hover span {
+            color: $primary-color;
+            border: 3px solid $primary-color;
+        }
+
+    }
+}

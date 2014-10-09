@@ -1,0 +1,13 @@
+Tarefas para esta semana,
+
+Olá {{ user.get_full_name }}, você possui a(s) seguinte(s) tarefa(s) em seu nome:
+{% for task in user.followup_tasks.all %}
+    {{ task.due_date|date:"d/m/Y H:i" }}: {{ task.content }}
+    http://{{ site.domain }}{% url 'admin:followup_task_change' task.id %}
+{% endfor %}
+
+Acesse sua conta em http://{{ site.domain }}/ para visualizá-las.
+
+A equipe do Mainiti agradece.
+http://{{ site.domain }}/
+

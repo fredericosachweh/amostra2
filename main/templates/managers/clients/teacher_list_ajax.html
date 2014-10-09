@@ -1,0 +1,7 @@
+{% for object in object_list %}
+    {% include "managers/clients/teacher_detail_ajax.html" %}
+{% empty %}
+<tr class="empty">
+    <td colspan="4">Nenhum professor cadastrado.</td>
+</tr>
+{% endfor %}

@@ -1,0 +1,5 @@
+{% extends "managers/clients/klass_create_ajax.html" %}
+
+{% block formaction %}{% url 'manager:klass-update' pk=object.id contract_pk=object.contract.id %}{% endblock %}
+
+{% block formlegend %}Alterar turma{% endblock %}

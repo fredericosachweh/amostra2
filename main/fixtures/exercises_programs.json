@@ -1,0 +1,220 @@
+[
+{
+ "pk": 1, 
+ "model": "exercises.program", 
+ "fields": {
+  "matter": 1, 
+  "batteries_count": 4, 
+  "name": "3\u00ba Ano", 
+  "description": "3\u00ba ano do ensino fundamental"
+ }
+},
+{
+ "pk": 3, 
+ "model": "exercises.module", 
+ "fields": {
+  "position": 1, 
+  "program": 1, 
+  "batteries_count": 1, 
+  "name": "Soma"
+ }
+},
+{
+ "pk": 4, 
+ "model": "exercises.module", 
+ "fields": {
+  "position": 2, 
+  "program": 1, 
+  "batteries_count": 1, 
+  "name": "Subtra\u00e7\u00e3o"
+ }
+},
+{
+ "pk": 5, 
+ "model": "exercises.module", 
+ "fields": {
+  "position": 3, 
+  "program": 1, 
+  "batteries_count": 1, 
+  "name": "Multiplica\u00e7\u00e3o"
+ }
+},
+{
+ "pk": 6, 
+ "model": "exercises.module", 
+ "fields": {
+  "position": 4, 
+  "program": 1, 
+  "batteries_count": 1, 
+  "name": "Divis\u00e3o"
+ }
+},
+{
+ "pk": 7, 
+ "model": "exercises.battery", 
+ "fields": {
+  "categories_names": "Soma dois andares, Soma dois andares", 
+  "name": "At\u00e9 20", 
+  "matters_names": "Matem\u00e1tica", 
+  "subjects_names": "Adi\u00e7\u00e3o", 
+  "module": 3, 
+  "position": 1
+ }
+},
+{
+ "pk": 8, 
+ "model": "exercises.battery", 
+ "fields": {
+  "categories_names": "Subtra\u00e7\u00e3o, Subtra\u00e7\u00e3o", 
+  "name": "At\u00e9 20", 
+  "matters_names": "Matem\u00e1tica", 
+  "subjects_names": "Subtra\u00e7\u00e3o", 
+  "module": 4, 
+  "position": 2
+ }
+},
+{
+ "pk": 9, 
+ "model": "exercises.battery", 
+ "fields": {
+  "categories_names": "Multiplica\u00e7\u00e3o, Multiplica\u00e7\u00e3o", 
+  "name": "At\u00e9 20", 
+  "matters_names": "Matem\u00e1tica", 
+  "subjects_names": "Multiplica\u00e7\u00e3o", 
+  "module": 5, 
+  "position": 3
+ }
+},
+{
+ "pk": 10, 
+ "model": "exercises.battery", 
+ "fields": {
+  "categories_names": "Divis\u00e3o, Divis\u00e3o", 
+  "name": "At\u00e9 20", 
+  "matters_names": "Matem\u00e1tica", 
+  "subjects_names": "Divis\u00e3o", 
+  "module": 6, 
+  "position": 4
+ }
+},
+{
+ "pk": 9, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 1, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 7, 
+  "filter2_lower": "1.000000000", 
+  "filter1_lower": "1.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "10.000000000", 
+  "filter2_upper": "10.000000000"
+ }
+},
+{
+ "pk": 10, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 1, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 7, 
+  "filter2_lower": "10.000000000", 
+  "filter1_lower": "10.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "20.000000000", 
+  "filter2_upper": "20.000000000"
+ }
+},
+{
+ "pk": 11, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 7, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 8, 
+  "filter2_lower": "1.000000000", 
+  "filter1_lower": "1.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "10.000000000", 
+  "filter2_upper": "10.000000000"
+ }
+},
+{
+ "pk": 12, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 7, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 8, 
+  "filter2_lower": "10.000000000", 
+  "filter1_lower": "10.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "20.000000000", 
+  "filter2_upper": "20.000000000"
+ }
+},
+{
+ "pk": 13, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 5, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 9, 
+  "filter2_lower": "1.000000000", 
+  "filter1_lower": "1.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "10.000000000", 
+  "filter2_upper": "10.000000000"
+ }
+},
+{
+ "pk": 14, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 5, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 9, 
+  "filter2_lower": "10.000000000", 
+  "filter1_lower": "10.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "20.000000000", 
+  "filter2_upper": "20.000000000"
+ }
+},
+{
+ "pk": 15, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 14, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 10, 
+  "filter2_lower": "1.000000000", 
+  "filter1_lower": "1.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "10.000000000", 
+  "filter2_upper": "10.000000000"
+ }
+},
+{
+ "pk": 16, 
+ "model": "exercises.categoryusage", 
+ "fields": {
+  "category": 14, 
+  "exercises_count": 5, 
+  "tags": "", 
+  "battery": 10, 
+  "filter2_lower": "1.000000000", 
+  "filter1_lower": "10.000000000", 
+  "random_sorting": true, 
+  "filter1_upper": "20.000000000", 
+  "filter2_upper": "20.000000000"
+ }
+}
+]

@@ -1,0 +1,30 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p>Efetue a multiplicação das frações a seguir. Apresente o resultado sem simplificação:</p>
+
+    <div class="line width-ref">
+        <div class="group">
+            {% for item in questions.term1 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">&times;</span>
+        <div class="group">
+            {% for item in questions.term2 %}
+                <span>{{ item.value }}</span>
+                {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+       <span class="f-sign">=</span>
+       <div class="group">
+           {% for item in answers %}
+               {{ item.answer }}{{ item.value }}
+               {% if forloop.first %}<hr />{% endif %}
+           {% endfor %}
+       </div>
+    </div>
+</article>
+{% endblock exercise_content %}

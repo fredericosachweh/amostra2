@@ -1,0 +1,47 @@
+/* Subtraction borrowed result, hidden by default, shown when done a borrow. */
+#exercise {
+    .line.borrowed span, .line.borrowed input[type=text] {
+        visibility: hidden;
+
+        &.checked {
+            visibility: visible;
+        }
+    }
+
+    .borrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        span {
+            position: relative;
+        }
+    }
+
+    // The hover effect for borrow spans are available only when the span is
+    // within a form, otherwise, just when with the class "checked".
+    form .borrow span {
+        cursor: pointer;
+    }
+
+    form .borrow span:hover:before, .borrow span.checked:before, .borrow span.checked:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: darken($tertiary-color, 10%);
+    }
+
+    form .borrow span:hover:before, .borrow span.checked:before {
+        content: "/";
+        right: 0;
+    }
+
+    .borrow span.checked:after {
+        content: "1";
+        right: -1.25em;
+        top: 0;
+        font-size: 0.8em;
+    }
+}

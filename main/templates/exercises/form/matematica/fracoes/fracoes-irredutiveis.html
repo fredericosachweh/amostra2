@@ -1,0 +1,24 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p>Dada a fração abaixo, especifique qual a fração irredutível correspondente a ela:</p>
+
+    <div class="line">
+        <div class="group">
+            {% for term in questions %}
+            <span>{{ term.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for f in answers %}
+            {{ f.answer }}{{ f.value }}
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}

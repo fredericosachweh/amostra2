@@ -1,0 +1,60 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content lcm">
+    <div class="full">
+        <p>{% block exercise_description %}Decomponha em fatores primos:{% endblock %}</p>
+    </div>
+    <div class="lcm-grid">
+        <div class="steps width-ref width-ref-self">
+            <div class="line width-ref">
+            {% for item in questions.numbers %}
+            <span>{{ item.value }}</span>
+            {% endfor %}
+            </div>
+
+            {% for item in answers.steps %}
+            <span>{{ item.correct_value|cut_zeros }}</span>
+            {% endfor %}
+        </div>
+        <div class="divisors width-ref width-ref-self">
+            {% for item in answers.divisors %}
+            <span>{{ item.correct_value|cut_zeros }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% block result %}
+    <br clear="both"/>
+    {% endblock %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content lcm">
+    <div class="full">
+        <p>{% block attempt_description %}Decomponha em fatores primos:{% endblock %}</p>
+    </div>
+    <div class="lcm-grid">
+        <div class="steps width-ref width-ref-self">
+            <div class="line width-ref">
+            {% for item in questions.numbers %}
+            <span>{{ item.value }}</span>
+            {% endfor %}
+            </div>
+
+            {% for item in answers.steps %}
+            <span>{{ item.value|cut_zeros }}</span>
+            {% endfor %}
+        </div>
+        <div class="divisors width-ref width-ref-self">
+            {% for item in answers.divisors %}
+            <span>{{ item.value|cut_zeros }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% block attempt_result %}
+    <br clear="both"/>
+    {% endblock %}
+</article>
+{% endblock user_attempt %}

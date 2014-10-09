@@ -1,0 +1,18 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Detalhes da bateria{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li><a href="{% url 'teacher:klass-schedule' year=object.date.year month=object.date.month pk=klass.pk %}">Agenda da turma</a></li>
+<li class="current">Detalhes da bateria</li>
+{% endblock %}
+
+{% block content %}
+<h1>Detalhes da bateria</h1>
+
+<div class="module">
+{% include "teachers/clients/klass_schedule_detail_ajax.html" %}
+</div>
+{% endblock content %}
+
+

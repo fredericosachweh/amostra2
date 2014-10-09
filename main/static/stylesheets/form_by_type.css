@@ -1,0 +1,6 @@
+/* Replacement for some grappelli configurations to be able to use the name
+ * "group" to a field */
+.form-container .td.group {
+    min-width: 0;
+    border-radius: 0;
+}

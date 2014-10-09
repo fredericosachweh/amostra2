@@ -1,0 +1,64 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p class="text-center">
+    {% spaceless %}
+       {% with questions.term1|first as term1 %}
+       {% with questions.term2|first as term2 %}
+           {{ term1.value }}<sup>{{ term2.value }}</sup>
+       {% endwith %}
+       {% endwith %}
+
+       =
+
+       {% for item in answers.partial %}
+           {% if not forloop.first %}
+           &times;
+           {% endif %}
+           {{ item.correct_value|cut_zeros }}
+       {% endfor %}
+
+       =
+
+       {% with answers.result|first as item %}
+           {{ item.correct_value|cut_zeros }}
+       {% endwith %}
+    {% endspaceless %}
+    </p>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full text-center">
+    <p class="text-center">
+    {% spaceless %}
+       {% with questions.term1|first as term1 %}
+       {% with questions.term2|first as term2 %}
+           {{ term1.value }}<sup>{{ term2.value }}</sup>
+       {% endwith %}
+       {% endwith %}
+
+       =
+
+       {% for item in answers.partial %}
+           {% if not forloop.first %}
+           &times;
+           {% endif %}
+           {% if item.value = None%}
+           &nbsp;
+           {% else %}
+           {{ item.value|cut_zeros }}
+           {% endif %}
+       {% endfor %}
+
+       =
+
+       {% with answers.result|first as item %}
+           {{ item.value|cut_zeros }}
+       {% endwith %}
+    {% endspaceless %}
+    </p>
+</article>
+{% endblock user_attempt %}

@@ -1,0 +1,33 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p>Complete a lacuna de forma que as frações sejam equivalentes:</p>
+
+    <div class="line">
+        <div class="group">
+            {% with questions.term1|first as term %}
+            <span>{{ term.value }}</span>
+            {% endwith %}
+
+            <hr/>
+
+            {% with questions.term2|first as term %}
+            <span>{{ term.value }}</span>
+            {% endwith %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% with questions.term3|first as term %}
+            <span>{{ term.value }}</span>
+            {% endwith %}
+
+            <hr/>
+
+            {% with answers.missing4|first as f %}
+            {{ f.answer }}{{ f.value }}
+            {% endwith %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}

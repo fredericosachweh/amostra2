@@ -1,0 +1,13 @@
+{% extends "exercises/form/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+    {% with questions|first as term %}
+    <p>Qual o nome da figura geométrica abaixo?</p>
+    <p>{{ term.value|special_polygons }}</p>
+    {% endwith %}
+{% endblock %}
+
+{% block choice_description %}
+<small>{{ choice }}</small>
+{% endblock %}

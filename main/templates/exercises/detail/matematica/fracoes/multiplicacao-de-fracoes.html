@@ -1,0 +1,60 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p>Efetue a multiplicação das frações a seguir. Apresente o resultado sem simplificação:</p>
+
+    <div class="line width-ref">
+        <div class="group">
+            {% for item in questions.term1 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">{% block sign %}&times;{% endblock %}</span>
+        <div class="group">
+            {% for item in questions.term2 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for item in answers %}
+                <span>{{ item.correct_value|cut_zeros }}</span>
+                {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    <p>Efetue a multiplicação das frações a seguir. Apresente o resultado sem simplificação:</p>
+
+    <div class="line width-ref">
+        <div class="group">
+            {% for item in questions.term1 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">{% block attempt_sign %}&times;{% endblock %}</span>
+        <div class="group">
+            {% for item in questions.term2 %}
+            <span>{{ item.value }}</span>
+            {% if forloop.first %}<hr/>{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for item in answers %}
+                <span>{{ item.value|cut_zeros }}</span>
+                {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock user_attempt %}

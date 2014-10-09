@@ -1,0 +1,32 @@
+{% extends "exercises/detail/single-choice.html" %}
+{% load exercises_extras %} 
+
+{% block exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+<p>O nome <small data-fraction>{{ term1.value|polygon_name }}</small> representa qual das figuras geométricas planas  abaixo?</p>
+{% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<canvas class="polygon" data-term="{{ choice }}"></canvas>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+<p>O nome {{ term1.value|polygon_name }} representa qual das figuras geométricas planas  abaixo?</p>
+{% endwith %}
+{% endblock %}
+
+{% block attempt_choices_params %} class="inline-list"{% endblock %}
+
+{% block attempt_choice_description %}
+<canvas class="polygon" data-term="{{ choice }}"></canvas>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}javascripts/polygons.js"></script>
+{% endblock %}

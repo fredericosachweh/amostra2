@@ -1,0 +1,22 @@
+{% extends "students/base.html" %}
+
+{% block title %}Minhas tarefas{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <h1>Minhas tarefas</h1>
+
+    {% for object in object_list %}
+    <div class="module">
+        <a href="{% url 'student:user-battery-start' schedule=object.pk %}" class="button large right">Iniciar</a>
+        <h3>{{ object.battery.matters_names }} / <small>{{ object.battery.subjects_names }}</small></h3>
+        <p>{{ object.battery.exercises_count }} exercícios</p>
+    </div>
+    {% empty %}
+    <div class="module">
+        <h3>Parabéns, suas tarefas estão em dia!</h3>
+        <p>Você não tem tarefas para fazer hoje.</p>
+    </div>
+    {% endfor %}
+{% endblock %}

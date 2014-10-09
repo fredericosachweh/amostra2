@@ -1,0 +1,48 @@
+.form {
+    .field {
+        @include clearfix();
+        margin-bottom: emCalc(14px);
+
+        & > label {
+            @include grid-column($columns:3, $float:left);
+            padding-left: 0;
+        }
+
+        & > div {
+            @include grid-column($columns:9);
+
+            & > ul {
+                list-style: none;
+            }
+
+            input[type=text], input[type=email], textarea, select {
+                margin-bottom: 0;
+            }
+
+            p.help {
+                font-size: emCalc(13);
+                font-style: italic;
+            }
+        }
+
+        &.required > label {
+            font-weight: bold;
+
+            &:after {
+                content: "*";
+                color: $alert-color;
+                margin-left: emCalc(4);
+            }
+        }
+    }
+}
+
+.inline-form {
+    label, input[type=text], input[type=email], .button {
+        display: inline-block;
+        width: auto;
+    }
+    label ~ label, label ~ button {
+        margin-left: 1em;
+    }
+}

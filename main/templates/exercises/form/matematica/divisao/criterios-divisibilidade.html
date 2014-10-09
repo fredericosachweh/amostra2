@@ -1,0 +1,7 @@
+{% extends "exercises/form/single-choice.html" %}
+
+{% block exercise_description %}
+    {% with questions|first as term1 %}
+    <p>Quando um número natural é divisível por {{ term1.value }}, segundo as regras de divisibilidade?</p>
+    {% endwith %}
+{% endblock %}

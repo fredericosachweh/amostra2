@@ -1,0 +1,27 @@
+{% extends "exercises/detail/single-choice.html" %}
+
+{% block exercise_description %}
+    <p>Dada a figura abaixo:</p>
+    <img src="{{ STATIC_URL }}images/geometry/straightlinescombination.png" />
+{% endblock %}
+
+{% block response_callout %}
+    {% with questions.term1|first as term1 %}
+    {% with questions.term2|first as term2 %}
+    <p>As retas {{ term1.value }} e {{ term2.value }} são:</p>
+    {% endwith %}
+    {% endwith %}
+{% endblock %}
+
+{% block attempt_exercise_description %}
+    <p>Dada a figura abaixo:</p>
+    <img src="{{ STATIC_URL }}images/geometry/straightlinescombination.png" />
+{% endblock %}
+
+{% block attempt_response_callout %}
+    {% with questions.term1|first as term1 %}
+    {% with questions.term2|first as term2 %}
+    <p>As retas {{ term1.value }} e {{ term2.value }} são:</p>
+    {% endwith %}
+    {% endwith %}
+{% endblock %}

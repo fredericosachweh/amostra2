@@ -1,0 +1,36 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">Início</a></li>
+    <li><a href="{% url 'admin:app_list' 'exercises' %}">Exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_programusage_changelist' %}">Aplicações de programas</a></li>
+    <li><a href="{% url 'admin:exercises_programusage_change' programusage.pk %}">{{ programusage }}</a></li>
+    <li>Auditoria</li>
+<ul>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Dia</th>
+        <th>Matérias</th>
+        <th>Assuntos</th>
+        <th>Categorias</th>
+        <th>Módulo</th>
+        <th>Bateria</th>
+        <th>Exercícios</th>
+    </tr>
+    {% for schedule in programusage.batteryschedule_set.all %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ schedule.battery.matters_names }}</td>
+        <td>{{ schedule.battery.subjects_names }}</td>
+        <td>{{ schedule.battery.categories_names }}</td>
+        <td>{{ schedule.battery.module }}</td>
+        <td>{{ schedule.battery.name }}</td>
+        <td><a href="{% url 'student:user-battery-start' schedule=schedule.pk %}">{{ schedule.battery.exercises_count }} exercícios</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

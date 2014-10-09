@@ -1,0 +1,65 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<article class="content">
+    {% if answers.support3 %}
+    <div class="line sup initially-hidden">
+        {% for f in answers.support3 %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    {% if answers.support2 %}
+    <div class="line sup initially-hidden">
+        {% for f in answers.support2 %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    {% endif %}
+    <div class="line sup initially-hidden">
+        {% for f in answers.support1 %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i></i>{# ignore first support #}
+    </div>
+    <div class="line">
+        {% for item in questions.line1 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line1 %}{% endblock %}
+    <div class="line">
+        <span class="sign">x</span>
+        {% for item in questions.line2 %}
+        <span>{{ item.value }}</span>
+        {% endfor %}
+    </div>
+    {% block post_line2 %}{% endblock %}
+    <div class="line divisor{% if not answers.result %} width-ref{% endif %}">
+        {% for f in answers.partial1 %}{{ f.answer }}{{ f.value }}{% endfor %}
+    </div>
+    {% if answers.partial2 %}
+    <div class="line initially-hidden">
+        {% for f in answers.partial2 %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.partial3 %}
+    <div class="line initially-hidden">
+        {% for f in answers.partial3 %}{{ f.answer }}{{ f.value }}{% endfor %}
+        <i>+</i>
+        <i>+</i>
+    </div>
+    {% endif %}
+    {% if answers.result %}
+    <div class="line result divisor width-ref initially-hidden">
+        {% for f in answers.result %}{{ f.answer }}{{ f.value }}{% endfor %}
+    </div>
+    {% endif %}
+    {% block post_result %}{% endblock %}
+</article>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).ready(function() {
+    $('.initially-hidden').hide();
+});
+</script>
+{% endblock %}

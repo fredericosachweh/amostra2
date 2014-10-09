@@ -1,0 +1,56 @@
+{% extends "print.html" %}
+
+{% block extrahead %}
+<style>
+div {
+    font-family: arial, sans-serif;
+    font-size: 13.5pt;
+    padding: 0.4em 0;
+    border: 1px dashed #999;
+    border-width: 1px 0;
+}
+div + div {
+    border-width: 0 0 1px 0;
+}
+div strong {
+    font-size: 16pt;
+}
+div span {
+    font-family: georgia, times, serif;
+    border-bottom: 1px solid #666;
+    font-size: 14.4pt;
+}
+p {
+    float: right;
+    font-size: 10pt;
+    margin: 0;
+    text-align: center;
+}
+p strong {
+    display: inline-block;
+    font-size: 16pt;
+    margin-bottom: 6pt;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Lista de senhas</h1>
+
+{% for student, password in passwords %}
+<div>
+    <p>
+        chave:<br/>
+        <strong>{{ klass.key }}</strong><br/>
+        senha:<br/>
+        <strong>{{ password }}</strong>
+    </p>
+
+    <strong>Olá {{ student.get_full_name }}, tem lição pra você!</strong><br/>
+    1. Acesse http://mainiti.net.br/<br/>
+    2. Informe sua <em>chave de turma</em> e clique em Continuar<br/>
+    3. Escolha seu nome e digite sua senha
+</div>
+{% endfor %}
+
+{% endblock %}

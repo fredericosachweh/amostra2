@@ -1,0 +1,20 @@
+{% extends "exercises/form/base.html" %}
+
+{% block exercise_content %}
+<div class="choices clearfix">
+    <p>{{ exercise.description }}</p>
+    {% with answers.0 as f %}{{ f.answer }}
+    <ul>
+        {% for choice in f.initial.answer.choice_set.all %}
+        <li><input type="checkbox"
+                   name="{{ f.prefix }}-{{ f.choices.name }}"
+                   id="{{ f.choices.id_for_label }}-{{ forloop.counter }}"
+                   tabindex="{{ f.initial.answer.tabindex }}"
+                   value="{{ choice.id }}">
+            <label for="{{ f.choices.id_for_label }}-{{ forloop.counter }}"> {{ choice }}</label>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</div>
+{% endblock exercise_content %}

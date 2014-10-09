@@ -1,0 +1,8 @@
+{% load utils_extras %}
+<form method="post" class="form ajax-form" enctype="multipart/form-data"
+    action="{% block formaction %}{% url 'manager:teacher-create' %}{% endblock %}">{% csrf_token %}
+    <h3>{% block formlegend %}Novo professor{% endblock %}</h3>
+    {{ form|render_form }}
+    <button class="button" type="submit">Salvar</button>
+    <a href="#" class="button" data-reveal-close>Cancelar</a>
+</form>

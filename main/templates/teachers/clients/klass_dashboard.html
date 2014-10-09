@@ -1,0 +1,115 @@
+{% extends "teachers/base.html" %}
+{% load clients_extras utils_extras %}
+
+{% block title %}Turma {{ klass }}{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'teacher:klass-list' %}">Programas e turmas</a></li>
+<li class="current">{{ klass }}</li>
+{% endblock %}
+
+{% block content %}
+<h1>Turma {{ klass.name }}</h1>
+
+<div class="module">
+    <div class="row">
+        <div class="large-8 columns">
+            <form method="post" enctype="multipart/form-data"
+                action="{% url 'teacher:passwd-update' pk=object.pk %}">{% csrf_token %}
+                <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="check-all"/></th>
+                        <th id="step-1">Aluno</th>
+                        <th id="step-2">Últ. acesso</th>
+                        <th id="step-3">Nota</th>
+                        <th id="step-4">Tempo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user, data in performance %}
+                    <tr>
+                        <td><input type="checkbox" name="{{ passwd_form.students.name }}" value="{{ user.pk }}"></td>
+                        <td>{{ user.get_full_name }}</td>
+                        <td>{% if user.last_login|date:"DATETIME_FORMAT" != user.date_joined|date:"DATETIME_FORMAT" %}
+                            {{ user.last_login|timesince }}
+                            {% else %}
+                            --
+                            {% endif %}</td>
+                        <td>{% if data.score %}{{ data.score|floatformat:-2 }}{% endif %}</td>
+                        <td>{% if data.time %}{{ data.time|format_minutes }}{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+
+                <button type="submit" class="button">Redefinir senhas</button>
+                <a href="#" id="step-5" class="button" data-dropdown="performance">Performance</a>
+            </form>
+
+            <form id="performance" method="GET" action="{% url 'teacher:klass-performance' pk=object.pk %}" class="f-dropdown small content" data-dropdown-content>
+                {% for field in performance_form %}
+                <div class="row">
+                    <div class="small-3 columns"><label class="inline right" for="{{ field.id_for_label }}">{{ field.label }}</label></div>
+                    <div class="small-9 columns">{{ field }}</div>
+                </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="small-9 small-offset-3 columns">
+                        <button type="submit" class="button small" name="mode" value="tabular">Tabular</button>
+                        <button type="submit" class="button small" name="mode" value="chart">Gráfico</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </form>
+        <div class="large-4 columns">
+            <div id="next-batteries">
+                <h4>Próximas atividades</h4>
+                <ul>
+                    {% next_batteries_schedules object as schedules %}
+                    {% for item in schedules %}
+                    <li><strong>{{ item.date|date:"D d/m" }}</strong><br/>{{ item.battery.matters_names }} / {{ item.battery.subjects_names }}</li>
+                    {% empty %}
+                    <li>Programa encerrado!</p>
+                    {% endfor %}
+                </ul>
+                <p id="step-6"><a class="button" href="{% url 'teacher:initial-klass-schedule' pk=klass.pk %}">Ver calendário</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ol class="joyride-list" data-joyride>
+    <li data-id="step-1" data-text="Próximo">
+        <p>Veja a lista de alunos cadastrados na turma.</p>
+    </li>
+    <li data-id="step-2" data-text="Próximo">
+        <p>Saiba quando foi o último acesso de seu aluno ao Mainiti.</p>
+    </li>
+    <li data-id="step-3" data-text="Próximo">
+        <p>Veja a nota geral data pela média de notas obtidas em cada dia de
+        participação.</p>
+    </li>
+    <li data-id="step-4" data-text="Próximo">
+        <p>Confira o tempo médio gasto por dia para resolver os exercícios,
+        descontados dias em que não houve participação.</p>
+    </li>
+    <li data-id="step-5" data-text="Próximo">
+        <p>Calcule a nota e tempo médio do aluno entre determinado período para fechar um bimestre por exemplo.</p>
+    </li>
+    <li data-id="step-6" data-text="Próximo">
+        <p>Veja a performance de um dia específico no caledário para um acompanhamento mais detalhado.</p>
+    </li>
+    <li data-button="Fim">
+        <p>Acesse a <a href="/docs/">documentação</a> para tirar dúvidas.</p>
+    </li>
+</ol>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+$(document).foundation('joyride', 'start', {tipLocation: 'top'});
+</script>
+{% endblock %}

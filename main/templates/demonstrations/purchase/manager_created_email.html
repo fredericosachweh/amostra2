@@ -1,0 +1,22 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Bem-vindo {{ user.get_full_name }},</h3>
+
+<p>Você foi cadastrado para gerenciar a conta da instituição de ensino {{ client }} na plataforma de aprendizado <em>Mainiti</em>.</p>
+
+{% if not password %}
+<p>Acesse o endereço <a href="http://{{ site.domain }}/">{{ site.domain }}</a> com suas credenciais.</p>
+{% else %}
+<p>Acesse o endereço <a href="http://{{ site.domain }}/">{{ site.domain }}</a> com as credenciais listadas abaixo:</p>
+
+<dl>
+    <dt>Nome de usuário:</dt>
+    <dd>{{ user.email }}</dd>
+    <dt>Senha:</dt>
+    <dd>{{ password }}</dd>
+</dl>
+{% endif %}
+
+<p>A equipe do <a href="http://{{ site.domain }}/">Mainiti</a> agradece.</p>
+{% endblock content %}

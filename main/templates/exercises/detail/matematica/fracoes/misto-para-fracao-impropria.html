@@ -1,0 +1,44 @@
+{% extends "exercises/detail/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+{% with questions|last as term2 %}
+<p>O número misto
+{% with term1.value|mixed_number:term2.value as number %}
+{{ number.integer }} <small data-fraction>{{ number.term1 }}/{{ number.term2 }}</small>
+{% endwith %}
+corresponde a qual das frações impróprias apresentadas abaixo?</p>
+{% endwith %}
+{% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+<small data-fraction>{{ choice }}</small>
+{% endblock %}
+
+{% block attempt_exercise_description %}
+{# remember that questions are reversed sorted, the first is last and vice versa. #}
+{% with questions|first as term1 %}
+{% with questions|last as term2 %}
+<p>O número misto
+{% with term1.value|mixed_number:term2.value as number %}
+{{ number.integer }} <small data-fraction>{{ number.term1 }}/{{ number.term2 }}</small>
+{% endwith %}
+corresponde a qual das frações impróprias apresentadas abaixo?</p>
+{% endwith %}
+{% endwith %}
+{% endblock %}
+
+{% block attempt_choices_params %} class="inline-list"{% endblock %}
+
+{% block attempt_choice_description %}
+<small data-fraction>{{ choice }}</small>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

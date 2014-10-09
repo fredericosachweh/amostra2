@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load utils_extras %}
+
+{% block _title %}Mainiti - Aprendendo todo dia{% endblock %}
+
+{% block _breadcrumbs %}{% endblock %}
+
+{% block extracss %}{{ block.super }}
+<style>
+#id_username {
+    -moz-column-count: 3; /* Firefox */
+    -webkit-column-count: 3; /* Safari and Chrome */
+    column-count: 3;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Acesse seus exercícios</h1>
+<div class="module">
+    <form method="post" action="{{ request.path }}" enctype="multipart/form-data">{% csrf_token %}
+        <h3>{{ klass.name }} <small>{{ klass.contract.client.name }}</small></h3>
+
+        {{ form.non_field_errors }}
+
+        <h5>Clique no seu nome</h5>
+        {{ form.username }}{{ form.username.errors }}
+
+        <div id="passwd-modal" class="reveal-modal">
+            <h3>Olá <span>usuário</span></h3>
+            <h5>Digite sua senha</h5>
+            {{ form.password }}{{ form.password.errors }}
+            <button class="button" type="submit">Enviar</button>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script>
+function openPasswdModal(e) {
+    var modal = $('#passwd-modal');
+    modal.find('h3 span').text($(this).parent().text());
+    modal.foundation('reveal', 'open');
+}
+$(document).ready(function() {
+    $('input[name=username]').click(openPasswdModal);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+<h3 style="color: #28a5d3">Nova classe em seu controle,</h3>
+
+<p>Olá {{ klass.teacher.get_full_name }}, a classe <em>{{ klass.name }}</em> foi colocada em seu controle para a instituição de ensino <em>{{ klass.contract.client }}</em> na plataforma de aprendizado <em>Mainiti</em>.</p>
+
+<p>Acesse sua conta em <a href="http://{{ site.domain }}/">{{ site.domain }}</a> para gerenciá-la.</p>
+
+<p>A equipe do <a href="http://{{ site.domain }}/">Mainiti</a> agradece.</p>
+{% endblock content %}

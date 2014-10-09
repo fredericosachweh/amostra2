@@ -1,0 +1,30 @@
+{% extends "managers/base.html" %}
+
+{% block title %}Professores{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current">Professores</li>
+{% endblock %}
+
+{% block content %}
+    <div class="title-wrapper">
+        <h1>Professores</h1>
+        <a href="{% url 'manager:teacher-create' %}" class="button" data-action="teacher-create">+ Adicionar professor</a>
+    </div>
+
+    <div class="module teachers-list">
+        <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>N&ordm; turmas</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% include "managers/clients/teacher_list_ajax.html" %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}

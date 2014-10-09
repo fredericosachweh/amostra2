@@ -1,0 +1,121 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrastyle %}
+<style>
+    table td, table th {
+        font-size: 13px;
+    }
+    .divisor {
+        background: #ccc;
+        color: #666;
+    }
+    .legend {
+        margin: 0.5em 0 1em 0;
+    }
+    .legend li {
+        margin: 0.25em 0;
+    }
+    .legend li:before {
+        content: "";
+        display: inline-block;
+        width: 1.25em;
+        height: 1.25em;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        border: 1px solid #ccc;
+    }
+    td.incomplete, .legend li.incomplete:before { background: #f0cfcf; }
+    td.too-less, .legend li.too-less:before { background: #eeeaa5; }
+    td.too-much, .legend li.too-much:before { background: #c3f0a8; }
+
+</style>
+{% endblock %}
+
+{% block javascripts %}{{ block.super }}
+<script>
+</script>
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{% url 'admin:index' %}">Início</a></li>
+    <li><a href="{% url 'admin:app_list' 'exercises' %}">Exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_program_changelist' %}">Programas de exercícios</a></li>
+    <li><a href="{% url 'admin:exercises_program_change' program.pk %}">{{ program }}</a></li>
+    <li>{{ title }}</li>
+<ul>
+{% endblock breadcrumbs %}
+
+{% block content %}
+
+    <p>Legenda:</p>
+
+    <ul class="legend">
+        <li class="incomplete">Menos exercícios do que necessário</li>
+        <li class="too-less">Entre 1 e 3 vezes o número de exercícios necessário: alerta, pode ser pouco!</li>
+        <li class="too-much">Mais que 100 vezes o número de exercícios necessário: alerta, pode ser demais!</li>
+        <li>Entre 3 e 100 vezes o número de exercícios necessário: adequado!</li>
+    </ul>
+
+    <table>
+        <tbody>
+        {% for usage, available, label in usages %}
+        {% ifchanged usage.battery.module %}
+        <tr>
+            <td colspan="7" class="divisor">{{ usage.battery.module.name }}</td>
+        </tr>
+        <tr>
+            <th>Dia</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Ordem</th>
+            <th>Variáveis de filtragem</th>
+            <th>Exercícios</th>
+            <th>Disponíveis</th>
+        </tr>
+        {% endifchanged %}
+
+            <tr>
+                {% ifchanged usage.battery %}
+                {% with usage.rowspan as rowspan %}
+                <td rowspan="{{ rowspan }}">{{ usage.battery.pk }}</td>
+                <td rowspan="{{ rowspan }}">
+                    <a href="{% url 'admin:exercises_battery_change' usage.battery.pk %}" target="_blank">{{ usage.battery }}</a>
+                </td>
+                {% endwith %}
+                {% endifchanged %}
+
+                <td title="Slug: {{ usage.category.slug }}">{{ usage.category }}</td>
+                <td>{{ usage.random_sorting|yesno:"Aleatório,Sequencial" }}</td>
+                <td>
+                    {% if usage.filter1_lower != None and usage.filter1_upper != None %}
+                        {% if usage.filter1_lower = usage.filter1_upper %}
+                        Filtro-1 igual a {{ usage.filter1_lower|floatformat:"-3" }}
+                        {% else %}
+                        Filtro-1 de {{ usage.filter1_lower|floatformat:"-3" }} a {{ usage.filter1_upper|floatformat:"-3" }}
+                        {% endif %}
+                    {% endif %}
+                    {% if usage.filter2_lower != None and usage.filter2_upper != None %}
+                        <br/>
+                        {% if usage.filter2_lower = usage.filter2_upper %}
+                        Filtro-2 igual a {{ usage.filter2_lower|floatformat:"-3" }}
+                        {% else %}
+                        Filtro-2 de {{ usage.filter2_lower|floatformat:"-3" }} a {{ usage.filter2_upper|floatformat:"-3" }}
+                        {% endif %}
+                    {% endif %}
+                    {% if usage.tags %}
+                        <br/>
+                        Tags: {{ usage.tags }}
+                    {% endif %}
+                </td>
+                <td class="{{ label }}">{{ usage.exercises_count }}</td>
+                <td class="{{ label }}">
+                    <a href="{% url 'admin:exercises_exercise_changelist' %}?category={{ usage.category.pk }}{% if usage.filter1_lower != None and usage.filter1_upper != None %}&filter1__gte={{ usage.filter1_lower|stringformat:"f" }}&filter1__lte={{ usage.filter1_upper|stringformat:"f" }}{% endif %}{% if usage.filter2_lower != None and usage.filter2_upper != None %}&filter2__gte={{ usage.filter2_lower|stringformat:"f" }}&filter2__lte={{ usage.filter2_upper|stringformat:"f" }}{% endif %}{% for tag in usage.get_tags %}&tags__icontains={{ tag }}{% endfor %}">{{ available }}</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

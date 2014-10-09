@@ -1,0 +1,34 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions.term1|first as term1 %}
+    {% with questions.term2|first as term2 %}
+    <p>Qual o número decimal correspondente à fração {% block fraction_repr %}<small data-fraction>{{ term1.value }}/{{ term2.value }}</small>{% endblock %}:</p>
+    {% endwith %}
+    {% endwith %}
+
+    {% with answers.result|first as answer %}
+    <p>Resposta: {{ answer.correct_value|cut_zeros }}</p>
+    {% endwith %}
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions.term1|first as term1 %}
+    {% with questions.term2|first as term2 %}
+    <p>Qual o número decimal correspondente à fração {% block attempt_fraction_repr %}<small data-fraction>{{ term1.value }}/{{ term2.value }}</small>{% endblock %}:</p>
+    {% endwith %}
+    {% endwith %}
+
+    {% with answers.result|first as answer %}
+    <p>Resposta: {{ answer.value|cut_zeros }}</p>
+    {% endwith %}
+</article>
+{% endblock user_attempt %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

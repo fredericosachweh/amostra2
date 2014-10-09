@@ -1,0 +1,22 @@
+{% extends "exercises/form/single-choice.html" %}
+{% load exercises_extras %}
+
+{% block exercise_description %}
+{% with questions|first as term1 %}
+{% with questions|last as term2 %}
+<p>A fração <small data-fraction>{{ term1.value }}/{{ term2.value }}</small> é corresponde a qual dos números mistos apresentados abaixo?</p>
+{% endwith %}
+{% endwith %}
+{% endblock %}
+
+{% block choices_params %} class="inline-list"{% endblock %}
+
+{% block choice_description %}
+{% with choice|mixed_number as number %}
+{{ number.integer }} <small data-fraction>{{ number.term1 }}/{{ number.term2 }}</small>
+{% endwith %}
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/fractions.js"></script>
+{% endblock %}

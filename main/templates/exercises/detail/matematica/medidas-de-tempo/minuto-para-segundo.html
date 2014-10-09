@@ -1,0 +1,28 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    {% with questions|first as q %}
+    {% with answers|first as a %}
+    {% with object.exercise as exercise %}
+    <p>{{ q.value }} {% if exercise.tags = 'direct' %}minuto{% else %}segundo{% endif %}{{ q.value|pluralize }} =
+       {{ a.correct_value|cut_zeros }} {% if exercise.tags = 'direct' %}segundo{% else %}minuto{% endif %}{{ a.correct_value|pluralize }}</p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}
+
+{% block user_attempt %}
+<article class="content full">
+    {% with questions|first as q %}
+    {% with answers|first as a %}
+    {% with object.exercise as exercise %}
+    <p>{{ q.value }} {% if exercise.tags = 'direct' %}minuto{% else %}segundo{% endif %}{{ q.value|pluralize }} =
+       {{ a.value|cut_zeros }} {% if exercise.tags = 'direct' %}segundo{% else %}minuto{% endif %}{{ a.value|pluralize }}</p>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+</article>
+{% endblock %}

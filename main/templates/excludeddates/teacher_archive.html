@@ -1,0 +1,12 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Datas sem atividade{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{% url 'excludeddates:teacher-disambiguation' %}">Datas sem atividade</a></li>
+<li class="current">{{ client }}</li>
+{% endblock %}
+
+{% block content %}
+{% include "excludeddates/_archive.html" %}
+{% endblock %}

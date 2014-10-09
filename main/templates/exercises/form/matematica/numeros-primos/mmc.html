@@ -1,0 +1,12 @@
+{% extends "exercises/form/matematica/numeros-primos/default.html" %}
+
+{% block exercise_description %}Calcule o mínimo múltiplo comum abaixo:{% endblock %}
+
+{% block result %}
+<div class="lcm-result">
+{% with answers.result|first as f %}
+    <span>MMC({% for item in questions.numbers %}{{ item.value }}{% if not forloop.last %}, {% endif %}{% endfor %}) =</span>
+    {{ f.answer }}{{ f.value }}
+{% endwith %}
+</div>
+{% endblock %}

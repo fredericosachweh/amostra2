@@ -1,0 +1,46 @@
+{% extends "exercises/detail/base.html" %}
+{% load utils_extras %}
+
+{% block exercise_content %}
+<article class="content full">
+    <p>Dada a fração abaixo, especifique qual a fração irredutível correspondente a ela:</p>
+
+    <div class="line">
+        <div class="group">
+            {% for term in questions.term|slice:"::-1" %}
+            <span>{{ term.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for answer in answers %}
+            <span>{{ answer.correct_value|cut_zeros }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock exercise_content %}
+
+{% block user_attempt %}
+<article class="content full">
+    <p>Dada a fração abaixo, especifique qual a fração irredutível correspondente a ela:</p>
+
+    <div class="line">
+        <div class="group">
+            {% for term in questions.term|slice:"::-1" %}
+            <span>{{ term.value }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+        <span class="f-sign">=</span>
+        <div class="group">
+            {% for answer in answers %}
+            <span>{{ answer.value|cut_zeros }}</span>
+            {% if forloop.first %}<hr />{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock user_attempt %}

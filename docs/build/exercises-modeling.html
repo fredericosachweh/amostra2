@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Modelagem de exercícios &mdash; Mainiti 1.0 documentação</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'./',
+        VERSION:'1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Mainiti 1.0 documentação" href="index.html"/>
+        <link rel="next" title="Gerenciamento de turmas" href="class-management.html"/>
+        <link rel="prev" title="Passos para configurar uma turma" href="create-classes.html"/> 
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Mainiti</a>
+        <form class="wy-form" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="create-classes.html">Passos para configurar uma turma</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#criacao-do-cliente-e-do-gestor">Criação do cliente e do gestor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#contratos">Contratos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#professores-e-turmas">Professores e turmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#datas-sem-atividade">Datas sem atividade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#inicializacao-da-turma">Inicialização da turma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-classes.html#identificacao-do-usuario">Identificação do usuário</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Modelagem de exercícios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#programas-de-exercicios">Programas de exercícios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tipos-de-exercicios">Tipos de exercícios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adicao-e-subtracao-de-fracoes-de-mesma-base">Adição e subtração de frações de mesma base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequencia-de-execucao-de-exercicio">Sequencia de execução de exercício</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class-management.html">Gerenciamento de turmas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class-management.html#relatorios-de-performance">Relatórios de performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-management.html#certificado">Certificado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contract-management.html">Gestão de contratos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#contrato-padrao">Contrato padrão</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#acompanhamento-do-gasto">Acompanhamento do gasto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#inadimplencia">Inadimplência</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contract-management.html#contratos-parciais-e-validade-das-turmas">Contratos parciais e validade das turmas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises-usage.html">Exercícios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-map.html">Mapa de views e templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#gestor-manager">Gestor / Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#professor-teacher">Professor / Teacher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-map.html#aluno-student">Aluno / Student</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-5">Versão 0.9.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-4">Versão 0.9.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-3">Versão 0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-2">Versão 0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9-1">Versão 0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#versao-0-9">Versão 0.9</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Mainiti</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html">Docs</a> &raquo;</li>
+  <li><a href="">Modelagem de exercícios</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="modelagem-de-exercicios">
+<h1>Modelagem de exercícios<a class="headerlink" href="#modelagem-de-exercicios" title="Link permanente para este título">¶</a></h1>
+<p>Os exercícios são organizados pelas seguintes informações:</p>
+<ul class="simple">
+<li>matérias, como matématica ou português;</li>
+<li>assuntos, como adição, subtração ou frações;</li>
+<li>categorias, como adição com resultado em duas casas, mmc, subtração ou
+comparação de frações;</li>
+</ul>
+<p>Os exercícios são parametrizados e podem conter várias perguntas e respostas. O
+aluno acertará o exercício todas as suas respostas estiverem corretas.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Não há cálculos matemáticos na solução do exercício. A definição de erro e
+acerto é por pura comparação.</p>
+</div>
+<p>Os assuntos e as categorias dirão como será a apresentação gráfica de cada
+exercício, isto é, onde serão dispostas as perguntas e onde irão aparecer as
+respostas.</p>
+<p>Os exercícios, exceto caso especiais especificados na documentação, serão
+criados programaticamente, isto é, através de scripts de geração que fazem
+parte do sistema.</p>
+<div class="section" id="programas-de-exercicios">
+<h2>Programas de exercícios<a class="headerlink" href="#programas-de-exercicios" title="Link permanente para este título">¶</a></h2>
+<p>Programas de exercícios são grupos de exercícios a serem executados
+diariamente. São compostos por módulos que por sua vez incluem baterias com
+exercícios de uma ou mais categorias.</p>
+<p>Para criar um programa, no painel administrativo, acesse <em>Programas de
+exercícios</em> -&gt; <em>Programas de exercícios</em>. Deverá especificar o nome do
+programa, sua matéria e descrição.</p>
+<p>Não é preciso se preocupar em cadastrar módulos ou qualquer outra informação, a
+alimentação do programa se dará através da importação de um arquivo csv que
+contém os módulos, baterias e categorias a serem usados.</p>
+<div class="section" id="importacao-de-programas">
+<h3>Importação de programas<a class="headerlink" href="#importacao-de-programas" title="Link permanente para este título">¶</a></h3>
+<p>A importação do programa se dá através de um arquivo csv. Nele, cada bateria
+(que corresponde a um dia) é representada por uma ou mais linhas no arquivo de
+importação. A primeira linha de uma bateria deve incluir o dia, o módulo ao
+qual pertence e seu nome.</p>
+<p>Mais de uma linha pode ser usada para representar a bateria. As linhas
+subsequentes devem ter o dia, o módulo e o nome em branco afim de denotar que
+trata-se de um complemento ao dia ainda <em>aberto</em>.</p>
+<p>Estas linhas de uma bateria permitem definir <em>aplicações de categorias</em> para
+este dia. Tais aplicações dizem de qual categoria utilizar exercícios, qual
+quantidade usar, se será usado na ordem sequencial ou aleatória e como serão
+filtrados os exercícios encontrados.</p>
+<p>Veja abaixo um exemplo de um arquivo de importação:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="9%" />
+<col width="23%" />
+<col width="18%" />
+<col width="7%" />
+<col width="10%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Dia</th>
+<th class="head">Módulo</th>
+<th class="head">Nome</th>
+<th class="head">Categoria</th>
+<th class="head">Quant.</th>
+<th class="head">Ordem</th>
+<th class="head">F1 Inf.</th>
+<th class="head">F1 Sup.</th>
+<th class="head">F2 Inf.</th>
+<th class="head">F2 Sup.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Adição</td>
+<td>De 1+1 até 20+1</td>
+<td>Soma dois andares</td>
+<td>20</td>
+<td>Aleatório</td>
+<td>1</td>
+<td>20</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Soma dois andares</td>
+<td>10</td>
+<td>Sequencial</td>
+<td>1</td>
+<td>20</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Adição</td>
+<td>De 1+2 até 20+2</td>
+<td>Soma dois andares</td>
+<td>30</td>
+<td>Sequencial</td>
+<td>1</td>
+<td>20</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Subtração</td>
+<td>De 1-1 até 30-1</td>
+<td>Subtração</td>
+<td>40</td>
+<td>Aleatório</td>
+<td>1</td>
+<td>30</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Subtração</td>
+<td>Avaliação soma e subtração</td>
+<td>Subtração</td>
+<td>40</td>
+<td>Aleatório</td>
+<td>1</td>
+<td>30</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Soma dois andares</td>
+<td>20</td>
+<td>Sequencial</td>
+<td>1</td>
+<td>20</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Soma três andares
+resultado duas casas</td>
+<td>20</td>
+<td>Aleatório</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Determinadas categorias definem variáveis de controle que podem ser usadas para
+filtragem de resultados. São duas variáveis numéricas: <em>filtro 1</em> e <em>filtro 2</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Diferentes tipos de exercício podem usar as variáveis de filtragem de formas
+diversas. Procure ler a documentação de cada tipo de exercício para conhecer
+suas especificações.</p>
+</div>
+<p>Algumas categorias não definem ou não podem definir tais filtros, por exemplo
+uma soma de três andares. São três números para filtragem mas por ser um caso
+tão específico, provavelmente possa já ser agrupado de forma segmentada, isto
+é, teremos algumas categorias de soma com resultado em três casas que serão
+usadas para agrupar exercícios de dificuldade similar.</p>
+<p>Alguns pontos são importantes:</p>
+<ol class="arabic simple">
+<li>O número do dia existe para seu controle, não será respeitado na hora da
+importação mas é útil para garantir que o número de dias planejados foi
+atendido;</li>
+<li>O nome do módulo será mostrado para alunos e professores, então tome cuidado
+com a ortografia;</li>
+<li>O módulo não precisa existir, se especificar um módulo inexistente, ele será
+criado;</li>
+<li>O professor será capaz de reordenar módulos, desta forma, recomenda-se
+<em>quebrar</em> módulos extensos em versões menores (por exemplo, ao invés de 1
+módulo de 15 dias de soma, melhor usar 3 módulos de soma com níveis de
+dificuldade diferentes);</li>
+<li>O nome da bateria/dia será mostrado para professores. Procure usar nomes
+significativos, este nome será usado para mostrar o conteúdo programático;</li>
+<li>A categoria <strong>precisa</strong> existir no sistema, se especificar uma categoria
+inexistente, o sistema acusará o erro;</li>
+<li>Ao criar as categorias, procure usar nomes curtos. Trata-se de uma
+informação interna, não será mostrada a professores ou alunos;</li>
+<li>Nos campos F1 Inf., F1 Sup., F2 Inf. e F2 Sup., o F significa <em>filtro</em> e os
+termos Inf. e Sup. significam limite inferior e limite superior,
+respectivamente;</li>
+</ol>
+<p>Para importar, edite ou crie um novo programa: ele precisa existir previamente.
+Clique então em <em>Importar/sobrescrever programa</em>. Neste momento, será convidado
+a escolher um arquivo CSV <strong>separado por vírgulas</strong>.</p>
+<div class="section" id="desacoplacao-de-exercicios">
+<h4>Desacoplação de exercícios<a class="headerlink" href="#desacoplacao-de-exercicios" title="Link permanente para este título">¶</a></h4>
+<p>Os exercícios estão desacoplados da programação de baterias. Isto é, você pode
+programar todo um período e, caso não existam exercícios de determinada
+categoria, os dias previstos para ela estarão em branco, mas a modelagem já
+pode ser realizada <em>a priori</em>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-exercicios">
+<h2>Tipos de exercícios<a class="headerlink" href="#tipos-de-exercicios" title="Link permanente para este título">¶</a></h2>
+<div class="section" id="romano-para-decimal">
+<h3>Romano para decimal<a class="headerlink" href="#romano-para-decimal" title="Link permanente para este título">¶</a></h3>
+<p>Pede que o aluno <em>digite o número que corresponde ao símbolo romano N</em> e
+oferece espaço para digitação da resposta decimal.</p>
+<p>Na importação do programa, tem uma variável de controle que permite escolher,
+para determinada bateria, números entre o limite superior e inferior dela.</p>
+<p>Há exercícios de romano para decimal entre o número 1 e o número 100.</p>
+</div>
+<div class="section" id="decimal-para-romano">
+<h3>Decimal para romano<a class="headerlink" href="#decimal-para-romano" title="Link permanente para este título">¶</a></h3>
+<p>Pede ao aluno que diga a <em>qual número romano corresponde o número N</em>. Oferece
+uma lista de 5 opções de forma que apenas uma seja a correta.</p>
+<p>Cada exercício de <em>decimal para romano</em> tem 10 opções de escolha, dadas pelo
+intervalo entre a dezena anterior e a próxima ao número N. Suponha que N seja
+17, as opções são os números entre 10 e 20, devidamente convertidos em romanos.</p>
+<p>Ao abrir um exercício deste tipo, o sistema irá sortear 5 opções dentre as 10
+disponíveis, garantindo que uma delas seja a resposta correta. Com isso,
+garantimos que dois alunos não veram as mesmas opções nas mesmas ordens.</p>
+<p>Na importação do programa, tem uma variável de controle que permitirá escolher,
+para determinada bateria, números entre o limite superior e inferior dela.</p>
+<p>Há exercícios de decimal para romano entre o número 1 e o número 100.</p>
+</div>
+<div class="section" id="soma-dois-andares">
+<h3>Soma dois andares<a class="headerlink" href="#soma-dois-andares" title="Link permanente para este título">¶</a></h3>
+<p>Oferece a operação de soma <em>armada</em> para que o aluno responda cada dígito da
+resposta. Opera em apenas 2 andares (por exemplo 25+39, 15+18 ou 2+2).</p>
+<p>Na importação do programa, tem 2 variáveis de controle que permitem escolher,
+para determinada bateria, números entre o limite superior e inferior para o
+primeiro andar e o segundo respectivamente.</p>
+<p>Há exercícios de soma de dois andares até 999 no primeiro e no segundo andar.</p>
+</div>
+<div class="section" id="soma-dois-andares-decimal">
+<h3>Soma dois andares (decimal)<a class="headerlink" href="#soma-dois-andares-decimal" title="Link permanente para este título">¶</a></h3>
+<p>Oferece a operação de soma <em>armada</em> em dois andares com números decimais
+devidamente alinhados (por exemplo 2,5+1,1 ou 2,453+3,412).</p>
+<div class="section" id="geracao">
+<h4>Geração<a class="headerlink" href="#geracao" title="Link permanente para este título">¶</a></h4>
+<p>Os exercícios de soma decimal são gerados até um limite inteiro entre 0,1 e um
+décimo do limite. Por exemplo, se o limite é 100, para duas casas decimais,
+serão gerados exercícios cujos primeiro e segundo andar estão entre 0,01 e 99,99.</p>
+<p>Na geração será necessário dizer quantas casas decimais se trabalhar e isso
+impactará no número de exercícios. Limite 100 para exercícios de 1 casa gera
+algo próximo de 1 milhão de exercícios, já com duas casas decimais, serão
+gerados cerca de 10 milhões de exercícios.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Não serão gerados exercícios terminados com zero (por exemplo, 1,10 ou
+2,350).</p>
+</div>
+</div>
+<div class="section" id="importacao">
+<h4>Importação<a class="headerlink" href="#importacao" title="Link permanente para este título">¶</a></h4>
+<p>Na importação do programa, 2 variáveis de controle que permitem escolher,
+para determinada bateria, números entre o limite superior e inferior para o
+primeiro e segundo andar respectivamente.</p>
+<p>Além dos limites, será necessário especificar uma tag que identifica o número
+de casas decimais, na forma <em>N-casas</em> (por exemplo, <em>2-casas</em>, <em>3-casas</em> ou
+<em>4-casas</em>).</p>
+<p>Isto é necessário para poder dirimir ambiguidades, afinal, <em>1.05+3.01</em> pode
+pertencer ao mesmo intervalo que <em>1.051+3.011</em>.</p>
+</div>
+</div>
+<div class="section" id="subtracao-dois-andares">
+<h3>Subtração dois andares<a class="headerlink" href="#subtracao-dois-andares" title="Link permanente para este título">¶</a></h3>
+<p>Oferece a operação de <em>subtração</em> para que o aluno responda cada dígito da
+resposta. Opera em apenas 2 andares (por exemplo 25-19, 18-13 ou 2-1).</p>
+<p>Na importação do programa, tem 2 variáveis de controle que permitem escolher,
+para determinada bateria, números entre o limite superior e inferior para o
+primeiro andar e o segundo respectivamente.</p>
+<p>Há exercícios de subtração de dois andares até 9.999 no primeiro e/ou no
+segundo andar, nunca com resultados negativos.</p>
+</div>
+<div class="section" id="adicao-e-subtracao-na-ordem-em-que-elas-aparecem">
+<h3>Adição e subtração na ordem em que elas aparecem<a class="headerlink" href="#adicao-e-subtracao-na-ordem-em-que-elas-aparecem" title="Link permanente para este título">¶</a></h3>
+<p>Oferece <em>expressões</em> de soma e subtração com 3 ou mais termos num layout que
+força o aluno a resolver etapa por etapa, na sequencia em que os dígitos
+aparecem na conta.</p>
+<p>Na importação do programa, tem 2 variáveis de controle que dizem o menor termo e
+o maior termo da expressão, respectivamente. Isso permite escolher exercícios
+com base nos termos, por exemplo:</p>
+<ul class="simple">
+<li>Exercícios cujo menor termo esteja entre 10 e 20 e cujo maior termo esteja
+também entre 10 e 20 (por exemplo 10+17-13 ou 14+14-14). Sempre aparecerão
+dezenas entre 10 e 20 nos termos.</li>
+<li>Exercícios cujo menor termo enteja entre 1 e 10 e cujo maior termo esteja
+entre 10 e 20 (por exemplo 1+17-15, 12+9-3). Sempre aparecerá um termo menor
+que 10 e outro termo maior que 10 e menor que 20.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Não serão gerados exercícios iniciados por zero ou que tenham mais de uma
+ocorrência de zero na conta.</p>
+</div>
+</div>
+</div>
+<div class="section" id="adicao-e-subtracao-de-fracoes-de-mesma-base">
+<h2>Adição e subtração de frações de mesma base<a class="headerlink" href="#adicao-e-subtracao-de-fracoes-de-mesma-base" title="Link permanente para este título">¶</a></h2>
+<p>Oferece operações de soma ou subtração de frações, tendo estas a mesma base, num layout adequado para resposta.</p>
+<p>Tem 2 variáveis de controle. A primeira controla o valor máximo do dividendo de cada fração e a segunda controla o valor da base.</p>
+<p>Assim se o filtro 1 está entre 5 e 15 e o filtro2 entre 10 e 12, verá frações como 5/10, 5/12 mas não 5/9 ou 4/12...</p>
+</div>
+<div class="section" id="sequencia-de-execucao-de-exercicio">
+<h2>Sequencia de execução de exercício<a class="headerlink" href="#sequencia-de-execucao-de-exercicio" title="Link permanente para este título">¶</a></h2>
+<p>Como é sabido, cada exercício pode ter diversas respostas (como uma conta de
+soma, que tem os dígitos da resposta e do apoio). Estes campos serão mostrados
+conforme alimentados (de forma a oferecer um preenchimento guiado).</p>
+<p>Para que isso seja possível, cada tipo de resposta precisa informar o próximo
+tipo de resposta da sequencia. Este mapeamento será transcrito em atributos
+<cite>tabindex</cite> nos campos de preenchimento. Este atributo é constante do protocolo
+HTML e será respeitado pelos navegadores quando usa-se a tecla TAB ou
+SHIFT+TAB.</p>
+<p>Por exemplo, numa soma, o campo de resultado (que representa os dígitos da
+resposta) sabe que o próximo campo é o apoio e o apoio sabe que o próximo é o
+resultado.</p>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="class-management.html" class="btn btn-neutral float-right" title="Gerenciamento de turmas"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="create-classes.html" class="btn btn-neutral" title="Passos para configurar uma turma"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright 2013, Michel Sabchuk.
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

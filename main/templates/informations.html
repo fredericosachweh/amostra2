@@ -1,0 +1,79 @@
+{% extends "registration/base_login.html" %}
+{% load utils_extras %}
+
+{% block content %}
+<h1>Saiba mais sobre o Mainiti</h1>
+
+<div id="informations" class="module">
+    <p>O Mainiti é um método de aprendizagem estruturado em um ambiente
+    dinâmico e interativo, proporciona aos alunos uma
+    experiência inovadora.</p>
+
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>Principais características do sistema</h4>
+            <ul>
+                <li>Fácil de usar</li>
+                <li>Interface limpa e organizada</li>
+                <li>Exercícios passo a passo</li>
+                <li>Sistema de correção automática</li>
+                <li>Relatórios de desempenho</li>
+                <li>Ajustado ao programa letivo do 4º ao 6º ano</li>
+                <li>Totalmente via web</li>
+            </ul>
+        </div>
+        <div class="large-6 columns text-right">
+            <img src="{{ STATIC_URL }}images/mainiti-on-screen.jpg" alt="Mainiti na tela do monitor"/>
+        </div>
+    </div>
+
+    <div class="row complement">
+        <div class="large-4 columns">
+            <h4 class="steps">Exercícios passo a passo</h4>
+            <p>O Mainiti foi elaborado de acordo com o nível escolar,
+            oferecendo a prática diária de matemática através de exercícios
+            passo a passo, seja na escola ou em casa!</p>
+        </div>
+        <div class="large-4 columns">
+            <h4 class="ok">Facilidade aos professores</h4>
+            <p>Os professores contarão com a correção automática de exercícios
+            e poderão acompanhar o progresso de seus alunos através de
+            relatórios de desempenho.</p>
+        </div>
+        <div class="large-4 columns">
+            <h4 class="globe">Acesso via internet</h4>
+            <p>O acesso é simples e rápido, bastando apenas conexão com a
+            internet, um login e uma senha fornecidos pela escola.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-4 columns">
+            <img src="{{ STATIC_URL }}images/side-by-side-screens.jpg" alt="Telas do Mainiti lado a lado"/>
+        </div>
+        <div class="large-8 columns">
+            <h4>Estrutura de alta capacidade</h4>
+
+            <p>Desenvolvido em uma plataforma robusta, o Mainiti é preparado
+            para atender milhares de alunos em todo o Brasil em um ambiente
+            totalmente virtual. A escola não precisa se preocupar com
+            instalações, backups e atualizações de software.</p>
+
+            <p>Através de uma equipe de pedagogos, programadores e designers,
+            cada exercício é desenvolvido para facilitar aos alunos a prática
+            diária da matemática.</p>
+        </div>
+    </div>
+
+    <div class="row demo-call">
+        <div class="large-6 columns text-right">
+            <img src="{{ STATIC_URL }}images/screen-on-ipad.jpg" alt="Mainiti na tela de um tablet"/>
+        </div>
+        <div class="large-6 columns">
+            <h4>Demonstração do Mainiti</h4>
+            <p>Forneça um diferencial a seus alunos!</p>
+            <a class="button" href="{% url 'demonstrations:demo-create' %}">Solicite uma demonstração</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

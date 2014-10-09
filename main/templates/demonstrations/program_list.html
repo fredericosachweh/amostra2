@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load flatpages %}
+
+{% block title %}Conteúdo Programático{% endblock %}
+
+{% block _breadcrumbs %}
+<ul id="breadcrumbs"> 
+    <li><a href="{% url 'demonstrations:demo-start' pk=demonstration.pk %}">Inicie sua demonstração</a></li>
+    <li class="current">{% block local_breadcrumbs %}Conteúdo Programático{% endblock %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<h1>Conteúdo Programático</h1>
+
+<div class="module">
+    <div id="klass-start">
+        <div class="programs">
+            {% for program in object_list %}
+            <div class="program"><label>
+                <h3>{{ program.name }}</h3>
+                <h4>{{ program.matter }}</h4>
+                <p>{{ program.description }}</p>
+                <p>
+                    {{ program.batteries_count }} dia{{ program.batteries_count|pluralize }}
+                    <a href="{% url 'teacher:syllabus' pk=program.pk %}" class="button small right" data-syllabus-list>Detalhes</a>
+                </p>
+            </label></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script src="{{ STATIC_URL }}javascripts/base.js"></script>
+<script>
+$(document).ready(function() {
+    quickModal('[data-syllabus-list]');
+});
+</script>
+{% endblock %}

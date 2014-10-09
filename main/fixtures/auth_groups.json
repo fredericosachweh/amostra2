@@ -1,0 +1,44 @@
+[
+ {
+  "pk": 1,
+  "model": "auth.group",
+  "fields": {
+   "name": "managers",
+   "permissions": [
+    [
+     "act-as-manager",
+     "accounts",
+     "profile"
+    ]
+   ]
+  }
+ },
+ {
+  "pk": 2,
+  "model": "auth.group",
+  "fields": {
+   "name": "teachers",
+   "permissions": [
+    [
+     "act-as-teacher",
+     "accounts",
+     "profile"
+    ]
+   ]
+  }
+ },
+ {
+  "pk": 3,
+  "model": "auth.group",
+  "fields": {
+   "name": "students",
+   "permissions": [
+    [
+     "act-as-student",
+     "accounts",
+     "profile"
+    ]
+   ]
+  }
+ }
+]

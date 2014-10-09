@@ -1,0 +1,35 @@
+{% extends "teachers/base.html" %}
+
+{% block title %}Turma inicializada{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+    {% block local_breadcrumbs %}<li class="current">Iniciada</li>{% endblock %}
+{% endblock %}
+
+{% block content %}
+<h1>{% block local_title %}Turma inicializada{% endblock %}</h1>
+
+<div class="module">
+
+    {% block local_content %}
+    <p>Parabéns, a turma <em>{{ klass.name }}</em> foi inicializada com sucesso.</p>
+    {% endblock %}
+
+    <a href="{% url 'teacher:passwd-list' pk=klass.pk %}" class="button"
+       id="print" target="blank">Imprimir senhas</a>
+    <a href="{% url 'teacher:klass-dashboard' pk=klass.pk %}" class="button"
+       id="continue">Continuar</a>
+
+</div>
+{% endblock %}
+
+{% block extrajs %}{{ block.super }}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#continue').hide();
+    $('#print').click(function() {
+        $('#continue').show();
+    });
+});
+</script>
+{% endblock extrajs %}
